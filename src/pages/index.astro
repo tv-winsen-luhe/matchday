@@ -2,6 +2,7 @@
 import Layout from '@/layouts/default.astro'
 import MarkerHighlight from '@/components/marker-highlight.astro'
 import signetSvg from '@/assets/signet.svg'
+import logoSvg from '@/assets/logo.svg'
 ---
 
 <Layout title="Matchday Winsen 2026 — LK-Tagesturnier" bodyClass="bg-surface-alt">
@@ -39,22 +40,6 @@ import signetSvg from '@/assets/signet.svg'
         <div class="hero__cta enter enter--5">
           <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
           <a href="#turniermodus" class="cta-secondary">Mehr erfahren <span aria-hidden="true">&darr;</span></a>
-        </div>
-      </div>
-
-      <!-- Kategorien -->
-      <div class="draws enter enter--6">
-        <span class="draws__label">Dieses Jahr</span>
-        <div class="draws__grid">
-          <div class="draws__item">
-            <span class="draws__name">Herren Einzel</span>
-          </div>
-          <div class="draws__item">
-            <span class="draws__name">Herren Doppel</span>
-          </div>
-          <div class="draws__item">
-            <span class="draws__name">Herren 40 Einzel</span>
-          </div>
         </div>
       </div>
     </section>
@@ -256,12 +241,16 @@ import signetSvg from '@/assets/signet.svg'
     <!-- Ort & Anfahrt -->
     <section class="sect">
       <span class="sect__eyebrow reveal">Ort & Anfahrt</span>
+      <div class="venue__hero reveal">
+        <span class="venue__hero-city">6 Sand</span>
+        <span class="venue__hero-sub">plätze<span class="venue__hero-dot">.</span></span>
+      </div>
 
       <div class="venue reveal">
         <div class="venue__info">
-          <h2 class="venue__name">TV Winsen/Luhe von 1913 e.V.</h2>
+          <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="120" height="120" class="venue__logo" />
           <address class="venue__address">Luhdorfer Str. 47, 21423 Winsen (Luhe)</address>
-          <p class="venue__detail">6 Sandplätze · Clubhaus mit Terrasse und Gastronomie</p>
+          <p class="venue__detail">Clubhaus mit Terrasse und Gastronomie</p>
           <p class="venue__detail">Zuschauen ist jederzeit möglich — freie Sicht auf die Plätze.</p>
           <a
             href="https://maps.google.com/?q=Luhdorfer+Str.+47+21423+Winsen+Luhe"
@@ -299,7 +288,11 @@ import signetSvg from '@/assets/signet.svg'
 
     <!-- FAQ -->
     <section class="sect">
-      <span class="sect__eyebrow reveal">Häufige Fragen</span>
+      <span class="sect__eyebrow reveal">FAQ</span>
+      <h2 class="sect__headline">
+        <span class="sect__headline-clip" style="--i:0">Noch</span>
+        <span class="sect__headline-clip sect__headline--outline" style="--i:1">Fragen?</span>
+      </h2>
 
       <div class="faq reveal">
         <details class="faq__item">
@@ -383,10 +376,10 @@ import signetSvg from '@/assets/signet.svg'
     <section class="sect sect--cta">
       <div class="final-cta reveal">
         <h2 class="final-cta__headline">
-          <span>Du weißt</span>
-          <span>jetzt alles<span class="final-cta__dot">.</span></span>
+          <span>Dein</span>
+          <span class="final-cta__outline">Matchday</span>
         </h2>
-        <p class="final-cta__sub">Fehlt nur noch dein Name. Anmeldung bis 1. Juli 2026.</p>
+        <p class="final-cta__sub">Anmeldung bis 1. Juli 2026</p>
         <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
       </div>
     </section>
@@ -636,60 +629,16 @@ import signetSvg from '@/assets/signet.svg'
     outline-offset: 3px;
   }
 
-  /* ─── DRAWS (ink-grid) ─── */
-  .draws {
-    margin-top: 56px;
-  }
-
-  .draws__label {
-    display: block;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 600;
-    opacity: 0.45;
-    margin-bottom: 12px;
-  }
-
-  .draws__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: var(--ink);
-    padding: 2px;
-  }
-
-  @media (max-width: 600px) {
-    .draws__grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .draws__item {
-    background: var(--paper);
-    padding: 24px;
-    box-shadow: inset 0 3px 0 transparent;
-    transition: box-shadow 0.2s;
-  }
-
-  .draws__item:hover {
-    box-shadow: inset 0 3px 0 var(--ink);
-  }
-
-  .draws__name {
-    font-weight: 800;
-    font-size: 18px;
-    letter-spacing: -0.01em;
-  }
-
   /* ─── SECTIONS ─── */
   .sect {
-    min-height: 100dvh;
-    padding: 72px 0;
+    padding: 120px 0;
     border-top: 1px solid var(--ink);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .sect {
+      padding: 80px 0;
+    }
   }
 
   .sect:focus {
@@ -1256,6 +1205,47 @@ import signetSvg from '@/assets/signet.svg'
   }
 
   /* ─── VENUE ─── */
+  .venue__hero {
+    margin-bottom: 56px;
+  }
+
+  .venue__hero-city {
+    display: block;
+    font-weight: 900;
+    font-size: clamp(56px, 10vw, 120px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
+
+  .venue__hero-sub {
+    display: block;
+    font-weight: 900;
+    font-size: clamp(56px, 10vw, 120px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px var(--ink);
+    color: var(--paper);
+    paint-order: stroke fill;
+  }
+
+  .venue__hero-dot {
+    display: inline;
+    -webkit-text-stroke: 2px var(--volt);
+    color: var(--volt);
+  }
+
+  @media (max-width: 768px) {
+    .venue__hero-sub {
+      -webkit-text-stroke-width: 1.5px;
+    }
+
+    .venue__hero-dot {
+      -webkit-text-stroke-width: 1.5px;
+    }
+  }
+
   .venue {
     display: flex;
     justify-content: space-between;
@@ -1274,11 +1264,9 @@ import signetSvg from '@/assets/signet.svg'
     flex: 1;
   }
 
-  .venue__name {
-    font-weight: 900;
-    font-size: clamp(24px, 4vw, 36px);
-    letter-spacing: -0.03em;
-    margin: 0 0 8px;
+  .venue__logo {
+    display: block;
+    margin-bottom: 20px;
   }
 
   .venue__address {
@@ -1421,25 +1409,54 @@ import signetSvg from '@/assets/signet.svg'
 
   /* ─── FINAL CTA ─── */
   .sect--cta {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    text-align: center;
+    padding: 160px 0;
+  }
+
+  @media (max-width: 768px) {
+    .sect--cta {
+      padding: 120px 0;
+    }
   }
 
   .final-cta__headline {
     font-weight: 900;
-    font-size: clamp(36px, 7vw, 80px);
-    line-height: 0.88;
+    font-size: clamp(48px, 9vw, 120px);
+    line-height: 0.85;
     letter-spacing: -0.05em;
     text-transform: uppercase;
-    margin: 0 0 24px;
+    margin: 0 0 32px;
   }
 
   .final-cta__headline span {
     display: block;
   }
 
+  .final-cta__outline {
+    -webkit-text-stroke: 2px var(--ink);
+    color: var(--paper);
+    paint-order: stroke fill;
+  }
+
+  @media (max-width: 768px) {
+    .final-cta__outline {
+      -webkit-text-stroke-width: 1.5px;
+    }
+  }
+
   .final-cta__dot {
+    display: inline;
+    -webkit-text-stroke: 2px var(--volt);
     color: var(--volt);
+  }
+
+  @media (max-width: 768px) {
+    .final-cta__dot {
+      -webkit-text-stroke-width: 1.5px;
+    }
   }
 
   .final-cta__sub {
@@ -1503,99 +1520,6 @@ import signetSvg from '@/assets/signet.svg'
     text-transform: uppercase;
     font-weight: 600;
     opacity: 0.25;
-  }
-
-  /* ─── MID-CTA (clay surface) ─── */
-  .mid-cta {
-    background: var(--color-clay, #c2673b);
-    color: white;
-    padding: 72px 40px;
-    margin: 0 -40px;
-  }
-
-  @media (max-width: 768px) {
-    .mid-cta {
-      padding: 56px 20px;
-      margin: 0 -20px;
-    }
-  }
-
-  .mid-cta__spread {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 48px;
-    max-width: 1200px;
-  }
-
-  @media (max-width: 768px) {
-    .mid-cta__spread {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 36px;
-    }
-  }
-
-  .mid-cta__headline {
-    font-size: clamp(48px, 8vw, 96px);
-    line-height: 0.85;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    margin: 0;
-  }
-
-  .mid-cta__headline span {
-    display: block;
-  }
-
-  .mid-cta__q {
-    font-weight: 300;
-    opacity: 0.2;
-  }
-
-  .mid-cta__a {
-    font-weight: 900;
-  }
-
-  .mid-cta__a--outline {
-    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
-    color: transparent;
-  }
-
-  @media (max-width: 768px) {
-    .mid-cta__a--outline {
-      -webkit-text-stroke-width: 1.5px;
-    }
-  }
-
-  .mid-cta__dot {
-    display: inline;
-    -webkit-text-stroke: 2px var(--volt);
-    color: var(--volt);
-  }
-
-  @media (max-width: 768px) {
-    .mid-cta__dot {
-      -webkit-text-stroke-width: 1.5px;
-    }
-  }
-
-  .mid-cta__right {
-    max-width: 32ch;
-    flex-shrink: 0;
-  }
-
-  .mid-cta__prereq {
-    font-size: 14px;
-    line-height: 1.5;
-    opacity: 0.35;
-    margin: 0 0 24px;
-  }
-
-  .mid-cta__hint {
-    font-size: 13px;
-    opacity: 0.25;
-    margin: 16px 0 0;
   }
 
   /* ─── SCROLL REVEAL ─── */

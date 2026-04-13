@@ -1,0 +1,42 @@
+---
+import '../styles/global.css'
+import faviconUrl from '@/assets/signet.svg'
+
+interface Props {
+  title?: string
+  description?: string
+  ogTitle?: string
+  ogDescription?: string
+  ogImage?: string
+  ogLocale?: string
+  bodyClass?: string
+}
+
+const {
+  title = 'Tennisverein Winsen (Luhe) von 1913 e.V.',
+  description,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  ogLocale = 'de_DE',
+  bodyClass
+} = Astro.props
+---
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={faviconUrl.src} />
+    <meta name="viewport" content="width=device-width" />
+    {description && <meta name="description" content={description} />}
+    {ogTitle && <meta property="og:title" content={ogTitle} />}
+    {ogDescription && <meta property="og:description" content={ogDescription} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogLocale && <meta property="og:locale" content={ogLocale} />}
+    <meta property="og:type" content="website" />
+    <title>{title}</title>
+  </head>
+  <body class={bodyClass}>
+    <slot />
+  </body>
+</html>

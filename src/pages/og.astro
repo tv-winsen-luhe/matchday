@@ -1,5 +1,5 @@
 ---
-import signetSvg from '@/assets/signet.svg'
+
 ---
 
 <html lang="de">
@@ -10,30 +10,14 @@ import signetSvg from '@/assets/signet.svg'
   </head>
   <body>
     <div class="og">
-      <header class="og__top">
-        <img src={signetSvg.src} alt="" width="28" height="28" />
-        <span class="og__club">TV Winsen/Luhe</span>
-        <span class="og__sep">&middot;</span>
-        <span class="og__meta">Seit 1913</span>
-        <span class="og__meta og__meta--right">LK-Tagesturnier</span>
-      </header>
-
-      <div class="og__body">
-        <h1 class="og__title">
-          <span>Match</span>
-          <span class="og__title--outline">Day<span class="og__dot">.</span></span>
-        </h1>
-        <div class="og__date">
-          <span class="og__date-weekday">Samstag</span>
-          <span class="og__date-num">04.07.</span>
-          <span class="og__date-year">2026</span>
-        </div>
+      <h1 class="og__title">
+        <span>Match</span>
+        <span class="og__title--outline">Day<span class="og__dot">.</span></span>
+      </h1>
+      <div class="og__date">
+        <span class="og__date-day">04.07.</span>
+        <span class="og__date-year">2026</span>
       </div>
-
-      <footer class="og__bottom">
-        <span class="og__pitch">2 Matches gegen Gegner auf deinem Niveau. 6 Sandplätze. Dein erstes Mal? Perfekt.</span>
-        <span class="og__url">matchday.tennisverein-winsen.de</span>
-      </footer>
     </div>
   </body>
 </html>
@@ -67,55 +51,16 @@ import signetSvg from '@/assets/signet.svg'
     height: 630px;
     background: var(--paper);
     color: var(--ink);
-    padding: 36px 56px 32px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .og__top {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-bottom: 14px;
-    border-bottom: 1.5px solid var(--ink);
-    flex-shrink: 0;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .og__club {
-    font-weight: 900;
-    font-size: 15px;
-    letter-spacing: 0.04em;
-  }
-
-  .og__sep {
-    opacity: 0.25;
-  }
-
-  .og__meta {
-    opacity: 0.45;
-    font-size: 11px;
-  }
-
-  .og__meta--right {
-    margin-left: auto;
-  }
-
-  .og__body {
-    flex: 1;
+    padding: 56px 64px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     gap: 40px;
-    padding: 16px 0 12px;
   }
 
   .og__title {
     font-weight: 900;
-    font-size: 112px;
+    font-size: 200px;
     line-height: 0.82;
     letter-spacing: -0.05em;
     text-transform: uppercase;
@@ -126,13 +71,13 @@ import signetSvg from '@/assets/signet.svg'
   }
 
   .og__title--outline {
-    -webkit-text-stroke: 2.5px var(--ink);
+    -webkit-text-stroke: 3px var(--ink);
     color: var(--paper);
     paint-order: stroke fill;
   }
 
   .og__dot {
-    -webkit-text-stroke: 2.5px var(--volt);
+    -webkit-text-stroke: 3px var(--volt);
     color: var(--volt);
   }
 
@@ -141,59 +86,23 @@ import signetSvg from '@/assets/signet.svg'
     flex-direction: column;
     align-items: flex-end;
     flex-shrink: 0;
-    padding-bottom: 8px;
+    padding-bottom: 12px;
   }
 
-  .og__date-weekday {
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 600;
-    opacity: 0.4;
-  }
-
-  .og__date-num {
+  .og__date-day {
     font-weight: 900;
-    font-size: 56px;
+    font-size: 96px;
     line-height: 0.85;
     letter-spacing: -0.04em;
   }
 
   .og__date-year {
     font-weight: 900;
-    font-size: 56px;
+    font-size: 96px;
     line-height: 0.85;
     letter-spacing: -0.04em;
-    -webkit-text-stroke: 2px var(--ink);
+    -webkit-text-stroke: 2.5px var(--ink);
     color: var(--paper);
     paint-order: stroke fill;
-  }
-
-  .og__bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 40px;
-    padding-top: 14px;
-    border-top: 1.5px solid var(--ink);
-    flex-shrink: 0;
-  }
-
-  .og__pitch {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.45;
-    max-width: 48ch;
-    opacity: 0.55;
-  }
-
-  .og__url {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 700;
-    opacity: 0.3;
-    white-space: nowrap;
-    flex-shrink: 0;
   }
 </style>

@@ -1,9 +1,1701 @@
 ---
 import Layout from '@/layouts/default.astro'
+import MarkerHighlight from '@/components/marker-highlight.astro'
+import signetSvg from '@/assets/signet.svg'
 ---
 
-<Layout>
-  <main>
-    <h1>Matchday Winsen 2026</h1>
+<Layout title="Matchday Winsen 2026 — LK-Tagesturnier" bodyClass="bg-surface-alt">
+  <main class="page">
+    <!-- Topbar -->
+    <header class="topbar enter enter--1">
+      <img src={signetSvg.src} alt="TV Winsen/Luhe" width="24" height="24" class="topbar__signet" />
+      <span class="topbar__title">TV Winsen/Luhe</span>
+      <span class="topbar__sep">&middot;</span>
+      <span class="topbar__meta">Seit 1913</span>
+      <span class="topbar__meta">04. Juli 2026</span>
+      <span class="topbar__meta">6 Sandplätze</span>
+      <span class="topbar__meta topbar__meta--right">LK-Tagesturnier</span>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__spread">
+        <h1 class="hero__title">
+          <span class="enter enter--2">Match</span>
+          <span class="hero__title--outline enter enter--3">Day<span class="hero__dot">.</span></span>
+        </h1>
+        <div class="hero__date enter enter--3">
+          <span class="hero__date-weekday">Samstag</span>
+          <span class="hero__date-day">04.07.</span>
+          <span class="hero__date-year">2026</span>
+        </div>
+      </div>
+
+      <div class="hero__body">
+        <p class="hero__pitch enter enter--4">
+          Neu dabei? Perfekt. Schon Erfahrung? Umso besser. Zwei Matches, beide zählen für deine LK.
+        </p>
+
+        <div class="hero__cta enter enter--5">
+          <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
+          <a href="#turniermodus" class="cta-secondary">Mehr erfahren <span aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
+
+      <!-- Kategorien -->
+      <div class="draws enter enter--6">
+        <span class="draws__label">Dieses Jahr</span>
+        <div class="draws__grid">
+          <div class="draws__item">
+            <span class="draws__name">Herren Einzel</span>
+          </div>
+          <div class="draws__item">
+            <span class="draws__name">Herren Doppel</span>
+          </div>
+          <div class="draws__item">
+            <span class="draws__name">Herren 40 Einzel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Turniermodus -->
+    <section id="turniermodus" class="sect" tabindex="-1">
+      <span class="sect__eyebrow reveal">So läuft dein Matchday</span>
+      <h2 class="sect__headline">
+        <span class="sect__headline-clip" style="--i:0">Kein</span>
+        <span class="sect__headline-clip sect__headline--outline" style="--i:1">K.O.</span>
+      </h2>
+      <p class="sect__note">Zwei Matches gegen ähnlich starke Gegner — du spielst beide, egal wie das erste ausgeht.</p>
+
+      <div class="sect__columns">
+        <div class="steps">
+          <div class="step reveal">
+            <span class="step__num">01</span>
+            <div class="step__content">
+              <h3 class="step__title">Einteilung nach Spielstärke</h3>
+              <p class="step__desc">
+                Alle Spieler werden vor dem Matchday nach Spielstärke sortiert. Dieses Verfahren heißt offiziell
+                „Spiralsystem".
+              </p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <span class="step__num">02</span>
+            <div class="step__content">
+              <h3 class="step__title">Zwei Matches</h3>
+              <p class="step__desc">
+                Du spielst genau zwei Matches — einmal gegen jemanden mit etwas
+                <span class="step__accent-a">besserer LK</span> als du, und einmal gegen jemanden mit etwas
+                <span class="step__accent-b">schwächerer LK</span>. Beide Gegner sind nah an deinem Niveau.
+              </p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <span class="step__num">03</span>
+            <div class="step__content">
+              <h3 class="step__title">Ergebnis</h3>
+              <p class="step__desc">
+                Beide Matches fließen direkt in deine LK-Wertung ein. Kein Finale, keine Platzierung, kein Ausscheiden —
+                es geht nur um deine Matches und deine LK.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <figure class="spiral" aria-hidden="true">
+          <figcaption class="spiral__label">Spielstärke ↓</figcaption>
+          <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:0">
+            <span class="spiral__lk">LK 19.0</span>
+          </div>
+          <div class="spiral__row spiral__row--a spiral-stagger" style="--i:1">
+            <span class="spiral__lk">LK 19.4</span>
+            <span class="spiral__tag spiral__tag--a">Match 1</span>
+          </div>
+          <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:2">
+            <span class="spiral__lk">LK 19.8</span>
+          </div>
+          <div class="spiral__row spiral__row--du spiral-stagger" style="--i:3">
+            <span class="spiral__lk">LK 20.3</span>
+            <span class="spiral__tag spiral__tag--du">Du</span>
+          </div>
+          <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:4">
+            <span class="spiral__lk">LK 20.7</span>
+          </div>
+          <div class="spiral__row spiral__row--b spiral-stagger" style="--i:5">
+            <span class="spiral__lk">LK 21.1</span>
+            <span class="spiral__tag spiral__tag--b">Match 2</span>
+          </div>
+          <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:6">
+            <span class="spiral__lk">LK 21.6</span>
+          </div>
+          <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:7">
+            <span class="spiral__lk">LK 22.0</span>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Kategorien -->
+    <section class="sect">
+      <span class="sect__eyebrow reveal">Drei Kategorien</span>
+
+      <div class="cat-grid">
+        <!-- Einzel — Axis -->
+        <div class="cat-card stagger" style="--i:0">
+          <span class="cat-card__badge">Einzel</span>
+          <div class="cat-card__axis-wrap">
+            <span class="cat-card__axis-h">Herren</span>
+          </div>
+          <div class="cat-card__details">
+            <span class="cat-card__price">35 €</span>
+            <span class="cat-card__meta">Max. 10 Spieler · Alle Spielstärken</span>
+          </div>
+        </div>
+
+        <!-- Doppel — Stack -->
+        <div class="cat-card stagger" style="--i:1">
+          <span class="cat-card__badge">Doppel</span>
+          <div class="cat-card__stack">
+            <span>Herren</span>
+            <span class="cat-card__stack--volt">Doppel</span>
+            <span>Herren</span>
+            <span class="cat-card__stack--volt">Doppel</span>
+            <span>Herren</span>
+          </div>
+          <div class="cat-card__details">
+            <span class="cat-card__price">18 € <span class="cat-card__price-note">pro Person</span></span>
+            <span class="cat-card__meta">Max. 8 Teams · Alle Spielstärken</span>
+          </div>
+        </div>
+
+        <!-- Ü40 — Clay Axis -->
+        <div class="cat-card cat-card--clay stagger" style="--i:2">
+          <span class="cat-card__badge cat-card__badge--inv">Einzel</span>
+          <div class="cat-card__axis-wrap">
+            <span class="cat-card__axis-h">Herren<br />40</span>
+          </div>
+          <div class="cat-card__details cat-card__details--inv">
+            <span class="cat-card__price">35 €</span>
+            <span class="cat-card__meta">Max. 12 Spieler · Alle Spielstärken</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="cat-hint reveal">
+        Die Teilnahmegebühr deckt alles ab: Organisation, Bälle und die offizielle Turniergebühr an den Verband.
+      </p>
+    </section>
+
+    <!-- Tagesablauf -->
+    <section class="sect">
+      <span class="sect__eyebrow reveal">Dein Turniertag</span>
+
+      <div class="day-route">
+        <div class="day-route__line day-route__line--start reveal">
+          <span class="day-route__stop day-route__stop--outline">09:00</span>
+          <span class="day-route__sep">&mdash;</span>
+          <span class="day-route__stop day-route__stop--light">Check-in</span>
+          <span class="day-route__sep">&mdash;</span>
+          <span class="day-route__stop">Match</span>
+        </div>
+        <div class="day-route__line day-route__line--end reveal" style="--reveal-delay: 0.15s">
+          <span class="day-route__stop day-route__stop--faded">Pause</span>
+          <span class="day-route__sep">&mdash;</span>
+          <span class="day-route__stop">Match</span>
+          <span class="day-route__sep">&mdash;</span>
+          <span class="day-route__stop"
+            ><MarkerHighlight brush={3}>Fertig</MarkerHighlight><span class="day-route__dot">.</span></span
+          >
+        </div>
+      </div>
+
+      <p class="day-route__note">
+        Kompakt getaktet. Du kommst morgens oder mittags, spielst deine zwei Matches und bist am Nachmittag durch.
+        Zwischen den Matches liegt ~90 Min Pause.
+      </p>
+    </section>
+
+    <!-- Anmeldung -->
+    <section class="sect">
+      <span class="sect__eyebrow reveal">In 3 Schritten angemeldet</span>
+
+      <div class="signup-grid">
+        <div class="signup-card stagger" style="--i:0">
+          <span class="signup-card__badge">1</span>
+          <div class="signup-card__body">
+            <h3 class="signup-card__title">tennis.de-Account<br />anlegen</h3>
+            <p class="signup-card__desc">Falls du noch keinen hast. Dauert 5 Minuten.</p>
+          </div>
+          <span class="signup-card__footer">5 Min</span>
+        </div>
+        <div class="signup-card stagger" style="--i:1">
+          <span class="signup-card__badge">2</span>
+          <div class="signup-card__body">
+            <h3 class="signup-card__title">DTB-Lizenz<br />aktivieren</h3>
+            <p class="signup-card__desc">
+              Einmalig 20 €/Jahr, im Account buchbar. Eine Spielberechtigung für LK-Turniere — für Punktspiele brauchst
+              du sie nicht.
+            </p>
+          </div>
+          <span class="signup-card__footer">20 €/Jahr</span>
+        </div>
+        <div class="signup-card signup-card--dark stagger" style="--i:2">
+          <span class="signup-card__badge signup-card__badge--inv">3</span>
+          <div class="signup-card__body">
+            <h3 class="signup-card__title">Beim Matchday<br />anmelden</h3>
+            <p class="signup-card__desc">Unser Direktlink führt dich zum richtigen Eintrag auf tennis.de.</p>
+          </div>
+          <a href="#" class="cta-primary">Jetzt anmelden</a>
+        </div>
+      </div>
+
+      <p class="signup-hint reveal">Schon Account und Lizenz? Dann direkt zu Schritt 3.</p>
+    </section>
+
+    <!-- Ort & Anfahrt -->
+    <section class="sect">
+      <span class="sect__eyebrow reveal">Ort & Anfahrt</span>
+
+      <div class="venue reveal">
+        <div class="venue__info">
+          <h2 class="venue__name">TV Winsen/Luhe von 1913 e.V.</h2>
+          <address class="venue__address">Luhdorfer Str. 47, 21423 Winsen (Luhe)</address>
+          <p class="venue__detail">6 Sandplätze · Clubhaus mit Terrasse und Gastronomie</p>
+          <p class="venue__detail">Zuschauen ist jederzeit möglich — freie Sicht auf die Plätze.</p>
+          <a
+            href="https://maps.google.com/?q=Luhdorfer+Str.+47+21423+Winsen+Luhe"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="venue__maps"
+          >
+            Route in Google Maps &nearr;
+          </a>
+        </div>
+
+        <div class="venue__route">
+          <span class="venue__route-label">So findest du uns</span>
+          <div class="venue__route-steps">
+            <div class="venue__route-step">
+              <span class="venue__route-num">1</span>
+              <span class="venue__route-text">Parke auf der Wiese des Schützenvereins</span>
+            </div>
+            <div class="venue__route-step">
+              <span class="venue__route-num">2</span>
+              <span class="venue__route-text">Rechts am Schützenverein vorbei</span>
+            </div>
+            <div class="venue__route-step">
+              <span class="venue__route-num">3</span>
+              <span class="venue__route-text">Dem Weg durch den Wald folgen (~2 Min)</span>
+            </div>
+            <div class="venue__route-step">
+              <span class="venue__route-num">&check;</span>
+              <span class="venue__route-text">Tennisanlage & Clubhaus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sect">
+      <span class="sect__eyebrow reveal">Häufige Fragen</span>
+
+      <div class="faq reveal">
+        <details class="faq__item">
+          <summary class="faq__q">Was brauche ich, um mitzumachen?</summary>
+          <p class="faq__a">
+            Zwei Dinge: einen tennis.de-Account und eine DTB-Lizenz (20 €/Jahr). Klingt nach viel — ist in 10 Minuten
+            erledigt.
+          </p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Was ist die DTB-Lizenz?</summary>
+          <p class="faq__a">
+            Eine jährliche Spielberechtigung für LK-Turniere, kostet 20 € pro Jahr. Für Punktspiele brauchst du sie
+            nicht — deshalb haben viele Vereinsspieler sie noch nicht. Du kannst sie direkt auf tennis.de kaufen. Für
+            Doppel brauchen beide Spieler eine Lizenz.
+          </p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Wie melde ich mich an?</summary>
+          <p class="faq__a">
+            Über unseren Direktlink auf tennis.de. Dort landest du direkt beim offiziellen Eintrag. Anmeldung bis 1.
+            Juli 2026, 20:00 Uhr.
+          </p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Was kostet die Teilnahme?</summary>
+          <p class="faq__a">
+            35 € Einzel, 18 € Doppel (pro Person). Zahlung vor Ort. Die Teilnahmegebühr deckt alles ab: Organisation,
+            Bälle und die offizielle Turniergebühr an den Verband.
+          </p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Wie viele Matches spiele ich?</summary>
+          <p class="faq__a">2 pro Einzel oder Doppel. Wer beides spielt, kommt auf 4 Matches am Tag.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Kann ich Einzel und Doppel spielen?</summary>
+          <p class="faq__a">
+            Ja. Du kannst dich für beides anmelden. Dann spielst du 4 Matches am Tag und solltest mit einem deutlich
+            längeren Turniertag rechnen.
+          </p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Was muss ich mitbringen?</summary>
+          <p class="faq__a">Tennissachen, Schläger, Trinken, Sonnenschutz. Bälle werden gestellt.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Zähle ich selbst?</summary>
+          <p class="faq__a">
+            Ja, beide Spieler zählen selbst — wie im Punktspiel. Die Turnierleitung ist bei Fragen jederzeit
+            ansprechbar.
+          </p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Wann sehe ich mein Ergebnis in der LK?</summary>
+          <p class="faq__a">
+            Dein Ergebnis ist direkt nach dem Matchday auf tennis.de sichtbar. Die offizielle LK-Aktualisierung passiert
+            immer montags.
+          </p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Doppel ohne Partner?</summary>
+          <p class="faq__a">Schreib uns eine Mail — wir helfen bei der Vermittlung.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Kann ich zuschauen, ohne zu spielen?</summary>
+          <p class="faq__a">
+            Klar. Zuschauer sind jederzeit willkommen. Clubhaus mit Terrasse und Gastronomie ist offen.
+          </p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Was passiert bei Regen?</summary>
+          <p class="faq__a">
+            Regen ist höhere Gewalt. Dann kann sich der Ablauf verschieben, angepasst werden oder das Event ausfallen.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Abschluss-CTA -->
+    <section class="sect sect--cta">
+      <div class="final-cta reveal">
+        <h2 class="final-cta__headline">
+          <span>Du weißt</span>
+          <span>jetzt alles<span class="final-cta__dot">.</span></span>
+        </h2>
+        <p class="final-cta__sub">Fehlt nur noch dein Name. Anmeldung bis 1. Juli 2026.</p>
+        <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="foot">
+      <div class="foot__top">
+        <div class="foot__brand">
+          <img src={signetSvg.src} alt="TV Winsen/Luhe" width="32" height="32" />
+          <span class="foot__name">TV Winsen/Luhe von 1913 e.V.</span>
+        </div>
+        <div class="foot__links">
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+        </div>
+      </div>
+      <span class="foot__copy">Matchday Winsen 2026</span>
+    </footer>
   </main>
 </Layout>
+
+<style>
+  .page {
+    --ink: #0c1e3a;
+    --paper: #f5f5f5;
+    --volt: #ceff00;
+    --hair: rgba(12, 30, 58, 0.15);
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 40px 120px;
+    color: var(--ink);
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 24px 20px 80px;
+    }
+  }
+
+  /* ─── TOPBAR ─── */
+  .topbar {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ink);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    flex-wrap: wrap;
+  }
+
+  .topbar__signet {
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .topbar__title {
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  .topbar__sep {
+    opacity: 0.25;
+  }
+
+  .topbar__meta {
+    opacity: 0.45;
+    font-size: 10px;
+  }
+
+  .topbar__meta--right {
+    margin-left: auto;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100dvh;
+    padding: 96px 0 104px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 64px 0 72px;
+    }
+  }
+
+  /* Spread: headline left, date badge right */
+  .hero__spread {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  @media (max-width: 600px) {
+    .hero__spread {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+    }
+  }
+
+  .hero__title {
+    font-weight: 900;
+    font-size: clamp(72px, 14vw, 180px);
+    line-height: 0.84;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .hero__title > span {
+    display: block;
+    will-change: clip-path;
+  }
+
+  /* Override entrance for headline — clip reveal instead of fade */
+  .hero__title .enter {
+    animation-name: clipReveal;
+    animation-duration: 0.7s;
+  }
+
+  .hero__title--outline {
+    -webkit-text-stroke: 2px var(--ink);
+    color: var(--paper);
+    paint-order: stroke fill;
+  }
+
+  .hero__dot {
+    display: inline;
+    -webkit-text-stroke: 2px var(--volt);
+    color: var(--volt);
+  }
+
+  @media (max-width: 768px) {
+    .hero__title--outline {
+      -webkit-text-stroke-width: 1.5px;
+    }
+
+    .hero__dot {
+      -webkit-text-stroke-width: 1.5px;
+    }
+  }
+
+  /* Date */
+  .hero__date {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+
+  .hero__date-weekday {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.4;
+  }
+
+  .hero__date-day {
+    font-weight: 900;
+    font-size: clamp(48px, 8vw, 80px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+  }
+
+  .hero__date-year {
+    font-weight: 900;
+    font-size: clamp(48px, 8vw, 80px);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    -webkit-text-stroke: 1.5px var(--ink);
+    color: var(--paper);
+    paint-order: stroke fill;
+  }
+
+  /* Body — shared container for pitch + CTA alignment */
+  .hero__body {
+    margin: 64px 0 0 auto;
+    max-width: 42ch;
+  }
+
+  .hero__pitch {
+    font-size: 17px;
+    line-height: 1.55;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  /* CTA */
+  .hero__cta {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cta-primary {
+    display: inline-block;
+    background: var(--volt);
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    padding: 14px 28px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background 0.2s,
+      transform 0.2s;
+  }
+
+  .cta-primary:hover {
+    background: #e0ff4d;
+    transform: translateY(-2px);
+  }
+
+  .cta-primary:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  .cta-secondary {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    opacity: 0.5;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s;
+  }
+
+  .cta-secondary:hover {
+    opacity: 0.8;
+  }
+
+  .cta-secondary:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  /* ─── DRAWS (ink-grid) ─── */
+  .draws {
+    margin-top: 56px;
+  }
+
+  .draws__label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.45;
+    margin-bottom: 12px;
+  }
+
+  .draws__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--ink);
+    padding: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .draws__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .draws__item {
+    background: var(--paper);
+    padding: 24px;
+    box-shadow: inset 0 3px 0 transparent;
+    transition: box-shadow 0.2s;
+  }
+
+  .draws__item:hover {
+    box-shadow: inset 0 3px 0 var(--ink);
+  }
+
+  .draws__name {
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+
+  /* ─── SECTIONS ─── */
+  .sect {
+    min-height: 100dvh;
+    padding: 72px 0;
+    border-top: 1px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .sect:focus {
+    outline: none;
+  }
+
+  .sect__eyebrow {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.4;
+    margin: 0 0 24px;
+  }
+
+  .sect__headline {
+    font-weight: 900;
+    font-size: clamp(56px, 10vw, 120px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    margin: 0 0 32px;
+  }
+
+  .sect__headline span {
+    display: block;
+  }
+
+  .sect__headline-clip {
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      clip-path 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--i) * 0.12s);
+  }
+
+  .sect.is-visible .sect__headline-clip {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+
+  .sect__headline--outline {
+    -webkit-text-stroke: 2px var(--ink);
+    color: var(--paper);
+    paint-order: stroke fill;
+  }
+
+  @media (max-width: 768px) {
+    .sect__headline--outline {
+      -webkit-text-stroke-width: 1.5px;
+    }
+  }
+
+  .sect__note {
+    max-width: 48ch;
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.55;
+    margin: 0 0 56px;
+  }
+
+  .sect__columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 64px;
+  }
+
+  @media (max-width: 768px) {
+    .sect__columns {
+      flex-direction: column;
+      gap: 48px;
+    }
+  }
+
+  /* ─── SPIRAL FIGURE ─── */
+  .spiral {
+    width: 320px;
+    flex-shrink: 0;
+    margin: 0;
+    position: sticky;
+    top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .spiral {
+      position: static;
+      width: 100%;
+      max-width: 360px;
+    }
+  }
+
+  .spiral-stagger {
+    opacity: 0;
+    transform: translateY(0.5rem);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+    transition-delay: calc(var(--i) * 0.06s);
+  }
+
+  .spiral.is-visible .spiral-stagger {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .spiral__label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.2;
+    margin-bottom: 12px;
+  }
+
+  .spiral__row {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--hair);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .spiral__row:last-child {
+    border-bottom: none;
+  }
+
+  .spiral__lk {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .spiral__row--faded .spiral__lk {
+    opacity: 0.12;
+    font-size: 14px;
+  }
+
+  .spiral__row--du {
+    padding: 16px 0;
+  }
+
+  .spiral__row--du .spiral__lk {
+    font-weight: 900;
+    font-size: 26px;
+    letter-spacing: -0.03em;
+  }
+
+  .spiral__row--a .spiral__lk {
+    color: #199cf9;
+    font-weight: 800;
+    font-size: 19px;
+  }
+
+  .spiral__row--b .spiral__lk {
+    color: #c2673b;
+    font-weight: 800;
+    font-size: 19px;
+  }
+
+  .spiral__tag {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .spiral__tag--a {
+    color: #199cf9;
+  }
+
+  .spiral__tag--b {
+    color: #c2673b;
+  }
+
+  .spiral__tag--du {
+    font-weight: 900;
+  }
+
+  /* ─── STEPS ─── */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .step__num {
+    font-weight: 900;
+    font-size: 72px;
+    letter-spacing: -0.04em;
+    -webkit-text-stroke: 1.5px var(--ink);
+    color: var(--paper);
+    paint-order: stroke fill;
+    line-height: 0.8;
+    flex-shrink: 0;
+    width: 80px;
+  }
+
+  .step__content {
+    max-width: 48ch;
+  }
+
+  .step__title {
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+  }
+
+  .step__desc {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.55;
+    margin: 0;
+  }
+
+  .step__accent-a {
+    color: #199cf9;
+    font-weight: 700;
+    opacity: 1;
+  }
+
+  .step__accent-b {
+    color: #c2673b;
+    font-weight: 700;
+    opacity: 1;
+  }
+
+  /* ─── CATEGORY CARDS (Komposition-Stil) ─── */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--ink);
+    padding: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .cat-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cat-card {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 28px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    container-type: inline-size;
+  }
+
+  .cat-card__badge {
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1.5px solid var(--ink);
+    padding: 4px 10px;
+    align-self: flex-start;
+  }
+
+  .cat-card__badge--inv {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Axis device — vertical label + horizontal type (like brand Card A) */
+  .cat-card__axis-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 24px 0;
+  }
+
+  .cat-card__axis-v {
+    position: absolute;
+    top: 65%;
+    left: 8px;
+    transform: rotate(-90deg);
+    transform-origin: left center;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .cat-card__axis-v--inv {
+    color: white;
+  }
+
+  .cat-card__axis-h {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: clamp(48px, 20cqw, 110px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Stack device — repeated word with volt break */
+  .cat-card__stack {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px 0;
+  }
+
+  .cat-card__stack span {
+    font-weight: 900;
+    font-size: clamp(24px, 8cqw, 40px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .cat-card__stack span:last-child {
+    border-bottom: none;
+  }
+
+  .cat-card__stack--volt {
+    background: var(--volt);
+    color: var(--ink);
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+
+  /* Clay variant */
+  .cat-card--clay {
+    background: var(--color-clay, #c2673b);
+    color: white;
+  }
+
+  /* Details — bottom of card */
+  .cat-card__details {
+    margin-top: auto;
+    padding-top: 16px;
+    padding-left: 20px;
+  }
+
+  .cat-card__price {
+    display: block;
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+  }
+
+  .cat-card__price-note {
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    opacity: 0.5;
+  }
+
+  .cat-card__meta {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.45;
+    line-height: 1.6;
+  }
+
+  .cat-card__details--inv .cat-card__name {
+    color: white;
+  }
+
+  .cat-card__details--inv .cat-card__meta {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* Hint below cards */
+  .cat-hint {
+    font-size: 14px;
+    opacity: 0.45;
+    margin: 24px 0 0;
+  }
+
+  /* Stagger animation for cards */
+  .stagger {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--i) * 0.08s);
+  }
+
+  .cat-grid.is-visible .stagger,
+  .signup-grid.is-visible .stagger {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── DAY ROUTE ─── */
+  .day-route {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .day-route__line {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px 16px;
+  }
+
+  .day-route__line--end {
+    padding-left: clamp(48px, 10vw, 160px);
+  }
+
+  .day-route__stop {
+    font-weight: 900;
+    font-size: clamp(32px, 6vw, 64px);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+
+  .day-route__stop--outline {
+    -webkit-text-stroke: 1.5px var(--ink);
+    color: var(--paper);
+    paint-order: stroke fill;
+  }
+
+  .day-route__stop--light {
+    font-weight: 500;
+    opacity: 0.35;
+  }
+
+  .day-route__stop--faded {
+    opacity: 0.12;
+  }
+
+  .day-route__dot {
+    color: var(--volt);
+  }
+
+  .day-route__sep {
+    font-weight: 300;
+    font-size: clamp(24px, 4vw, 48px);
+    opacity: 0.15;
+    line-height: 0.9;
+  }
+
+  .day-route__note {
+    font-size: 14px;
+    opacity: 0.45;
+    margin: 32px 0 0;
+    max-width: 56ch;
+    line-height: 1.55;
+  }
+
+  /* ─── SIGNUP CARDS (Komposition-Stil) ─── */
+  .signup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--ink);
+    padding: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .signup-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .signup-card {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 28px;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    container-type: inline-size;
+  }
+
+  .signup-card--dark {
+    background: var(--color-surface-dark, #060d18);
+    color: white;
+  }
+
+  .signup-card__badge {
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    border: 1.5px solid var(--ink);
+    padding: 4px 10px;
+    align-self: flex-start;
+  }
+
+  .signup-card__badge--inv {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .signup-card__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px 0;
+  }
+
+  .signup-card__title {
+    font-weight: 900;
+    font-size: clamp(20px, 6cqw, 28px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0 0 12px;
+  }
+
+  .signup-card__desc {
+    font-size: 13px;
+    line-height: 1.55;
+    opacity: 0.5;
+    margin: 0;
+  }
+
+  .signup-card--dark .signup-card__desc {
+    opacity: 0.4;
+  }
+
+  .signup-card__footer {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.4;
+    margin-top: auto;
+    padding-top: 16px;
+  }
+
+  .signup-hint {
+    font-size: 14px;
+    opacity: 0.4;
+    margin: 24px 0 0;
+  }
+
+  /* ─── VENUE ─── */
+  .venue {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 64px;
+  }
+
+  @media (max-width: 768px) {
+    .venue {
+      flex-direction: column;
+      gap: 40px;
+    }
+  }
+
+  .venue__info {
+    flex: 1;
+  }
+
+  .venue__name {
+    font-weight: 900;
+    font-size: clamp(24px, 4vw, 36px);
+    letter-spacing: -0.03em;
+    margin: 0 0 8px;
+  }
+
+  .venue__address {
+    font-style: normal;
+    font-size: 15px;
+    opacity: 0.6;
+    margin-bottom: 20px;
+  }
+
+  .venue__detail {
+    font-size: 14px;
+    line-height: 1.55;
+    opacity: 0.5;
+    margin: 0 0 4px;
+  }
+
+  .venue__maps {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: opacity 0.2s;
+  }
+
+  .venue__maps:hover {
+    opacity: 0.6;
+  }
+
+  .venue__maps:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  .venue__route {
+    width: 320px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .venue__route {
+      width: 100%;
+      max-width: 360px;
+    }
+  }
+
+  .venue__route-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.3;
+    margin-bottom: 12px;
+  }
+
+  .venue__route-steps {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .venue__route-step {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .venue__route-step:last-child {
+    border-bottom: none;
+  }
+
+  .venue__route-num {
+    font-weight: 900;
+    font-size: 14px;
+    width: 20px;
+    flex-shrink: 0;
+    opacity: 0.25;
+  }
+
+  .venue__route-text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ─── FAQ ─── */
+  .faq {
+    max-width: 720px;
+  }
+
+  .faq__item {
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .faq__item:last-child {
+    border-bottom: none;
+  }
+
+  .faq__q {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    padding: 20px 0;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .faq__q::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq__q::after {
+    content: '+';
+    font-weight: 300;
+    font-size: 24px;
+    opacity: 0.3;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .faq__item[open] .faq__q::after {
+    content: '−';
+  }
+
+  .faq__a {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.6;
+    margin: 0;
+    padding: 0 0 20px;
+    max-width: 56ch;
+  }
+
+  /* ─── FINAL CTA ─── */
+  .sect--cta {
+    text-align: center;
+    align-items: center;
+  }
+
+  .final-cta__headline {
+    font-weight: 900;
+    font-size: clamp(36px, 7vw, 80px);
+    line-height: 0.88;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+  }
+
+  .final-cta__headline span {
+    display: block;
+  }
+
+  .final-cta__dot {
+    color: var(--volt);
+  }
+
+  .final-cta__sub {
+    font-size: 16px;
+    opacity: 0.5;
+    margin: 0 0 32px;
+  }
+
+  /* ─── FOOTER ─── */
+  .foot {
+    border-top: 1px solid var(--ink);
+    padding: 36px 0 0;
+    margin-top: 72px;
+  }
+
+  .foot__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .foot__brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .foot__name {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+  }
+
+  .foot__links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .foot__links a {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.4;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .foot__links a:hover {
+    opacity: 0.8;
+  }
+
+  .foot__copy {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.25;
+  }
+
+  /* ─── MID-CTA (clay surface) ─── */
+  .mid-cta {
+    background: var(--color-clay, #c2673b);
+    color: white;
+    padding: 72px 40px;
+    margin: 0 -40px;
+  }
+
+  @media (max-width: 768px) {
+    .mid-cta {
+      padding: 56px 20px;
+      margin: 0 -20px;
+    }
+  }
+
+  .mid-cta__spread {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 48px;
+    max-width: 1200px;
+  }
+
+  @media (max-width: 768px) {
+    .mid-cta__spread {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 36px;
+    }
+  }
+
+  .mid-cta__headline {
+    font-size: clamp(48px, 8vw, 96px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .mid-cta__headline span {
+    display: block;
+  }
+
+  .mid-cta__q {
+    font-weight: 300;
+    opacity: 0.2;
+  }
+
+  .mid-cta__a {
+    font-weight: 900;
+  }
+
+  .mid-cta__a--outline {
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.5);
+    color: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .mid-cta__a--outline {
+      -webkit-text-stroke-width: 1.5px;
+    }
+  }
+
+  .mid-cta__dot {
+    display: inline;
+    -webkit-text-stroke: 2px var(--volt);
+    color: var(--volt);
+  }
+
+  @media (max-width: 768px) {
+    .mid-cta__dot {
+      -webkit-text-stroke-width: 1.5px;
+    }
+  }
+
+  .mid-cta__right {
+    max-width: 32ch;
+    flex-shrink: 0;
+  }
+
+  .mid-cta__prereq {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.35;
+    margin: 0 0 24px;
+  }
+
+  .mid-cta__hint {
+    font-size: 13px;
+    opacity: 0.25;
+    margin: 16px 0 0;
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── ENTRANCE ─── */
+  .enter {
+    animation: enterUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .enter--1 {
+    animation-delay: 0.1s;
+  }
+  .enter--2 {
+    animation-delay: 0.2s;
+  }
+  .enter--3 {
+    animation-delay: 0.35s;
+  }
+  .enter--4 {
+    animation-delay: 0.55s;
+  }
+  .enter--5 {
+    animation-delay: 0.7s;
+  }
+  .enter--6 {
+    animation-delay: 0.85s;
+  }
+
+  @keyframes enterUp {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes clipReveal {
+    from {
+      clip-path: inset(100% 0 0 0);
+      opacity: 0;
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero__body {
+      margin-left: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .enter {
+      animation: none;
+    }
+
+    .reveal,
+    .spiral-stagger,
+    .sect__headline-clip,
+    .stagger {
+      opacity: 1;
+      transform: none;
+      clip-path: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    document.querySelectorAll('.reveal, .sect, .spiral, .cat-grid, .signup-grid').forEach(el => observer.observe(el))
+  }
+</script>

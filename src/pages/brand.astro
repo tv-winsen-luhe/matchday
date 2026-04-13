@@ -1,0 +1,1181 @@
+---
+import Layout from '@/layouts/default.astro'
+import MarkerHighlight from '@/components/marker-highlight.astro'
+import logoSvg from '@/assets/logo.svg'
+import signetSvg from '@/assets/signet.svg'
+
+const colorScales = [
+  {
+    name: 'Navy',
+    role: 'Vereinsfarbe · Primär',
+    shades: [
+      { step: 'Light', value: '#8b9bb1', dark: false },
+      { step: 'Base', value: '#0c1e3a', dark: true },
+      { step: 'Dark', value: '#06101c', dark: true }
+    ]
+  },
+  {
+    name: 'Blue',
+    role: 'Vereinsakzent · Sekundär',
+    shades: [
+      { step: 'Light', value: '#c7e8fe', dark: false },
+      { step: 'Base', value: '#199cf9', dark: false },
+      { step: 'Dark', value: '#044b82', dark: true }
+    ]
+  },
+  {
+    name: 'Neon',
+    role: 'Event-Highlight · Akzent',
+    shades: [
+      { step: 'Light', value: '#edff80', dark: false },
+      { step: 'Base', value: '#ceff00', dark: false },
+      { step: 'Dark', value: '#7c9900', dark: true }
+    ]
+  },
+  {
+    name: 'Clay',
+    role: 'Sandplatz · Terre Battue',
+    shades: [
+      { step: 'Light', value: '#E8C9B0', dark: false },
+      { step: 'Base', value: '#C2673B', dark: true },
+      { step: 'Dark', value: '#7A3A1E', dark: true }
+    ]
+  },
+  {
+    name: 'Gray',
+    role: 'Neutral · System',
+    shades: [
+      { step: 'Light', value: '#f5f5f5', dark: false },
+      { step: 'Base', value: '#737373', dark: true },
+      { step: 'Dark', value: '#262626', dark: true }
+    ]
+  }
+]
+
+const semanticColors = [
+  { name: 'surface', value: '#ffffff', label: 'Hintergrund' },
+  { name: 'surface-alt', value: '#f5f5f5', label: 'Alt. Hintergrund' },
+  { name: 'surface-dark', value: '#060d18', label: 'Dunkler Grund' },
+  { name: 'surface-warm', value: '#E8C9B0', label: 'Warmer Grund' },
+  { name: 'text', value: '#0c1e3a', label: 'Textfarbe' },
+  { name: 'text-muted', value: '#525252', label: 'Sekundärtext' },
+  { name: 'text-inverted', value: '#ffffff', label: 'Invertiert' },
+  { name: 'border', value: '#e5e5e5', label: 'Rahmen' },
+  { name: 'border-strong', value: '#d4d4d4', label: 'Starker Rahmen' },
+  { name: 'ring', value: '#199cf9', label: 'Fokus' }
+]
+
+const fontWeights = [
+  { name: 'Light', value: '300', class: 'font-light' },
+  { name: 'Regular', value: '400', class: 'font-normal' },
+  { name: 'Medium', value: '500', class: 'font-medium' },
+  { name: 'Semibold', value: '600', class: 'font-semibold' },
+  { name: 'Bold', value: '700', class: 'font-bold' },
+  { name: 'Extra Bold', value: '800', class: 'font-extrabold' },
+  { name: 'Black', value: '900', class: 'font-black' }
+]
+
+const brushExamples = [1, 3, 5, 7, 9] as const
+---
+
+<Layout title="Brand Guide – Matchday Winsen 2026" bodyClass="bg-surface-alt">
+  <main class="page">
+    <!-- Topbar -->
+    <header class="topbar">
+      <span class="topbar__title">Brand Guide</span>
+      <span class="topbar__sep">·</span>
+      <span class="topbar__meta">Matchday Winsen 2026</span>
+      <span class="topbar__meta">TV Winsen/Luhe</span>
+      <span class="topbar__meta topbar__meta--right">Design-System</span>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__meta enter enter--1">
+        <span>Matchday Winsen</span>
+        <span>TV Winsen/Luhe</span>
+        <span>2026</span>
+      </div>
+      <h1 class="hero__title">
+        <span class="enter enter--2">Brand</span>
+        <span class="hero__title--outline enter enter--3">Guide</span>
+      </h1>
+      <p class="hero__lede enter enter--4">
+        Visuelle Richtlinien für das Matchday Winsen 2026 Turnier. Farben, Typografie, Logos und Komponenten —
+        sportlich-energisch trifft <strong>modern-minimal</strong>.
+      </p>
+    </section>
+
+    <!-- 01 Logos -->
+    <section class="sect reveal">
+      <span class="sect__label">01 — Logos</span>
+      <p class="sect__note">Signet und vollständiges Logo — auf hellem und dunklem Grund.</p>
+
+      <div class="ink-grid ink-grid--2">
+        <div class="logo-cell logo-cell--light">
+          <span class="cell-tag">Hell</span>
+          <div class="logo-cell__row">
+            <figure class="logo-fig">
+              <img src={signetSvg.src} alt="Signet" width="64" height="64" />
+              <figcaption>Signet</figcaption>
+            </figure>
+            <figure class="logo-fig">
+              <img src={logoSvg.src} alt="Logo" width="160" height="160" />
+              <figcaption>Logo</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="logo-cell logo-cell--dark">
+          <span class="cell-tag cell-tag--inv">Dunkel</span>
+          <div class="logo-cell__row">
+            <figure class="logo-fig">
+              <img src={signetSvg.src} alt="Signet" width="64" height="64" />
+              <figcaption class="text-white/30">Signet</figcaption>
+            </figure>
+            <figure class="logo-fig">
+              <img src={logoSvg.src} alt="Logo" width="160" height="160" />
+              <figcaption class="text-white/30">Logo</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Farbpalette -->
+    <section class="sect reveal">
+      <span class="sect__label">02 — Farbpalette</span>
+      <p class="sect__note">Vier Skalen — je drei Stufen. Hierarchie entsteht über Gewicht, nicht über Menge.</p>
+
+      {
+        colorScales.map(scale => (
+          <div class="color-scale">
+            <div class="color-scale__head">
+              <span class="color-scale__name">{scale.name}</span>
+              <span class="color-scale__role">{scale.role}</span>
+            </div>
+            <div class="ink-grid ink-grid--3">
+              {scale.shades.map(shade => (
+                <div class="color-cell" style={`background-color: ${shade.value}`}>
+                  <span class:list={['color-cell__hex', shade.dark ? 'text-white' : 'text-navy']}>{shade.value}</span>
+                  <span class:list={['color-cell__step', shade.dark ? 'text-white/50' : 'text-navy/50']}>
+                    {shade.step}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </section>
+
+    <!-- 03 Semantische Farben -->
+    <section class="sect reveal">
+      <span class="sect__label">03 — Semantische Farben</span>
+      <p class="sect__note">Zweckgebundene Aliase für konsistente Anwendung.</p>
+
+      <div class="sem-grid">
+        {
+          semanticColors.map(color => (
+            <div class="sem-cell">
+              <div
+                class:list={['sem-cell__swatch', color.value === '#ffffff' && 'sem-cell__swatch--bordered']}
+                style={`background-color: ${color.value}`}
+              />
+              <div class="sem-cell__info">
+                <span class="sem-cell__name">{color.name}</span>
+                <span class="sem-cell__label">{color.label}</span>
+              </div>
+              <code class="sem-cell__hex">{color.value}</code>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- 04 Typografie -->
+    <section class="sect reveal">
+      <span class="sect__label">04 — Typografie</span>
+      <p class="sect__note">
+        System-Schriftarten: <code>ui-sans-serif, system-ui, sans-serif</code>. Die Typografie trägt die Komposition
+        allein — Hierarchie über Größe und Gewicht.
+      </p>
+
+      <div class="typo-specimen">
+        <span class="cell-tag">Display — Black 900</span>
+        <div class="typo-specimen__xl">Matchday.</div>
+      </div>
+
+      <div class="typo-specimen">
+        <span class="cell-tag">Headline — Extra Bold 800</span>
+        <div class="typo-specimen__lg">Willkommen zum<br />Matchday Winsen.</div>
+      </div>
+
+      <div class="typo-specimen">
+        <span class="cell-tag">Body — Regular 400</span>
+        <p class="typo-specimen__body">
+          Das LK-Tagesturnier des TV Winsen bringt Spielerinnen und Spieler aller Leistungsklassen zusammen. Ein Tag,
+          ein Turnier, maximaler Wettkampf. Anmeldung über die Website des Vereins.
+        </p>
+      </div>
+
+      <div class="typo-weights">
+        <span class="cell-tag">Schriftschnitte</span>
+        <div class="ink-grid ink-grid--weights">
+          {
+            fontWeights.map(weight => (
+              <div class="weight-cell">
+                <span class:list={[weight.class, 'weight-cell__sample']}>Ag</span>
+                <div class="weight-cell__info">
+                  <span class="weight-cell__value">{weight.value}</span>
+                  <span class="weight-cell__name">{weight.name}</span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Heading-Styles -->
+      <div class="heading-panel">
+        <span class="cell-tag cell-tag--inv">Heading-Styles · Dunkel</span>
+        <div class="heading-panel__stack">
+          <div>
+            <span class="heading-panel__tag">H1</span>
+            <p class="heading-panel__h1">Matchday Winsen</p>
+          </div>
+          <div>
+            <span class="heading-panel__tag">H2</span>
+            <p class="heading-panel__h2">Turnierübersicht</p>
+          </div>
+          <div>
+            <span class="heading-panel__tag">H3</span>
+            <p class="heading-panel__h3">Spielgruppe A</p>
+          </div>
+          <div>
+            <span class="heading-panel__tag">Body</span>
+            <p class="heading-panel__body">
+              Das LK-Tagesturnier des TV Winsen bringt Spielerinnen und Spieler aller Leistungsklassen zusammen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Komposition -->
+    <section class="sect reveal">
+      <span class="sect__label">05 — Komposition</span>
+      <p class="sect__note">
+        Drei Graphic Devices — alle rein typografisch. Keine Illustration, kein Court-Motiv. Die Anordnung selbst trägt
+        die Botschaft.
+      </p>
+
+      <div class="comp-grid">
+        <div class="comp-card stagger stagger--1">
+          <span class="comp-card__num">A</span>
+          <div class="comp-axis">
+            <span class="comp-axis__v">Seit 1913</span>
+            <span class="comp-axis__h">Matchday<br />Winsen</span>
+          </div>
+          <span class="comp-card__desc">Vertikale Achse trifft horizontale Headline</span>
+        </div>
+
+        <div class="comp-card stagger stagger--2">
+          <span class="comp-card__num">B</span>
+          <div class="comp-stack">
+            <span>Matchday</span>
+            <span>Matchday</span>
+            <span class="is-volt">Matchday</span>
+            <span>Matchday</span>
+            <span>Matchday</span>
+          </div>
+          <span class="comp-card__desc">Wiederholung — Volt bricht das Muster</span>
+        </div>
+
+        <div class="comp-card stagger stagger--3">
+          <span class="comp-card__num">C</span>
+          <div class="comp-mono">2026</div>
+          <span class="comp-card__desc">Ziffer als eigenständiges Motiv</span>
+        </div>
+
+        <div class="comp-card comp-card--clay stagger stagger--4">
+          <span class="comp-card__num comp-card__num--inv">D</span>
+          <div class="comp-court">
+            <span class="comp-court__label">Terre Battue</span>
+            <span class="comp-court__title">Sandplatz</span>
+          </div>
+          <span class="comp-card__desc comp-card__desc--inv">Warme Fläche als Kontrast zu Navy + Neon</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Marker Highlight -->
+    <section class="sect reveal">
+      <span class="sect__label">06 — Marker Highlight</span>
+      <p class="sect__note">Texthervorhebung mit handgezeichneten Brush-Strokes. Volt-Akzent auf hellem Grund.</p>
+
+      <div class="brush-list">
+        {
+          brushExamples.map(brush => (
+            <div class="brush-row">
+              <code class="brush-row__num">{brush}</code>
+              <p class="brush-row__sample">
+                <MarkerHighlight brush={brush}>Matchday 2026</MarkerHighlight>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="showcase">
+        <p class="showcase__title">
+          Willkommen zum<br />
+          <MarkerHighlight>Matchday</MarkerHighlight>
+        </p>
+        <p class="showcase__sub">
+          Das <MarkerHighlight brush={3}>LK-Tagesturnier</MarkerHighlight> in Winsen an der Luhe.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="foot">
+      <span>Brand Guide · Matchday Winsen 2026</span>
+      <span>TV Winsen/Luhe · Seit 1913</span>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  .page {
+    --ink: #0c1e3a;
+    --paper: #f5f5f5;
+    --volt: #ceff00;
+    --hair: rgba(12, 30, 58, 0.15);
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 40px 120px;
+    color: var(--ink);
+  }
+
+  @media (max-width: 768px) {
+    .page {
+      padding: 24px 20px 80px;
+    }
+  }
+
+  /* ─── TOPBAR ─── */
+  .topbar {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ink);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    flex-wrap: wrap;
+  }
+
+  .topbar__title {
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  .topbar__sep {
+    opacity: 0.25;
+  }
+
+  .topbar__meta {
+    opacity: 0.45;
+    font-size: 10px;
+  }
+
+  .topbar__meta--right {
+    margin-left: auto;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding: 96px 0 104px;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 64px 0 72px;
+    }
+  }
+
+  .hero__meta {
+    display: flex;
+    gap: 32px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 48px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .hero__meta span + span {
+    opacity: 0.4;
+  }
+
+  @media (max-width: 600px) {
+    .hero__meta {
+      flex-wrap: wrap;
+      gap: 8px 24px;
+    }
+  }
+
+  .hero__title {
+    font-weight: 900;
+    font-size: clamp(72px, 14vw, 180px);
+    line-height: 0.84;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .hero__title span {
+    display: block;
+  }
+
+  .hero__title--outline {
+    -webkit-text-stroke: 2px var(--ink);
+    color: transparent;
+  }
+
+  @media (max-width: 768px) {
+    .hero__title--outline {
+      -webkit-text-stroke-width: 1.5px;
+    }
+  }
+
+  .hero__lede {
+    margin: 64px 0 0 auto;
+    max-width: 48ch;
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0.65;
+  }
+
+  .hero__lede strong {
+    font-weight: 700;
+    opacity: 1;
+  }
+
+  /* ─── SECTIONS ─── */
+  .sect {
+    padding: 72px 0;
+    border-top: 1px solid var(--ink);
+  }
+
+  .sect__label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .sect__note {
+    max-width: 56ch;
+    font-size: 13px;
+    line-height: 1.6;
+    opacity: 0.6;
+    margin: 0 0 40px;
+  }
+
+  .sect__note code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+  }
+
+  .cell-tag {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.5;
+    margin-bottom: 16px;
+  }
+
+  .cell-tag--inv {
+    color: white;
+    opacity: 0.3;
+  }
+
+  /* ─── INK GRID ─── */
+  .ink-grid {
+    display: grid;
+    gap: 2px;
+    background: var(--ink);
+    padding: 2px;
+  }
+
+  .ink-grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ink-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ink-grid--weights {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    .ink-grid--2 {
+      grid-template-columns: 1fr;
+    }
+
+    .ink-grid--weights {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .ink-grid--weights {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* ─── LOGOS ─── */
+  .logo-cell {
+    padding: 32px;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-cell--light {
+    background: white;
+  }
+
+  .logo-cell--dark {
+    background: var(--color-surface-dark);
+  }
+
+  .logo-cell__row {
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    flex: 1;
+    margin-top: 24px;
+  }
+
+  .logo-fig {
+    flex-shrink: 0;
+  }
+
+  .logo-fig figcaption {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.45;
+    margin-top: 8px;
+  }
+
+  /* ─── COLORS ─── */
+  .color-scale {
+    margin-bottom: 32px;
+  }
+
+  .color-scale:last-child {
+    margin-bottom: 0;
+  }
+
+  .color-scale__head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .color-scale__name {
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .color-scale__role {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.4;
+  }
+
+  .color-cell {
+    aspect-ratio: 5 / 3;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .color-cell {
+      aspect-ratio: 3 / 1;
+    }
+  }
+
+  .color-cell__hex {
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+
+  .color-cell__step {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* ─── SEMANTIC ─── */
+  .sem-grid {
+    display: grid;
+    gap: 2px;
+    background: var(--ink);
+    padding: 2px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 900px) {
+    .sem-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .sem-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .sem-cell {
+    background: var(--paper);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .sem-cell__swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .sem-cell__swatch--bordered {
+    border: 1px solid var(--hair);
+  }
+
+  .sem-cell__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sem-cell__name {
+    display: block;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  .sem-cell__label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.4;
+    margin-top: 1px;
+  }
+
+  .sem-cell__hex {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px;
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+
+  /* ─── TYPOGRAPHY ─── */
+  .typo-specimen {
+    padding: 28px 0;
+    border-top: 1px solid var(--hair);
+  }
+
+  .typo-specimen:first-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .typo-specimen__xl {
+    font-weight: 900;
+    font-size: clamp(64px, 12vw, 160px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+  }
+
+  .typo-specimen__lg {
+    font-weight: 800;
+    font-size: clamp(36px, 6vw, 80px);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+  }
+
+  .typo-specimen__body {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 58ch;
+    margin: 0;
+    opacity: 0.75;
+  }
+
+  .typo-weights {
+    padding: 36px 0 40px;
+    border-top: 1px solid var(--hair);
+    margin-top: 28px;
+  }
+
+  .weight-cell {
+    background: var(--paper);
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-height: 120px;
+    justify-content: space-between;
+  }
+
+  .weight-cell__sample {
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  .weight-cell__info {
+    text-align: center;
+  }
+
+  .weight-cell__value {
+    display: block;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 10px;
+    opacity: 0.5;
+  }
+
+  .weight-cell__name {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.35;
+    margin-top: 2px;
+  }
+
+  /* ─── HEADING PANEL ─── */
+  .heading-panel {
+    background: var(--color-surface-dark);
+    padding: 40px 40px 48px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .heading-panel {
+      padding: 28px 24px 36px;
+    }
+  }
+
+  .heading-panel__stack {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .heading-panel__tag {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    opacity: 0.2;
+  }
+
+  .heading-panel__h1 {
+    font-weight: 800;
+    font-size: clamp(40px, 8vw, 96px);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    color: white;
+    margin: 4px 0 0;
+  }
+
+  .heading-panel__h2 {
+    font-weight: 700;
+    font-size: clamp(24px, 4vw, 48px);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: white;
+    margin: 4px 0 0;
+  }
+
+  .heading-panel__h3 {
+    font-weight: 600;
+    font-size: clamp(18px, 2vw, 24px);
+    color: white;
+    margin: 4px 0 0;
+  }
+
+  .heading-panel__body {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 4px 0 0;
+    max-width: 52ch;
+  }
+
+  /* ─── MARKER HIGHLIGHT ─── */
+  .brush-list {
+    margin-bottom: 40px;
+  }
+
+  .brush-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .brush-row:last-child {
+    border-bottom: none;
+  }
+
+  .brush-row__num {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 11px;
+    opacity: 0.35;
+    width: 20px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .brush-row__sample {
+    font-weight: 800;
+    font-size: clamp(36px, 5vw, 56px);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .showcase {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    padding: 48px 44px;
+  }
+
+  @media (max-width: 768px) {
+    .showcase {
+      padding: 32px 24px;
+    }
+  }
+
+  .showcase__title {
+    font-weight: 800;
+    font-size: clamp(32px, 6vw, 72px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  .showcase__sub {
+    margin: 20px 0 0;
+    font-size: 17px;
+    color: var(--ink);
+    opacity: 0.65;
+  }
+
+  /* ─── KOMPOSITION ─── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--ink);
+    padding: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .comp-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .comp-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .comp-card {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 28px;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    container-type: inline-size;
+  }
+
+  .comp-card__num {
+    font-weight: 900;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    border: 1.5px solid var(--ink);
+    padding: 4px 9px;
+    align-self: flex-start;
+  }
+
+  .comp-card__desc {
+    margin-top: auto;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.45;
+    padding-top: 16px;
+  }
+
+  /* Card A — Axis */
+  .comp-axis {
+    flex: 1;
+    position: relative;
+    margin: 24px 0;
+  }
+
+  .comp-axis__v {
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: rotate(-90deg);
+    transform-origin: left center;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .comp-axis__h {
+    position: absolute;
+    top: 50%;
+    left: 48px;
+    right: 0;
+    transform: translateY(-50%);
+    font-weight: 900;
+    font-size: clamp(28px, 8cqw, 44px);
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+  }
+
+  /* Card B — Stack */
+  .comp-stack {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px 0;
+  }
+
+  .comp-stack span {
+    font-weight: 900;
+    font-size: clamp(28px, 8cqw, 44px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .comp-stack span:last-child {
+    border-bottom: none;
+  }
+
+  .comp-stack span.is-volt {
+    background: var(--volt);
+    color: var(--ink);
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+
+  /* Card C — Mono */
+  .comp-mono {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: clamp(72px, 32cqw, 140px);
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    margin: 24px 0;
+  }
+
+  /* Card D — Clay */
+  .comp-card--clay {
+    background: var(--color-clay);
+    color: white;
+  }
+
+  .comp-card__num--inv {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .comp-card__desc--inv {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .comp-court {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 24px 0;
+  }
+
+  .comp-court__label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.5;
+    margin-bottom: 8px;
+  }
+
+  .comp-court__title {
+    font-weight: 900;
+    font-size: clamp(32px, 10cqw, 52px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ─── FOOTER ─── */
+  .foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 0 0;
+    border-top: 1px solid var(--ink);
+    margin-top: 72px;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    opacity: 0.4;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* ─── HERO ENTRANCE ─── */
+  .enter {
+    animation: enterUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .enter--1 {
+    animation-delay: 0.1s;
+  }
+  .enter--2 {
+    animation-delay: 0.2s;
+  }
+  .enter--3 {
+    animation-delay: 0.35s;
+  }
+  .enter--4 {
+    animation-delay: 0.55s;
+  }
+
+  @keyframes enterUp {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 12%;
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ─── COMPOSITION STAGGER ─── */
+  .stagger {
+    animation: staggerIn linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 20%;
+  }
+
+  .stagger--1 {
+    animation-delay: 0s;
+  }
+  .stagger--2 {
+    animation-delay: 0.08s;
+  }
+  .stagger--3 {
+    animation-delay: 0.16s;
+  }
+  .stagger--4 {
+    animation-delay: 0.24s;
+  }
+
+  @keyframes staggerIn {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

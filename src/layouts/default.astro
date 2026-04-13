@@ -36,7 +36,7 @@ const {
     <meta property="og:type" content="website" />
     <title>{title}</title>
   </head>
-  <body class={bodyClass}>
+  <body class:list={['font-sans text-text antialiased', bodyClass]}>
     <slot />
   </body>
 </html>

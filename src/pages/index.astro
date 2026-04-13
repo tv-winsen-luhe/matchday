@@ -7,6 +7,8 @@ import logoSvg from '@/assets/logo.svg'
 
 <Layout title="Matchday Winsen 2026 — LK-Tagesturnier" bodyClass="bg-surface-alt">
   <main class="page">
+    <a href="#turniermodus" class="skip-link">Direkt zum Inhalt</a>
+
     <!-- Topbar -->
     <header class="topbar enter enter--1">
       <img src={signetSvg.src} alt="TV Winsen/Luhe" width="24" height="24" class="topbar__signet" />
@@ -36,8 +38,11 @@ import logoSvg from '@/assets/logo.svg'
         <p class="hero__pitch enter enter--4">
           Neu dabei? Perfekt. Schon Erfahrung? Umso besser. Zwei Matches, beide zählen für deine LK.
         </p>
+        <p class="hero__hint enter enter--5">
+          Dieses Jahr starten wir mit Herren-Kategorien: Einzel, Doppel und Herren 40 Einzel.
+        </p>
 
-        <div class="hero__cta enter enter--5">
+        <div class="hero__cta enter enter--6">
           <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
           <a href="#turniermodus" class="cta-secondary">Mehr erfahren <span aria-hidden="true">&darr;</span></a>
         </div>
@@ -95,7 +100,7 @@ import logoSvg from '@/assets/logo.svg'
           </div>
           <div class="spiral__row spiral__row--a spiral-stagger" style="--i:1">
             <span class="spiral__lk">LK 19.4</span>
-            <span class="spiral__tag spiral__tag--a">Match 1</span>
+            <span class="spiral__tag spiral__tag--a">Dein 1. Match</span>
           </div>
           <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:2">
             <span class="spiral__lk">LK 19.8</span>
@@ -109,7 +114,7 @@ import logoSvg from '@/assets/logo.svg'
           </div>
           <div class="spiral__row spiral__row--b spiral-stagger" style="--i:5">
             <span class="spiral__lk">LK 21.1</span>
-            <span class="spiral__tag spiral__tag--b">Match 2</span>
+            <span class="spiral__tag spiral__tag--b">Dein 2. Match</span>
           </div>
           <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:6">
             <span class="spiral__lk">LK 21.6</span>
@@ -121,9 +126,23 @@ import logoSvg from '@/assets/logo.svg'
       </div>
     </section>
 
+    <!-- Mid-CTA -->
+    <section class="sect sect--mid-cta">
+      <div class="mid-cta reveal">
+        <h2 class="mid-cta__headline">
+          <span>Klingt</span>
+          <span class="mid-cta__headline--outline">gut?</span>
+        </h2>
+        <div class="mid-cta__body">
+          <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
+          <p class="mid-cta__secondary">Oder lies weiter — Kategorien, Tagesablauf und FAQ kommen noch.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Kategorien -->
     <section class="sect">
-      <span class="sect__eyebrow reveal">Drei Kategorien</span>
+      <h2 class="sect__eyebrow reveal">Drei Kategorien</h2>
 
       <div class="cat-grid">
         <!-- Einzel — Axis -->
@@ -170,11 +189,19 @@ import logoSvg from '@/assets/logo.svg'
       <p class="cat-hint reveal">
         Die Teilnahmegebühr deckt alles ab: Organisation, Bälle und die offizielle Turniergebühr an den Verband.
       </p>
+      <p class="cat-hint cat-hint--rec reveal">
+        Nicht sicher, welche Kategorie? Die meisten starten mit Einzel — zwei Matches, ein klarer Tag.
+      </p>
     </section>
 
     <!-- Tagesablauf -->
     <section class="sect">
-      <span class="sect__eyebrow reveal">Dein Turniertag</span>
+      <h2 class="sect__eyebrow reveal">Dein Turniertag</h2>
+
+      <p class="sect__note">
+        Ein Tag, kompakt getaktet. Du kommst morgens oder mittags, spielst deine Matches, und bist im Regelfall am
+        Nachmittag durch. Dazwischen: kurze Pausen, offene Gastronomie, und genug Zeit zum Zuschauen.
+      </p>
 
       <div class="day-route">
         <div class="day-route__line day-route__line--start reveal">
@@ -195,15 +222,53 @@ import logoSvg from '@/assets/logo.svg'
         </div>
       </div>
 
+      <div class="day-steps">
+        <div class="day-step reveal">
+          <span class="day-step__time">09:00</span>
+          <div class="day-step__content">
+            <h3 class="day-step__title">Check-in</h3>
+            <p class="day-step__desc">Melde dich am Turniertisch. Du bekommst deinen Spielplan mit Gegner und Platz.</p>
+          </div>
+        </div>
+        <div class="day-step reveal" style="--reveal-delay: 0.08s">
+          <span class="day-step__time">ab 09:30</span>
+          <div class="day-step__content">
+            <h3 class="day-step__title">1. Match</h3>
+            <p class="day-step__desc">Einspielen (5–10 Min) mit deinem Gegner, dann Match.</p>
+          </div>
+        </div>
+        <div class="day-step reveal" style="--reveal-delay: 0.16s">
+          <span class="day-step__time">~90 Min</span>
+          <div class="day-step__content">
+            <h3 class="day-step__title">Pause</h3>
+            <p class="day-step__desc">Gastronomie im Clubhaus, zuschauen, entspannen.</p>
+          </div>
+        </div>
+        <div class="day-step reveal" style="--reveal-delay: 0.24s">
+          <span class="day-step__time">danach</span>
+          <div class="day-step__content">
+            <h3 class="day-step__title">2. Match</h3>
+            <p class="day-step__desc">Gegen deinen zweiten Gegner, ebenfalls nah an deinem Niveau.</p>
+          </div>
+        </div>
+        <div class="day-step reveal" style="--reveal-delay: 0.32s">
+          <span class="day-step__time">Done</span>
+          <div class="day-step__content">
+            <h3 class="day-step__title">Fertig</h3>
+            <p class="day-step__desc">Ergebnisse fließen in deine LK. Ein Bier.</p>
+          </div>
+        </div>
+      </div>
+
       <p class="day-route__note">
-        Kompakt getaktet. Du kommst morgens oder mittags, spielst deine zwei Matches und bist am Nachmittag durch.
-        Zwischen den Matches liegt ~90 Min Pause.
+        Der genaue Zeitplan hängt von der Teilnehmerzahl ab. Je nach Einteilung kann dein 1. Match auch erst mittags
+        starten. Wer Einzel und Doppel spielt, sollte mit einem längeren Turniertag rechnen.
       </p>
     </section>
 
     <!-- Anmeldung -->
     <section class="sect">
-      <span class="sect__eyebrow reveal">In 3 Schritten angemeldet</span>
+      <h2 class="sect__eyebrow reveal">In 3 Schritten angemeldet</h2>
 
       <div class="signup-grid">
         <div class="signup-card stagger" style="--i:0">
@@ -220,7 +285,7 @@ import logoSvg from '@/assets/logo.svg'
             <h3 class="signup-card__title">DTB-Lizenz<br />aktivieren</h3>
             <p class="signup-card__desc">
               Einmalig 20 €/Jahr, im Account buchbar. Eine Spielberechtigung für LK-Turniere — für Punktspiele brauchst
-              du sie nicht.
+              du sie nicht. Für Doppel brauchen beide Spieler eine Lizenz.
             </p>
           </div>
           <span class="signup-card__footer">20 €/Jahr</span>
@@ -229,7 +294,10 @@ import logoSvg from '@/assets/logo.svg'
           <span class="signup-card__badge signup-card__badge--inv">3</span>
           <div class="signup-card__body">
             <h3 class="signup-card__title">Beim Matchday<br />anmelden</h3>
-            <p class="signup-card__desc">Unser Direktlink führt dich zum richtigen Eintrag auf tennis.de.</p>
+            <p class="signup-card__desc">
+              Unser Direktlink führt dich zum richtigen Eintrag auf tennis.de. Die Anmeldeseite dort sieht anders aus
+              als diese Seite — offiziell, formeller. Das ist normal.
+            </p>
           </div>
           <a href="#" class="cta-primary">Jetzt anmelden</a>
         </div>
@@ -240,7 +308,7 @@ import logoSvg from '@/assets/logo.svg'
 
     <!-- Ort & Anfahrt -->
     <section class="sect">
-      <span class="sect__eyebrow reveal">Ort & Anfahrt</span>
+      <h2 class="sect__eyebrow reveal">Ort & Anfahrt</h2>
       <div class="venue__hero reveal">
         <span class="venue__hero-city">6 Sand</span>
         <span class="venue__hero-sub">plätze<span class="venue__hero-dot">.</span></span>
@@ -249,11 +317,11 @@ import logoSvg from '@/assets/logo.svg'
       <div class="venue reveal">
         <div class="venue__info">
           <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="120" height="120" class="venue__logo" />
-          <address class="venue__address">Luhdorfer Str. 47, 21423 Winsen (Luhe)</address>
+          <address class="venue__address">Luhdorfer Str. 47a, 21423 Winsen (Luhe)</address>
           <p class="venue__detail">Clubhaus mit Terrasse und Gastronomie</p>
           <p class="venue__detail">Zuschauen ist jederzeit möglich — freie Sicht auf die Plätze.</p>
           <a
-            href="https://maps.google.com/?q=Luhdorfer+Str.+47+21423+Winsen+Luhe"
+            href="https://maps.app.goo.gl/rndtuka3qNptRi2E7"
             target="_blank"
             rel="noopener noreferrer"
             class="venue__maps"
@@ -298,8 +366,8 @@ import logoSvg from '@/assets/logo.svg'
         <details class="faq__item">
           <summary class="faq__q">Was brauche ich, um mitzumachen?</summary>
           <p class="faq__a">
-            Zwei Dinge: einen tennis.de-Account und eine DTB-Lizenz (20 €/Jahr). Klingt nach viel — ist in 10 Minuten
-            erledigt.
+            Zwei Dinge: einen tennis.de-Account (hast du wahrscheinlich schon, wenn du Punktspiele spielst) und eine
+            DTB-Lizenz (20 €/Jahr). Klingt nach viel — ist in 10 Minuten erledigt.
           </p>
         </details>
         <details class="faq__item">
@@ -307,7 +375,7 @@ import logoSvg from '@/assets/logo.svg'
           <p class="faq__a">
             Eine jährliche Spielberechtigung für LK-Turniere, kostet 20 € pro Jahr. Für Punktspiele brauchst du sie
             nicht — deshalb haben viele Vereinsspieler sie noch nicht. Du kannst sie direkt auf tennis.de kaufen. Für
-            Doppel brauchen beide Spieler eine Lizenz.
+            Doppel brauchen beide Spieler eine Lizenz. (Der ältere Begriff „Spielerpass" meint dasselbe.)
           </p>
         </details>
         <details class="faq__item">
@@ -321,7 +389,8 @@ import logoSvg from '@/assets/logo.svg'
           <summary class="faq__q">Was kostet die Teilnahme?</summary>
           <p class="faq__a">
             35 € Einzel, 18 € Doppel (pro Person). Zahlung vor Ort. Die Teilnahmegebühr deckt alles ab: Organisation,
-            Bälle und die offizielle Turniergebühr an den Verband.
+            Bälle und die offizielle Turniergebühr an den Verband. Dazu kommt einmalig die DTB-Lizenz (20 €/Jahr), falls
+            du sie noch nicht hast.
           </p>
         </details>
         <details class="faq__item">
@@ -355,7 +424,10 @@ import logoSvg from '@/assets/logo.svg'
         </details>
         <details class="faq__item">
           <summary class="faq__q">Doppel ohne Partner?</summary>
-          <p class="faq__a">Schreib uns eine Mail — wir helfen bei der Vermittlung.</p>
+          <p class="faq__a">
+            Schreib uns eine Mail an
+            <a href="mailto:matchday@tennisverein-winsen.de">matchday@tennisverein-winsen.de</a> — wir helfen bei der Vermittlung.
+          </p>
         </details>
         <details class="faq__item">
           <summary class="faq__q">Kann ich zuschauen, ohne zu spielen?</summary>
@@ -364,9 +436,23 @@ import logoSvg from '@/assets/logo.svg'
           </p>
         </details>
         <details class="faq__item">
+          <summary class="faq__q">Was passiert, wenn ein Gegner nicht auftaucht?</summary>
+          <p class="faq__a">
+            Dann organisieren wir nach Möglichkeit ein Ersatzspiel, damit deine zwei Matches erhalten bleiben.
+          </p>
+        </details>
+        <details class="faq__item">
           <summary class="faq__q">Was passiert bei Regen?</summary>
           <p class="faq__a">
             Regen ist höhere Gewalt. Dann kann sich der Ablauf verschieben, angepasst werden oder das Event ausfallen.
+          </p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__q">Was, wenn ich mich angemeldet habe, aber nicht kommen kann?</summary>
+          <p class="faq__a">
+            Du kannst dich auf tennis.de wieder abmelden — am besten vor der Einteilung. Wer nach der Einteilung nicht
+            antritt, bekommt ein „n.a." (nicht angetreten). Das erste n.a. innerhalb von 12 Monaten bleibt ohne Folgen,
+            ab dem zweiten verschlechtert sich deine LK.
           </p>
         </details>
       </div>
@@ -376,10 +462,10 @@ import logoSvg from '@/assets/logo.svg'
     <section class="sect sect--cta">
       <div class="final-cta reveal">
         <h2 class="final-cta__headline">
-          <span>Dein</span>
-          <span class="final-cta__outline">Matchday</span>
+          <span>Du weißt jetzt</span>
+          <span class="final-cta__outline">alles<span class="final-cta__dot">.</span></span>
         </h2>
-        <p class="final-cta__sub">Anmeldung bis 1. Juli 2026</p>
+        <p class="final-cta__sub">Fehlt nur noch dein Name. Anmeldung bis 1. Juli 2026.</p>
         <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
       </div>
     </section>
@@ -392,11 +478,11 @@ import logoSvg from '@/assets/logo.svg'
           <span class="foot__name">TV Winsen/Luhe von 1913 e.V.</span>
         </div>
         <div class="foot__links">
-          <a href="/impressum">Impressum</a>
-          <a href="/datenschutz">Datenschutz</a>
+          <a href="mailto:matchday@tennisverein-winsen.de">Kontakt</a>
+          <a href={`${import.meta.env.BASE_URL}impressum`}>Impressum</a>
+          <a href={`${import.meta.env.BASE_URL}datenschutz`}>Datenschutz</a>
         </div>
       </div>
-      <span class="foot__copy">Matchday Winsen 2026</span>
     </footer>
   </main>
 </Layout>
@@ -417,6 +503,28 @@ import logoSvg from '@/assets/logo.svg'
     .page {
       padding: 24px 20px 80px;
     }
+  }
+
+  /* ─── SKIP LINK ─── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 16px;
+    background: var(--volt);
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    z-index: 100;
+  }
+
+  .skip-link:focus-visible {
+    top: 16px;
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
   }
 
   /* ─── TOPBAR ─── */
@@ -576,6 +684,13 @@ import logoSvg from '@/assets/logo.svg'
     margin: 0;
   }
 
+  .hero__hint {
+    font-size: 13px;
+    line-height: 1.55;
+    opacity: 0.35;
+    margin: 12px 0 0;
+  }
+
   /* CTA */
   .hero__cta {
     margin-top: 32px;
@@ -602,7 +717,7 @@ import logoSvg from '@/assets/logo.svg'
 
   .cta-primary:hover {
     background: #e0ff4d;
-    transform: translateY(-2px);
+    transform: translateY(-1px);
   }
 
   .cta-primary:focus-visible {
@@ -876,6 +991,75 @@ import logoSvg from '@/assets/logo.svg'
     opacity: 1;
   }
 
+  /* ─── MID-CTA ─── */
+  .sect--mid-cta {
+    padding: 80px 0;
+  }
+
+  @media (max-width: 768px) {
+    .sect--mid-cta {
+      padding: 56px 0;
+    }
+  }
+
+  .mid-cta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 48px;
+  }
+
+  @media (max-width: 768px) {
+    .mid-cta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+    }
+  }
+
+  .mid-cta__headline {
+    font-weight: 900;
+    font-size: clamp(48px, 9vw, 100px);
+    letter-spacing: -0.05em;
+    line-height: 0.85;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .mid-cta__headline > span {
+    display: block;
+  }
+
+  .mid-cta__headline--outline {
+    -webkit-text-stroke: 2px var(--ink);
+    color: var(--paper);
+    paint-order: stroke fill;
+  }
+
+  @media (max-width: 768px) {
+    .mid-cta__headline--outline {
+      -webkit-text-stroke-width: 1.5px;
+    }
+  }
+
+  .mid-cta__body {
+    max-width: 36ch;
+    flex-shrink: 0;
+  }
+
+  .mid-cta__hint {
+    font-size: 14px;
+    line-height: 1.55;
+    opacity: 0.45;
+    margin: 0 0 24px;
+  }
+
+  .mid-cta__secondary {
+    font-size: 13px;
+    opacity: 0.3;
+    margin: 16px 0 0;
+  }
+
   /* ─── CATEGORY CARDS (Komposition-Stil) ─── */
   .cat-grid {
     display: grid;
@@ -1034,11 +1218,32 @@ import logoSvg from '@/assets/logo.svg'
     color: rgba(255, 255, 255, 0.85);
   }
 
+  .cat-card__partner {
+    display: block;
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0.4;
+    margin-top: 10px;
+    color: var(--ink);
+    text-underline-offset: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .cat-card__partner:hover {
+    opacity: 0.7;
+  }
+
   /* Hint below cards */
   .cat-hint {
     font-size: 14px;
     opacity: 0.45;
     margin: 24px 0 0;
+  }
+
+  .cat-hint--rec {
+    font-weight: 600;
+    opacity: 0.55;
+    margin-top: 12px;
   }
 
   /* Stagger animation for cards */
@@ -1068,11 +1273,12 @@ import logoSvg from '@/assets/logo.svg'
     display: flex;
     align-items: baseline;
     flex-wrap: wrap;
+    justify-content: flex-end;
     gap: 12px 16px;
   }
 
   .day-route__line--end {
-    padding-left: clamp(48px, 10vw, 160px);
+    padding-right: clamp(48px, 10vw, 160px);
   }
 
   .day-route__stop {
@@ -1112,9 +1318,75 @@ import logoSvg from '@/assets/logo.svg'
   .day-route__note {
     font-size: 14px;
     opacity: 0.45;
-    margin: 32px 0 0;
-    max-width: 56ch;
+    margin: 48px 0 0;
+    max-width: 48ch;
     line-height: 1.55;
+  }
+
+  /* ─── DAY STEPS ─── */
+  .day-steps {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .day-step {
+    display: flex;
+    align-items: baseline;
+    gap: 32px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+
+  .day-step:first-child {
+    border-top: 1px solid var(--ink);
+  }
+
+  .day-step:last-child {
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .day-step__time {
+    font-weight: 900;
+    font-size: 32px;
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+    -webkit-text-stroke: 1px var(--ink);
+    color: var(--paper);
+    paint-order: stroke fill;
+    width: 140px;
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .day-step {
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .day-step__time {
+      font-size: 24px;
+      width: 90px;
+    }
+  }
+
+  .day-step__content {
+    max-width: 44ch;
+  }
+
+  .day-step__title {
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    margin: 0 0 6px;
+  }
+
+  .day-step__desc {
+    font-size: 14px;
+    line-height: 1.55;
+    opacity: 0.45;
+    margin: 0;
   }
 
   /* ─── SIGNUP CARDS (Komposition-Stil) ─── */
@@ -1407,6 +1679,12 @@ import logoSvg from '@/assets/logo.svg'
     max-width: 56ch;
   }
 
+  .faq__a a {
+    color: var(--ink);
+    font-weight: 600;
+    text-underline-offset: 2px;
+  }
+
   /* ─── FINAL CTA ─── */
   .sect--cta {
     display: flex;
@@ -1431,7 +1709,7 @@ import logoSvg from '@/assets/logo.svg'
     margin: 0 0 32px;
   }
 
-  .final-cta__headline span {
+  .final-cta__headline > span {
     display: block;
   }
 
@@ -1511,15 +1789,6 @@ import logoSvg from '@/assets/logo.svg'
 
   .foot__links a:hover {
     opacity: 0.8;
-  }
-
-  .foot__copy {
-    display: block;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 600;
-    opacity: 0.25;
   }
 
   /* ─── SCROLL REVEAL ─── */

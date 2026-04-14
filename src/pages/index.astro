@@ -1,28 +1,20 @@
 ---
 import Layout from '@/layouts/default.astro'
 import MarkerHighlight from '@/components/marker-highlight.astro'
+import SectionHeader from '@/components/section-header.astro'
+import Card from '@/components/card.astro'
+import NumberedStep from '@/components/numbered-step.astro'
+import FaqItem from '@/components/faq-item.astro'
 import logoSvg from '@/assets/logo.svg'
 
 const sectClass = 'sect border-t border-navy py-20 focus:outline-none md:py-[120px]'
-const sectEyebrowClass = 'sect__eyebrow mb-6 block text-[11px] font-bold uppercase tracking-[0.2em] opacity-40'
-const sectNoteClass = 'mb-14 max-w-[48ch] text-[15px] leading-[1.6] opacity-55'
-const sectHeadlineClass =
-  'sect__headline m-0 mb-8 text-[clamp(56px,10vw,120px)] font-black uppercase leading-[0.85] tracking-[-0.05em] [&>span]:block'
-const catCardBaseClass =
-  'cat-card stagger @container relative flex min-h-[420px] flex-col overflow-hidden bg-surface-alt p-7 text-navy'
-const catCardClayClass =
-  'cat-card cat-card--clay stagger @container relative flex min-h-[420px] flex-col overflow-hidden bg-clay p-7 text-white'
-const catCardBadgeClass =
-  'cat-card__badge self-start border-[1.5px] border-navy px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.15em]'
-const catCardBadgeInvClass =
-  'cat-card__badge self-start border-[1.5px] border-white/40 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.15em] text-white'
-const signupCardBaseClass = 'signup-card stagger @container flex min-h-[340px] flex-col bg-surface-alt p-7 text-navy'
-const signupCardDarkClass =
-  'signup-card signup-card--dark stagger @container flex min-h-[340px] flex-col bg-surface-dark p-7 text-white'
-const signupBadgeClass =
-  'signup-card__badge self-start border-[1.5px] border-navy px-2.5 py-1 text-[11px] font-black tracking-[0.15em]'
+const catBadgeClass =
+  'self-start border-[1.5px] border-navy px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.15em]'
+const catBadgeInvClass =
+  'self-start border-[1.5px] border-white/40 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.15em] text-white'
+const signupBadgeClass = 'self-start border-[1.5px] border-navy px-2.5 py-1 text-[11px] font-black tracking-[0.15em]'
 const signupBadgeInvClass =
-  'signup-card__badge self-start border-[1.5px] border-white/40 px-2.5 py-1 text-[11px] font-black tracking-[0.15em] text-white'
+  'self-start border-[1.5px] border-white/40 px-2.5 py-1 text-[11px] font-black tracking-[0.15em] text-white'
 ---
 
 <Layout
@@ -36,7 +28,7 @@ const signupBadgeInvClass =
   <main class="mx-auto max-w-[1280px] px-5 pt-6 pb-20 text-navy md:px-10 md:pt-8 md:pb-[120px]">
     <a
       href="#turniermodus"
-      class="absolute -top-full left-4 z-[100] bg-neon px-5 py-2.5 text-[13px] font-extrabold tracking-[0.02em] text-navy uppercase no-underline focus-visible:top-4 focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-navy"
+      class="absolute -top-full left-4 z-100 bg-neon px-5 py-2.5 text-[13px] font-extrabold tracking-[0.02em] text-navy uppercase no-underline focus-visible:top-4 focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-navy"
       >Direkt zum Inhalt</a
     >
 
@@ -87,61 +79,27 @@ const signupBadgeInvClass =
 
     <!-- Turniermodus -->
     <section id="turniermodus" class:list={[sectClass]} tabindex="-1">
-      <span class:list={['reveal', sectEyebrowClass]}>So läuft dein Matchday</span>
-      <h2 class={sectHeadlineClass}>
-        <span class="sect__headline-clip" style="--i:0">Kein</span>
-        <span
-          class="sect__headline-clip text-surface-alt text-stroke-ink max-md:[-webkit-text-stroke-width:1.5px]"
-          style="--i:1">K.O.</span
-        >
-      </h2>
-      <p class={sectNoteClass}>
-        Zwei Matches gegen ähnlich starke Gegner — du spielst beide, egal wie das erste ausgeht.
-      </p>
+      <SectionHeader
+        eyebrow="So läuft dein Matchday"
+        headline={['Kein', 'K.O.']}
+        note="Zwei Matches gegen ähnlich starke Gegner — du spielst beide, egal wie das erste ausgeht."
+      />
 
       <div class="flex items-start justify-between gap-16 max-md:flex-col max-md:gap-12">
         <div class="flex flex-col gap-12">
-          <div class="reveal flex items-start gap-6">
-            <span
-              class="w-14 shrink-0 text-[48px] leading-[0.8] font-black tracking-[-0.04em] text-surface-alt text-stroke-ink-sm"
-              >01</span
-            >
-            <div class="max-w-[48ch]">
-              <h3 class="m-0 mb-2.5 text-[22px] font-extrabold tracking-[-0.02em]">Einteilung nach Spielstärke</h3>
-              <p class="m-0 text-sm leading-[1.6] opacity-55">
-                Alle Spieler werden vor dem Matchday nach Spielstärke sortiert. Dieses Verfahren heißt offiziell
-                „Spiralsystem".
-              </p>
-            </div>
-          </div>
-          <div class="reveal flex items-start gap-6">
-            <span
-              class="w-14 shrink-0 text-[48px] leading-[0.8] font-black tracking-[-0.04em] text-surface-alt text-stroke-ink-sm"
-              >02</span
-            >
-            <div class="max-w-[48ch]">
-              <h3 class="m-0 mb-2.5 text-[22px] font-extrabold tracking-[-0.02em]">Zwei Matches</h3>
-              <p class="m-0 text-sm leading-[1.6] opacity-55">
-                Du spielst genau zwei Matches — einmal gegen jemanden mit etwas
-                <span class="font-bold text-blue opacity-100">besserer LK</span> als du, und einmal gegen jemanden mit etwas
-                <span class="font-bold text-clay opacity-100">schwächerer LK</span>. Beide Gegner sind nah an deinem
-                Niveau.
-              </p>
-            </div>
-          </div>
-          <div class="reveal flex items-start gap-6">
-            <span
-              class="w-14 shrink-0 text-[48px] leading-[0.8] font-black tracking-[-0.04em] text-surface-alt text-stroke-ink-sm"
-              >03</span
-            >
-            <div class="max-w-[48ch]">
-              <h3 class="m-0 mb-2.5 text-[22px] font-extrabold tracking-[-0.02em]">Ergebnis</h3>
-              <p class="m-0 text-sm leading-[1.6] opacity-55">
-                Beide Matches fließen direkt in deine LK-Wertung ein. Kein Finale, keine Platzierung, kein Ausscheiden —
-                es geht nur um deine Matches und deine LK.
-              </p>
-            </div>
-          </div>
+          <NumberedStep num="01" title="Einteilung nach Spielstärke">
+            Alle Spieler werden vor dem Matchday nach Spielstärke sortiert. Dieses Verfahren heißt offiziell
+            „Spiralsystem".
+          </NumberedStep>
+          <NumberedStep num="02" title="Zwei Matches">
+            Du spielst genau zwei Matches — einmal gegen jemanden mit etwas
+            <span class="font-bold text-blue opacity-100">besserer LK</span> als du, und einmal gegen jemanden mit etwas
+            <span class="font-bold text-clay opacity-100">schwächerer LK</span>. Beide Gegner sind nah an deinem Niveau.
+          </NumberedStep>
+          <NumberedStep num="03" title="Ergebnis">
+            Beide Matches fließen direkt in deine LK-Wertung ein. Kein Finale, keine Platzierung, kein Ausscheiden — es
+            geht nur um deine Matches und deine LK.
+          </NumberedStep>
         </div>
 
         <figure
@@ -219,12 +177,12 @@ const signupBadgeInvClass =
 
     <!-- Kategorien -->
     <section class:list={[sectClass]}>
-      <h2 class:list={['reveal', sectEyebrowClass]}>Drei Kategorien</h2>
+      <SectionHeader eyebrow="Drei Kategorien" />
 
       <div class="cat-grid grid grid-cols-3 gap-0.5 bg-navy p-0.5 max-[900px]:grid-cols-1">
         <!-- Einzel — Axis -->
-        <div class={catCardBaseClass} style="--i:0">
-          <span class={catCardBadgeClass}>Einzel</span>
+        <Card variant="light" minHeight={420} stagger={0}>
+          <span class={catBadgeClass}>Einzel</span>
           <div class="relative my-6 flex flex-1 flex-col">
             <span
               class="flex flex-1 items-center justify-center text-[clamp(48px,20cqw,110px)] leading-[0.85] font-black tracking-[-0.05em] uppercase"
@@ -237,11 +195,11 @@ const signupBadgeInvClass =
               Max. 10 Spieler · Alle Spielstärken
             </span>
           </div>
-        </div>
+        </Card>
 
         <!-- Doppel — Stack -->
-        <div class={catCardBaseClass} style="--i:1">
-          <span class={catCardBadgeClass}>Doppel</span>
+        <Card variant="light" minHeight={420} stagger={1}>
+          <span class={catBadgeClass}>Doppel</span>
           <div
             class="my-6 flex flex-1 flex-col justify-center [&>span]:border-b [&>span]:border-navy/15 [&>span]:py-1.5 [&>span]:text-[clamp(24px,8cqw,40px)] [&>span]:leading-none [&>span]:font-black [&>span]:tracking-[-0.035em] [&>span]:uppercase [&>span:last-child]:border-b-0"
           >
@@ -259,11 +217,11 @@ const signupBadgeInvClass =
               Max. 8 Teams · Alle Spielstärken
             </span>
           </div>
-        </div>
+        </Card>
 
         <!-- Ü40 — Clay Axis -->
-        <div class={catCardClayClass} style="--i:2">
-          <span class={catCardBadgeInvClass}>Einzel</span>
+        <Card variant="clay-textured" minHeight={420} stagger={2}>
+          <span class={catBadgeInvClass}>Einzel</span>
           <div class="relative my-6 flex flex-1 flex-col">
             <span
               class="flex flex-1 items-center justify-center text-[clamp(48px,20cqw,110px)] leading-[0.85] font-black tracking-[-0.05em] uppercase"
@@ -276,7 +234,7 @@ const signupBadgeInvClass =
               Max. 12 Spieler · Alle Spielstärken
             </span>
           </div>
-        </div>
+        </Card>
       </div>
 
       <p class="reveal mt-6 text-sm opacity-45">
@@ -289,12 +247,10 @@ const signupBadgeInvClass =
 
     <!-- Tagesablauf -->
     <section class:list={[sectClass]}>
-      <h2 class:list={['reveal', sectEyebrowClass]}>Dein Turniertag</h2>
-
-      <p class={sectNoteClass}>
-        Ein Tag, kompakt getaktet. Du kommst morgens oder mittags, spielst deine Matches, und bist im Regelfall am
-        Nachmittag durch. Dazwischen: kurze Pausen, offene Gastronomie, und genug Zeit zum Zuschauen.
-      </p>
+      <SectionHeader
+        eyebrow="Dein Turniertag"
+        note="Ein Tag, kompakt getaktet. Du kommst morgens oder mittags, spielst deine Matches, und bist im Regelfall am Nachmittag durch. Dazwischen: kurze Pausen, offene Gastronomie, und genug Zeit zum Zuschauen."
+      />
 
       <div class="flex flex-col gap-4">
         <div
@@ -429,10 +385,10 @@ const signupBadgeInvClass =
 
     <!-- Anmeldung -->
     <section class:list={[sectClass]}>
-      <h2 class:list={['reveal', sectEyebrowClass]}>In 3 Schritten angemeldet</h2>
+      <SectionHeader eyebrow="In 3 Schritten angemeldet" />
 
       <div class="signup-grid grid grid-cols-3 gap-0.5 bg-navy p-0.5 max-md:grid-cols-1">
-        <div class={signupCardBaseClass} style="--i:0">
+        <Card variant="light" minHeight={340} stagger={0}>
           <span class={signupBadgeClass}>1</span>
           <div class="my-6 flex flex-1 flex-col justify-center">
             <h3 class="m-0 mb-3 text-[clamp(20px,6cqw,28px)] leading-[1.1] font-black tracking-[-0.03em]">
@@ -441,8 +397,8 @@ const signupBadgeInvClass =
             <p class="m-0 text-[13px] leading-[1.55] opacity-50">Falls du noch keinen hast. Dauert 5 Minuten.</p>
           </div>
           <span class="mt-auto pt-4 text-[10px] font-semibold tracking-[0.14em] uppercase opacity-40">5 Min</span>
-        </div>
-        <div class={signupCardBaseClass} style="--i:1">
+        </Card>
+        <Card variant="light" minHeight={340} stagger={1}>
           <span class={signupBadgeClass}>2</span>
           <div class="my-6 flex flex-1 flex-col justify-center">
             <h3 class="m-0 mb-3 text-[clamp(20px,6cqw,28px)] leading-[1.1] font-black tracking-[-0.03em]">
@@ -454,8 +410,8 @@ const signupBadgeInvClass =
             </p>
           </div>
           <span class="mt-auto pt-4 text-[10px] font-semibold tracking-[0.14em] uppercase opacity-40">20 €/Jahr</span>
-        </div>
-        <div class={signupCardDarkClass} style="--i:2">
+        </Card>
+        <Card variant="dark" minHeight={340} stagger={2}>
           <span class={signupBadgeInvClass}>3</span>
           <div class="my-6 flex flex-1 flex-col justify-center">
             <h3 class="m-0 mb-3 text-[clamp(20px,6cqw,28px)] leading-[1.1] font-black tracking-[-0.03em]">
@@ -467,13 +423,13 @@ const signupBadgeInvClass =
             </p>
           </div>
           <a href="#" class="cta-primary">Jetzt anmelden</a>
-        </div>
+        </Card>
       </div>
     </section>
 
     <!-- Ort & Anfahrt -->
     <section class:list={[sectClass, 'sect--clay']}>
-      <h2 class:list={['reveal', sectEyebrowClass]}>Ort & Anfahrt</h2>
+      <SectionHeader eyebrow="Ort & Anfahrt" />
       <div class="reveal mb-14">
         <span class="block text-[clamp(56px,10vw,120px)] leading-[0.85] font-black tracking-[-0.05em] uppercase"
           >6 Sand</span
@@ -542,170 +498,64 @@ const signupBadgeInvClass =
 
     <!-- FAQ -->
     <section class:list={[sectClass]}>
-      <span class:list={['reveal', sectEyebrowClass]}>FAQ</span>
-      <h2 class={sectHeadlineClass}>
-        <span class="sect__headline-clip" style="--i:0">Noch</span>
-        <span
-          class="sect__headline-clip text-surface-alt text-stroke-ink max-md:[-webkit-text-stroke-width:1.5px]"
-          style="--i:1">Fragen?</span
-        >
-      </h2>
+      <SectionHeader eyebrow="FAQ" headline={['Noch', 'Fragen?']} />
 
       <div class="reveal max-w-[720px]">
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Was brauche ich, um mitzumachen?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Zwei Dinge: einen tennis.de-Account (hast du wahrscheinlich schon, wenn du Punktspiele spielst) und eine
-            DTB-Lizenz (20 €/Jahr). Klingt nach viel — ist in 10 Minuten erledigt.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Was ist die DTB-Lizenz?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Eine jährliche Spielberechtigung für LK-Turniere, kostet 20 € pro Jahr. Für Punktspiele brauchst du sie
-            nicht — deshalb haben viele Vereinsspieler sie noch nicht. Du kannst sie direkt auf tennis.de kaufen. Für
-            Doppel brauchen beide Spieler eine Lizenz. (Der ältere Begriff „Spielerpass" meint dasselbe.)
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Wie melde ich mich an?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Über unseren Direktlink auf tennis.de. Dort landest du direkt beim offiziellen Eintrag. Anmeldung bis 1.
-            Juli 2026, 20:00 Uhr.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Was kostet die Teilnahme?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            35 € Einzel, 18 € Doppel (pro Person). Zahlung vor Ort. Die Teilnahmegebühr deckt alles ab: Organisation,
-            Bälle und die offizielle Turniergebühr an den Verband. Dazu kommt einmalig die DTB-Lizenz (20 €/Jahr), falls
-            du sie noch nicht hast.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Wie viele Matches spiele ich?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            2 pro Einzel oder Doppel. Wer beides spielt, kommt auf 4 Matches am Tag.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Kann ich Einzel und Doppel spielen?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Ja. Du kannst dich für beides anmelden. Dann spielst du 4 Matches am Tag und solltest mit einem deutlich
-            längeren Turniertag rechnen.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Was muss ich mitbringen?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Tennissachen, Schläger, Trinken, Sonnenschutz. Bälle werden gestellt.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Zähle ich selbst?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Ja, beide Spieler zählen selbst — wie im Punktspiel. Die Turnierleitung ist bei Fragen jederzeit
-            ansprechbar.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Wann sehe ich mein Ergebnis in der LK?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Dein Ergebnis ist direkt nach dem Matchday auf tennis.de sichtbar. Die offizielle LK-Aktualisierung passiert
-            immer montags.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Doppel ohne Partner?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Schreib uns eine Mail an
-            <a href="mailto:matchday@tennisverein-winsen.de" class="font-semibold text-navy underline-offset-2"
-              >matchday@tennisverein-winsen.de</a
-            > — wir helfen bei der Vermittlung.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Kann ich zuschauen, ohne zu spielen?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Klar. Zuschauer sind jederzeit willkommen. Clubhaus mit Terrasse und Gastronomie ist offen.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Was passiert, wenn ein Gegner nicht auftaucht?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Dann organisieren wir nach Möglichkeit ein Ersatzspiel, damit deine zwei Matches erhalten bleiben.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Was passiert bei Regen?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Regen ist höhere Gewalt. Dann kann sich der Ablauf verschieben, angepasst werden oder das Event ausfallen.
-          </p>
-        </details>
-        <details class="faq__item border-b border-navy/15 last:border-b-0">
-          <summary
-            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
-          >
-            Was, wenn ich mich angemeldet habe, aber nicht kommen kann?
-          </summary>
-          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
-            Du kannst dich auf tennis.de wieder abmelden — am besten vor der Einteilung. Wer nach der Einteilung nicht
-            antritt, bekommt ein „n.a." (nicht angetreten). Das erste n.a. innerhalb von 12 Monaten bleibt ohne Folgen,
-            ab dem zweiten verschlechtert sich deine LK.
-          </p>
-        </details>
+        <FaqItem question="Was brauche ich, um mitzumachen?">
+          Zwei Dinge: einen tennis.de-Account (hast du wahrscheinlich schon, wenn du Punktspiele spielst) und eine
+          DTB-Lizenz (20 €/Jahr). Klingt nach viel — ist in 10 Minuten erledigt.
+        </FaqItem>
+        <FaqItem question="Was ist die DTB-Lizenz?">
+          Eine jährliche Spielberechtigung für LK-Turniere, kostet 20 € pro Jahr. Für Punktspiele brauchst du sie nicht
+          — deshalb haben viele Vereinsspieler sie noch nicht. Du kannst sie direkt auf tennis.de kaufen. Für Doppel
+          brauchen beide Spieler eine Lizenz. (Der ältere Begriff „Spielerpass" meint dasselbe.)
+        </FaqItem>
+        <FaqItem question="Wie melde ich mich an?">
+          Über unseren Direktlink auf tennis.de. Dort landest du direkt beim offiziellen Eintrag. Anmeldung bis 1. Juli
+          2026, 20:00 Uhr.
+        </FaqItem>
+        <FaqItem question="Was kostet die Teilnahme?">
+          35 € Einzel, 18 € Doppel (pro Person). Zahlung vor Ort. Die Teilnahmegebühr deckt alles ab: Organisation,
+          Bälle und die offizielle Turniergebühr an den Verband. Dazu kommt einmalig die DTB-Lizenz (20 €/Jahr), falls
+          du sie noch nicht hast.
+        </FaqItem>
+        <FaqItem question="Wie viele Matches spiele ich?">
+          2 pro Einzel oder Doppel. Wer beides spielt, kommt auf 4 Matches am Tag.
+        </FaqItem>
+        <FaqItem question="Kann ich Einzel und Doppel spielen?">
+          Ja. Du kannst dich für beides anmelden. Dann spielst du 4 Matches am Tag und solltest mit einem deutlich
+          längeren Turniertag rechnen.
+        </FaqItem>
+        <FaqItem question="Was muss ich mitbringen?">
+          Tennissachen, Schläger, Trinken, Sonnenschutz. Bälle werden gestellt.
+        </FaqItem>
+        <FaqItem question="Zähle ich selbst?">
+          Ja, beide Spieler zählen selbst — wie im Punktspiel. Die Turnierleitung ist bei Fragen jederzeit ansprechbar.
+        </FaqItem>
+        <FaqItem question="Wann sehe ich mein Ergebnis in der LK?">
+          Dein Ergebnis ist direkt nach dem Matchday auf tennis.de sichtbar. Die offizielle LK-Aktualisierung passiert
+          immer montags.
+        </FaqItem>
+        <FaqItem question="Doppel ohne Partner?">
+          Schreib uns eine Mail an
+          <a href="mailto:matchday@tennisverein-winsen.de" class="font-semibold text-navy underline-offset-2"
+            >matchday@tennisverein-winsen.de</a
+          > — wir helfen bei der Vermittlung.
+        </FaqItem>
+        <FaqItem question="Kann ich zuschauen, ohne zu spielen?">
+          Klar. Zuschauer sind jederzeit willkommen. Clubhaus mit Terrasse und Gastronomie ist offen.
+        </FaqItem>
+        <FaqItem question="Was passiert, wenn ein Gegner nicht auftaucht?">
+          Dann organisieren wir nach Möglichkeit ein Ersatzspiel, damit deine zwei Matches erhalten bleiben.
+        </FaqItem>
+        <FaqItem question="Was passiert bei Regen?">
+          Regen ist höhere Gewalt. Dann kann sich der Ablauf verschieben, angepasst werden oder das Event ausfallen.
+        </FaqItem>
+        <FaqItem question="Was, wenn ich mich angemeldet habe, aber nicht kommen kann?">
+          Du kannst dich auf tennis.de wieder abmelden — am besten vor der Einteilung. Wer nach der Einteilung nicht
+          antritt, bekommt ein „n.a." (nicht angetreten). Das erste n.a. innerhalb von 12 Monaten bleibt ohne Folgen, ab
+          dem zweiten verschlechtert sich deine LK.
+        </FaqItem>
       </div>
     </section>
 
@@ -717,7 +567,8 @@ const signupBadgeInvClass =
       ]}
     >
       <div class="reveal flex flex-col items-center text-center">
-        <span class:list={['final-cta__eyebrow mb-10 min-w-[280px]', sectEyebrowClass.replace('mb-6', '')]}
+        <span
+          class="final-cta__eyebrow sect__eyebrow mb-10 block min-w-[280px] text-[11px] font-bold tracking-[0.2em] uppercase opacity-40"
           >Samstag &middot; 04.07.2026</span
         >
         <h2
@@ -759,7 +610,7 @@ const signupBadgeInvClass =
   </main>
 </Layout>
 
-<style>
+<style is:global>
   /* CTA buttons — reused 4x with :hover, :focus-visible states */
   .cta-primary {
     display: inline-block;

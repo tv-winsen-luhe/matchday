@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/default.astro'
 import MarkerHighlight from '@/components/marker-highlight.astro'
+import Card from '@/components/card.astro'
 import logoSvg from '@/assets/logo.svg'
 import signetSvg from '@/assets/signet.svg'
 
@@ -181,7 +182,7 @@ const compCardDescClass = 'mt-auto pt-4 text-[10px] font-semibold uppercase trac
             <div class="grid grid-cols-3 gap-0.5 bg-navy p-0.5">
               {scale.shades.map(shade => (
                 <div
-                  class="flex aspect-[5/3] flex-col justify-end gap-1 p-5 max-[600px]:aspect-[3/1]"
+                  class="flex aspect-5/3 flex-col justify-end gap-1 p-5 max-[600px]:aspect-3/1"
                   style={`background-color: ${shade.value}`}
                 >
                   <span class:list={['text-lg font-black tracking-[-0.01em]', shade.dark ? 'text-white' : 'text-navy']}>
@@ -321,9 +322,7 @@ const compCardDescClass = 'mt-auto pt-4 text-[10px] font-semibold uppercase trac
       </p>
 
       <div class="grid grid-cols-4 gap-0.5 bg-navy p-0.5 max-[900px]:grid-cols-2 max-[600px]:grid-cols-1">
-        <div
-          class="stagger stagger--1 @container relative flex min-h-[380px] flex-col overflow-hidden bg-surface-alt p-7 text-navy"
-        >
+        <Card variant="light" minHeight={380} class="stagger--1">
           <span class={compCardNumClass}>A</span>
           <div class="relative my-6 flex-1">
             <span
@@ -336,11 +335,9 @@ const compCardDescClass = 'mt-auto pt-4 text-[10px] font-semibold uppercase trac
             >
           </div>
           <span class={compCardDescClass}>Vertikale Achse trifft horizontale Headline</span>
-        </div>
+        </Card>
 
-        <div
-          class="stagger stagger--2 @container relative flex min-h-[380px] flex-col overflow-hidden bg-surface-alt p-7 text-navy"
-        >
+        <Card variant="light" minHeight={380} class="stagger--2">
           <span class={compCardNumClass}>B</span>
           <div
             class="my-6 flex flex-1 flex-col justify-center [&>span]:border-b [&>span]:border-navy/15 [&>span]:py-1.5 [&>span]:text-[clamp(28px,8cqw,44px)] [&>span]:leading-none [&>span]:font-black [&>span]:tracking-[-0.035em] [&>span]:uppercase [&>span:last-child]:border-b-0"
@@ -352,11 +349,9 @@ const compCardDescClass = 'mt-auto pt-4 text-[10px] font-semibold uppercase trac
             <span>Matchday</span>
           </div>
           <span class={compCardDescClass}>Wiederholung — Volt bricht das Muster</span>
-        </div>
+        </Card>
 
-        <div
-          class="stagger stagger--3 @container relative flex min-h-[380px] flex-col overflow-hidden bg-surface-alt p-7 text-navy"
-        >
+        <Card variant="light" minHeight={380} class="stagger--3">
           <span class={compCardNumClass}>C</span>
           <div
             class="my-6 flex flex-1 items-center justify-center text-[clamp(72px,32cqw,140px)] leading-[0.8] font-black tracking-[-0.05em]"
@@ -364,11 +359,9 @@ const compCardDescClass = 'mt-auto pt-4 text-[10px] font-semibold uppercase trac
             2026
           </div>
           <span class={compCardDescClass}>Ziffer als eigenständiges Motiv</span>
-        </div>
+        </Card>
 
-        <div
-          class="stagger stagger--4 @container relative flex min-h-[380px] flex-col overflow-hidden bg-clay p-7 text-white"
-        >
+        <Card variant="clay" minHeight={380} class="stagger--4">
           <span
             class="self-start border-[1.5px] border-white/40 px-[9px] py-1 text-xs font-black tracking-[0.15em] text-white"
             >D</span
@@ -382,7 +375,7 @@ const compCardDescClass = 'mt-auto pt-4 text-[10px] font-semibold uppercase trac
           <span class="mt-auto pt-4 text-[10px] font-semibold tracking-[0.14em] text-white/50 uppercase">
             Warme Fläche als Kontrast zu Navy + Neon
           </span>
-        </div>
+        </Card>
       </div>
     </section>
 
@@ -425,7 +418,7 @@ const compCardDescClass = 'mt-auto pt-4 text-[10px] font-semibold uppercase trac
   </main>
 </Layout>
 
-<style>
+<style is:global>
   .sect:first-of-type {
     border-top: none;
     padding-top: 0;

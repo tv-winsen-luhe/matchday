@@ -735,12 +735,9 @@ const signupBadgeInvClass =
 
     <!-- Footer -->
     <footer class="mt-[72px] border-t border-navy pt-9">
-      <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
-        <div class="flex items-center gap-4">
-          <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="56" height="56" />
-          <span class="text-[13px] font-bold tracking-[0.02em]">TV Winsen/Luhe von 1913 e.V.</span>
-        </div>
-        <div class="flex gap-5">
+      <div class="flex items-center justify-between gap-4 max-sm:flex-col max-sm:items-start max-sm:gap-6">
+        <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="64" height="64" class="shrink-0" />
+        <div class="flex flex-wrap gap-x-5 gap-y-2">
           <a
             href="mailto:matchday@tennisverein-winsen.de"
             class="text-xs font-semibold tracking-widest text-navy/40 uppercase no-underline transition-opacity duration-200 hover:opacity-80"

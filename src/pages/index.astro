@@ -468,10 +468,10 @@ import logoSvg from '@/assets/logo.svg'
     <!-- Abschluss-CTA -->
     <section class="sect sect--cta sect--clay">
       <div class="final-cta reveal">
-        <span class="sect__eyebrow final-cta__eyebrow">04 / 07 / 2026 &middot; Winsen (Luhe)</span>
+        <span class="sect__eyebrow final-cta__eyebrow">Samstag &middot; 04.07.2026</span>
         <h2 class="final-cta__headline">
           <span>Du weißt jetzt</span>
-          <span class="final-cta__outline">alles<span class="final-cta__dot">.</span></span>
+          <span class="final-cta__outline">alles</span>
         </h2>
         <p class="final-cta__sub">Fehlt nur noch dein Name. Anmeldung bis 1. Juli 2026.</p>
         <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
@@ -1185,6 +1185,22 @@ import logoSvg from '@/assets/logo.svg'
   .cat-card--clay {
     background: var(--color-clay, #c2673b);
     color: white;
+  }
+
+  .cat-card--clay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+  }
+
+  .cat-card--clay > * {
+    position: relative;
+    z-index: 1;
   }
 
   /* Details — bottom of card */

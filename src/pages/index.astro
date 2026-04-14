@@ -603,6 +603,9 @@ import logoSvg from '@/assets/logo.svg'
       align-items: flex-start;
       gap: 32px;
     }
+    .hero__date {
+      align-self: flex-end;
+    }
   }
 
   .hero__title {
@@ -1346,6 +1349,21 @@ import logoSvg from '@/assets/logo.svg'
     margin: 48px 0 0;
     max-width: 48ch;
     line-height: 1.55;
+  }
+
+  @media (max-width: 600px) {
+    .day-route__line {
+      gap: 8px 10px;
+    }
+    .day-route__stop {
+      font-size: clamp(20px, 5.5vw, 32px);
+    }
+    .day-route__sep {
+      font-size: clamp(16px, 4vw, 24px);
+    }
+    .day-route__line--end {
+      padding-right: 0;
+    }
   }
 
   /* ─── DAY STEPS ─── */

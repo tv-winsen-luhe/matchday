@@ -142,7 +142,7 @@ const compCardDescClass = 'mt-auto pt-4 text-[10px] font-semibold uppercase trac
             </figure>
           </div>
         </div>
-        <div class="flex min-h-[240px] flex-col bg-surface-dark p-8">
+        <div class="flex min-h-[240px] flex-col bg-navy p-8">
           <span class={cellTagInvClass}>Dunkel</span>
           <div class="mt-6 flex flex-1 items-end gap-8">
             <figure class="shrink-0">
@@ -256,6 +256,52 @@ const compCardDescClass = 'mt-auto pt-4 text-[10px] font-semibold uppercase trac
       </div>
 
       <div class="border-t border-navy/15 py-7">
+        <span class={cellTagClass}>Tennisball-Punkt</span>
+        <div class="text-[clamp(48px,8vw,96px)] leading-[0.85] font-black tracking-[-0.05em] uppercase">
+          Matchday<span class="inline text-neon text-stroke-volt max-md:[-webkit-text-stroke-width:1.5px]">.</span>
+        </div>
+        <p class="mt-5 max-w-[56ch] text-[13px] leading-[1.6] opacity-60">
+          Der abschließende Satzpunkt einer Display-Headline wird zum Tennisball: Neon-Füllung plus Neon-Stroke skaliert
+          mit der Schrift. Nur als terminierender Akzent, nie mitten im Satz. Aktuell auf index.astro im Hero
+          („Matchday.") und im Venue-Hero („Sandplätze.").
+        </p>
+      </div>
+
+      <div class="border-t border-navy/15 py-7">
+        <span class={cellTagClass}>Outline-Zahlen</span>
+        <div class="mt-4 grid grid-cols-3 gap-4 max-[900px]:grid-cols-1">
+          <div class="flex flex-col gap-3">
+            <span class="text-[48px] leading-none font-black tracking-[-0.04em] text-surface-alt text-stroke-ink-sm"
+              >04.07.</span
+            >
+            <span class="text-[9px] font-semibold tracking-[0.14em] uppercase opacity-45"
+              >Display · stroke-ink-sm (1.5px)</span
+            >
+          </div>
+          <div class="flex flex-col gap-3">
+            <span
+              class="text-[32px] leading-none font-black tracking-[-0.03em] text-surface-alt uppercase [-webkit-text-stroke:1px_var(--color-navy)] [paint-order:stroke_fill]"
+              >09:00</span
+            >
+            <span class="text-[9px] font-semibold tracking-[0.14em] uppercase opacity-45">Timeline · 1px Navy</span>
+          </div>
+          <div class="flex flex-col gap-3 bg-clay px-4 py-3">
+            <span
+              class="text-[32px] leading-none font-black tracking-[-0.03em] text-clay [-webkit-text-stroke:1.5px_rgba(255,255,255,0.8)] [paint-order:stroke_fill]"
+              >1</span
+            >
+            <span class="text-[9px] font-semibold tracking-[0.14em] text-white/70 uppercase">Clay · 1.5px Weiß</span>
+          </div>
+        </div>
+        <p class="mt-5 max-w-[56ch] text-[13px] leading-[1.6] opacity-60">
+          Zahlen übernehmen die Outline-Regel in drei Skalen. Display (Datum im Hero, Schritt-Nummern 01/02/03):
+          <code class="font-mono text-[11px]">text-stroke-ink-sm</code>. Timeline (Uhrzeiten, 32px): inline
+          <code class="font-mono text-[11px]">[-webkit-text-stroke:1px_var(--color-navy)]</code>. Auf Clay kehrt sich
+          das um — Füllung Clay, Stroke Weiß in 1.5px.
+        </p>
+      </div>
+
+      <div class="border-t border-navy/15 py-7">
         <span class={cellTagClass}>Headline — Extra Bold 800</span>
         <div class="text-[clamp(36px,6vw,80px)] leading-[0.95] font-extrabold tracking-[-0.035em]">
           Willkommen zum<br />Matchday Winsen.
@@ -294,7 +340,7 @@ const compCardDescClass = 'mt-auto pt-4 text-[10px] font-semibold uppercase trac
       </div>
 
       <!-- Heading-Styles -->
-      <div class="mt-10 bg-surface-dark px-7 pt-7 pb-9 md:px-10 md:pt-10 md:pb-12">
+      <div class="mt-10 bg-navy px-7 pt-7 pb-9 md:px-10 md:pt-10 md:pb-12">
         <span class={cellTagInvClass}>Heading-Styles · Dunkel</span>
         <div class="mt-6 flex flex-col gap-7">
           <div>

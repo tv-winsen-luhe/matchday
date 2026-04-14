@@ -3,6 +3,27 @@ import Layout from '@/layouts/default.astro'
 import MarkerHighlight from '@/components/marker-highlight.astro'
 import signetSvg from '@/assets/signet.svg'
 import logoSvg from '@/assets/logo.svg'
+
+const sectClass = 'sect border-t border-navy py-20 focus:outline-none md:py-[120px]'
+const sectEyebrowClass = 'sect__eyebrow mb-6 block text-[11px] font-bold uppercase tracking-[0.2em] opacity-40'
+const sectNoteClass = 'mb-14 max-w-[48ch] text-[15px] leading-[1.6] opacity-55'
+const sectHeadlineClass =
+  'sect__headline m-0 mb-8 text-[clamp(56px,10vw,120px)] font-black uppercase leading-[0.85] tracking-[-0.05em] [&>span]:block'
+const catCardBaseClass =
+  'cat-card stagger @container relative flex min-h-[420px] flex-col overflow-hidden bg-surface-alt p-7 text-navy'
+const catCardClayClass =
+  'cat-card cat-card--clay stagger @container relative flex min-h-[420px] flex-col overflow-hidden bg-clay p-7 text-white'
+const catCardBadgeClass =
+  'cat-card__badge self-start border-[1.5px] border-navy px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.15em]'
+const catCardBadgeInvClass =
+  'cat-card__badge self-start border-[1.5px] border-white/40 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.15em] text-white'
+const signupCardBaseClass = 'signup-card stagger @container flex min-h-[340px] flex-col bg-surface-alt p-7 text-navy'
+const signupCardDarkClass =
+  'signup-card signup-card--dark stagger @container flex min-h-[340px] flex-col bg-surface-dark p-7 text-white'
+const signupBadgeClass =
+  'signup-card__badge self-start border-[1.5px] border-navy px-2.5 py-1 text-[11px] font-black tracking-[0.15em]'
+const signupBadgeInvClass =
+  'signup-card__badge self-start border-[1.5px] border-white/40 px-2.5 py-1 text-[11px] font-black tracking-[0.15em] text-white'
 ---
 
 <Layout
@@ -13,43 +34,57 @@ import logoSvg from '@/assets/logo.svg'
   ogImage={`${import.meta.env.SITE}${import.meta.env.BASE_URL}/og-image.png`}
   bodyClass="bg-surface-alt"
 >
-  <main class="page">
-    <a href="#turniermodus" class="skip-link">Direkt zum Inhalt</a>
+  <main class="mx-auto max-w-[1280px] px-5 pt-6 pb-20 text-navy md:px-10 md:pt-8 md:pb-[120px]">
+    <a
+      href="#turniermodus"
+      class="absolute -top-full left-4 z-[100] bg-neon px-5 py-2.5 text-[13px] font-extrabold tracking-[0.02em] text-navy uppercase no-underline focus-visible:top-4 focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-navy"
+      >Direkt zum Inhalt</a
+    >
 
     <!-- Topbar -->
-    <header class="topbar enter enter--1">
-      <img src={signetSvg.src} alt="TV Winsen/Luhe" width="24" height="24" class="topbar__signet" />
-      <span class="topbar__title">TV Winsen/Luhe</span>
-      <span class="topbar__sep">&middot;</span>
-      <span class="topbar__meta">Seit 1913</span>
-      <span class="topbar__meta">04. Juli 2026</span>
-      <span class="topbar__meta">6 Sandplätze</span>
-      <span class="topbar__meta topbar__meta--right">LK-Tagesturnier</span>
+    <header
+      class="enter enter--1 flex flex-wrap items-baseline gap-3 border-b border-navy pb-4 text-[11px] font-semibold tracking-[0.18em] uppercase"
+    >
+      <img src={signetSvg.src} alt="TV Winsen/Luhe" width="24" height="24" class="shrink-0 self-center" />
+      <span class="text-sm font-black tracking-[0.04em]">TV Winsen/Luhe</span>
+      <span class="opacity-25">&middot;</span>
+      <span class="text-[10px] opacity-45">Seit 1913</span>
+      <span class="text-[10px] opacity-45">04. Juli 2026</span>
+      <span class="text-[10px] opacity-45">6 Sandplätze</span>
+      <span class="ml-auto text-[10px] opacity-45">LK-Tagesturnier</span>
     </header>
 
     <!-- Hero -->
-    <section class="hero">
-      <div class="hero__spread">
-        <h1 class="hero__title">
+    <section class="flex min-h-dvh flex-col justify-center pt-16 pb-[72px] md:pt-24 md:pb-[104px]">
+      <div class="flex items-end justify-between gap-10 max-[600px]:flex-col max-[600px]:items-start max-[600px]:gap-8">
+        <h1
+          class="hero__title m-0 text-[clamp(72px,14vw,180px)] leading-[0.84] font-black tracking-[-0.05em] uppercase"
+        >
           <span class="enter enter--2">Match</span>
-          <span class="hero__title--outline enter enter--3">Day<span class="hero__dot">.</span></span>
+          <span
+            class="hero__title--outline enter enter--3 text-surface-alt text-stroke-ink max-md:[-webkit-text-stroke-width:1.5px]"
+            >Day<span class="inline text-neon text-stroke-volt max-md:[-webkit-text-stroke-width:1.5px]">.</span></span
+          >
         </h1>
-        <div class="hero__date enter enter--3">
-          <span class="hero__date-weekday">Samstag</span>
-          <span class="hero__date-day">04.07.</span>
-          <span class="hero__date-year">2026</span>
+        <div class="enter enter--3 flex shrink-0 flex-col items-end max-[600px]:self-end">
+          <span class="text-[11px] font-semibold tracking-[0.18em] uppercase opacity-40">Samstag</span>
+          <span class="text-[clamp(48px,8vw,80px)] leading-[0.85] font-black tracking-[-0.04em]">04.07.</span>
+          <span
+            class="text-[clamp(48px,8vw,80px)] leading-[0.85] font-black tracking-[-0.04em] text-surface-alt text-stroke-ink-sm"
+            >2026</span
+          >
         </div>
       </div>
 
-      <div class="hero__body">
-        <p class="hero__pitch enter enter--4">
+      <div class="mt-16 ml-auto max-w-[42ch] max-[600px]:ml-0">
+        <p class="enter enter--4 m-0 text-[17px] leading-[1.55] font-medium">
           Neu dabei? Perfekt. Schon Erfahrung? Umso besser. Zwei Matches, beide zählen für deine LK.
         </p>
-        <p class="hero__hint enter enter--5">
+        <p class="enter enter--5 mt-3 text-[13px] leading-[1.55] opacity-35">
           Dieses Jahr starten wir mit Herren-Kategorien: Einzel, Doppel und Herren 40 Einzel.
         </p>
 
-        <div class="hero__cta enter enter--6">
+        <div class="enter enter--6 mt-8 flex flex-wrap items-center gap-6">
           <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
           <a href="#turniermodus" class="cta-secondary">Mehr erfahren <span aria-hidden="true">&darr;</span></a>
         </div>
@@ -57,42 +92,57 @@ import logoSvg from '@/assets/logo.svg'
     </section>
 
     <!-- Turniermodus -->
-    <section id="turniermodus" class="sect" tabindex="-1">
-      <span class="sect__eyebrow reveal">So läuft dein Matchday</span>
-      <h2 class="sect__headline">
+    <section id="turniermodus" class:list={[sectClass]} tabindex="-1">
+      <span class:list={['reveal', sectEyebrowClass]}>So läuft dein Matchday</span>
+      <h2 class={sectHeadlineClass}>
         <span class="sect__headline-clip" style="--i:0">Kein</span>
-        <span class="sect__headline-clip sect__headline--outline" style="--i:1">K.O.</span>
+        <span
+          class="sect__headline-clip text-surface-alt text-stroke-ink max-md:[-webkit-text-stroke-width:1.5px]"
+          style="--i:1">K.O.</span
+        >
       </h2>
-      <p class="sect__note">Zwei Matches gegen ähnlich starke Gegner — du spielst beide, egal wie das erste ausgeht.</p>
+      <p class={sectNoteClass}>
+        Zwei Matches gegen ähnlich starke Gegner — du spielst beide, egal wie das erste ausgeht.
+      </p>
 
-      <div class="sect__columns">
-        <div class="steps">
-          <div class="step reveal">
-            <span class="step__num">01</span>
-            <div class="step__content">
-              <h3 class="step__title">Einteilung nach Spielstärke</h3>
-              <p class="step__desc">
+      <div class="flex items-start justify-between gap-16 max-md:flex-col max-md:gap-12">
+        <div class="flex flex-col gap-12">
+          <div class="reveal flex items-start gap-6">
+            <span
+              class="w-20 shrink-0 text-[72px] leading-[0.8] font-black tracking-[-0.04em] text-surface-alt text-stroke-ink-sm"
+              >01</span
+            >
+            <div class="max-w-[48ch]">
+              <h3 class="m-0 mb-2.5 text-[22px] font-extrabold tracking-[-0.02em]">Einteilung nach Spielstärke</h3>
+              <p class="m-0 text-sm leading-[1.6] opacity-55">
                 Alle Spieler werden vor dem Matchday nach Spielstärke sortiert. Dieses Verfahren heißt offiziell
                 „Spiralsystem".
               </p>
             </div>
           </div>
-          <div class="step reveal">
-            <span class="step__num">02</span>
-            <div class="step__content">
-              <h3 class="step__title">Zwei Matches</h3>
-              <p class="step__desc">
+          <div class="reveal flex items-start gap-6">
+            <span
+              class="w-20 shrink-0 text-[72px] leading-[0.8] font-black tracking-[-0.04em] text-surface-alt text-stroke-ink-sm"
+              >02</span
+            >
+            <div class="max-w-[48ch]">
+              <h3 class="m-0 mb-2.5 text-[22px] font-extrabold tracking-[-0.02em]">Zwei Matches</h3>
+              <p class="m-0 text-sm leading-[1.6] opacity-55">
                 Du spielst genau zwei Matches — einmal gegen jemanden mit etwas
-                <span class="step__accent-a">besserer LK</span> als du, und einmal gegen jemanden mit etwas
-                <span class="step__accent-b">schwächerer LK</span>. Beide Gegner sind nah an deinem Niveau.
+                <span class="font-bold text-blue opacity-100">besserer LK</span> als du, und einmal gegen jemanden mit etwas
+                <span class="font-bold text-clay opacity-100">schwächerer LK</span>. Beide Gegner sind nah an deinem
+                Niveau.
               </p>
             </div>
           </div>
-          <div class="step reveal">
-            <span class="step__num">03</span>
-            <div class="step__content">
-              <h3 class="step__title">Ergebnis</h3>
-              <p class="step__desc">
+          <div class="reveal flex items-start gap-6">
+            <span
+              class="w-20 shrink-0 text-[72px] leading-[0.8] font-black tracking-[-0.04em] text-surface-alt text-stroke-ink-sm"
+              >03</span
+            >
+            <div class="max-w-[48ch]">
+              <h3 class="m-0 mb-2.5 text-[22px] font-extrabold tracking-[-0.02em]">Ergebnis</h3>
+              <p class="m-0 text-sm leading-[1.6] opacity-55">
                 Beide Matches fließen direkt in deine LK-Wertung ein. Kein Finale, keine Platzierung, kein Ausscheiden —
                 es geht nur um deine Matches und deine LK.
               </p>
@@ -100,208 +150,329 @@ import logoSvg from '@/assets/logo.svg'
           </div>
         </div>
 
-        <figure class="spiral" aria-hidden="true">
-          <figcaption class="spiral__label">Spielstärke ↓</figcaption>
-          <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:0">
-            <span class="spiral__lk">LK 19.0</span>
+        <figure
+          class="spiral sticky top-10 m-0 w-[320px] shrink-0 max-md:static max-md:w-full max-md:max-w-[360px]"
+          aria-hidden="true"
+        >
+          <figcaption class="mb-3 text-[10px] font-semibold tracking-[0.14em] uppercase opacity-35">
+            Spielstärke ↓
+          </figcaption>
+          <div
+            class="spiral-stagger spiral__row flex items-baseline justify-between gap-4 border-b border-navy/15 py-2.5 last:border-b-0"
+            style="--i:0"
+          >
+            <span class="text-[14px] font-semibold tracking-[-0.01em] opacity-25">LK 19.0</span>
           </div>
-          <div class="spiral__row spiral__row--a spiral-stagger" style="--i:1">
-            <span class="spiral__lk">LK 19.4</span>
-            <span class="spiral__tag spiral__tag--a">Dein 1. Match</span>
+          <div
+            class="spiral-stagger spiral__row flex items-baseline justify-between gap-4 border-b border-navy/15 py-2.5"
+            style="--i:1"
+          >
+            <span class="text-[19px] font-extrabold tracking-[-0.01em] text-blue">LK 19.4</span>
+            <span class="text-[10px] font-bold tracking-[0.1em] text-blue uppercase">Dein 1. Match</span>
           </div>
-          <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:2">
-            <span class="spiral__lk">LK 19.8</span>
+          <div
+            class="spiral-stagger spiral__row flex items-baseline justify-between gap-4 border-b border-navy/15 py-2.5"
+            style="--i:2"
+          >
+            <span class="text-[14px] font-semibold tracking-[-0.01em] opacity-25">LK 19.8</span>
           </div>
-          <div class="spiral__row spiral__row--du spiral-stagger" style="--i:3">
-            <span class="spiral__lk">LK 20.3</span>
-            <span class="spiral__tag spiral__tag--du">Du</span>
+          <div
+            class="spiral-stagger spiral__row flex items-baseline justify-between gap-4 border-b border-navy/15 py-4"
+            style="--i:3"
+          >
+            <span class="text-[26px] font-black tracking-[-0.03em]">LK 20.3</span>
+            <span class="text-[10px] font-black tracking-[0.1em] uppercase">Du</span>
           </div>
-          <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:4">
-            <span class="spiral__lk">LK 20.7</span>
+          <div
+            class="spiral-stagger spiral__row flex items-baseline justify-between gap-4 border-b border-navy/15 py-2.5"
+            style="--i:4"
+          >
+            <span class="text-[14px] font-semibold tracking-[-0.01em] opacity-25">LK 20.7</span>
           </div>
-          <div class="spiral__row spiral__row--b spiral-stagger" style="--i:5">
-            <span class="spiral__lk">LK 21.1</span>
-            <span class="spiral__tag spiral__tag--b">Dein 2. Match</span>
+          <div
+            class="spiral-stagger spiral__row flex items-baseline justify-between gap-4 border-b border-navy/15 py-2.5"
+            style="--i:5"
+          >
+            <span class="text-[19px] font-extrabold tracking-[-0.01em] text-clay">LK 21.1</span>
+            <span class="text-[10px] font-bold tracking-[0.1em] text-clay uppercase">Dein 2. Match</span>
           </div>
-          <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:6">
-            <span class="spiral__lk">LK 21.6</span>
+          <div
+            class="spiral-stagger spiral__row flex items-baseline justify-between gap-4 border-b border-navy/15 py-2.5"
+            style="--i:6"
+          >
+            <span class="text-[14px] font-semibold tracking-[-0.01em] opacity-25">LK 21.6</span>
           </div>
-          <div class="spiral__row spiral__row--faded spiral-stagger" style="--i:7">
-            <span class="spiral__lk">LK 22.0</span>
+          <div
+            class="spiral-stagger spiral__row flex items-baseline justify-between gap-4 border-b border-navy/15 py-2.5 last:border-b-0"
+            style="--i:7"
+          >
+            <span class="text-[14px] font-semibold tracking-[-0.01em] opacity-25">LK 22.0</span>
           </div>
         </figure>
       </div>
     </section>
 
     <!-- Mid-CTA -->
-    <section class="sect sect--mid-cta">
-      <div class="mid-cta reveal">
-        <h2 class="mid-cta__headline">
+    <section class:list={[sectClass, 'py-[72px] md:py-[104px]']}>
+      <div class="reveal flex items-end justify-between gap-12 max-md:flex-col max-md:items-start max-md:gap-8">
+        <h2
+          class="m-0 text-[clamp(48px,9vw,100px)] leading-[0.85] font-black tracking-[-0.05em] uppercase [&>span]:block"
+        >
           <span>Klingt</span>
-          <span class="mid-cta__headline--outline">gut?</span>
+          <span class="text-surface-alt text-stroke-ink max-md:[-webkit-text-stroke-width:1.5px]">gut?</span>
         </h2>
-        <div class="mid-cta__body">
+        <div class="max-w-[36ch] shrink-0">
           <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
-          <p class="mid-cta__secondary">Oder lies weiter — Kategorien, Tagesablauf und FAQ kommen noch.</p>
+          <p class="mt-4 text-[13px] opacity-30">Oder lies weiter — Kategorien, Tagesablauf und FAQ kommen noch.</p>
         </div>
       </div>
     </section>
 
     <!-- Kategorien -->
-    <section class="sect">
-      <h2 class="sect__eyebrow reveal">Drei Kategorien</h2>
+    <section class:list={[sectClass]}>
+      <h2 class:list={['reveal', sectEyebrowClass]}>Drei Kategorien</h2>
 
-      <div class="cat-grid">
+      <div class="cat-grid grid grid-cols-3 gap-0.5 bg-navy p-0.5 max-[900px]:grid-cols-1">
         <!-- Einzel — Axis -->
-        <div class="cat-card stagger" style="--i:0">
-          <span class="cat-card__badge">Einzel</span>
-          <div class="cat-card__axis-wrap">
-            <span class="cat-card__axis-h">Herren</span>
+        <div class={catCardBaseClass} style="--i:0">
+          <span class={catCardBadgeClass}>Einzel</span>
+          <div class="relative my-6 flex flex-1 flex-col">
+            <span
+              class="flex flex-1 items-center justify-center text-[clamp(48px,20cqw,110px)] leading-[0.85] font-black tracking-[-0.05em] uppercase"
+              >Herren</span
+            >
           </div>
-          <div class="cat-card__details">
-            <span class="cat-card__price">35 €</span>
-            <span class="cat-card__meta">Max. 10 Spieler · Alle Spielstärken</span>
+          <div class="mt-auto pt-4 pl-5">
+            <span class="mb-2 block text-2xl font-black tracking-[-0.03em]">35 €</span>
+            <span class="block text-[10px] leading-[1.6] font-semibold tracking-[0.14em] uppercase opacity-45">
+              Max. 10 Spieler · Alle Spielstärken
+            </span>
           </div>
         </div>
 
         <!-- Doppel — Stack -->
-        <div class="cat-card stagger" style="--i:1">
-          <span class="cat-card__badge">Doppel</span>
-          <div class="cat-card__stack">
+        <div class={catCardBaseClass} style="--i:1">
+          <span class={catCardBadgeClass}>Doppel</span>
+          <div
+            class="my-6 flex flex-1 flex-col justify-center [&>span]:border-b [&>span]:border-navy/15 [&>span]:py-1.5 [&>span]:text-[clamp(24px,8cqw,40px)] [&>span]:leading-none [&>span]:font-black [&>span]:tracking-[-0.035em] [&>span]:uppercase [&>span:last-child]:border-b-0"
+          >
             <span>Herren</span>
-            <span class="cat-card__stack--volt">Doppel</span>
+            <span class="-mx-2 bg-neon px-2 text-navy">Doppel</span>
             <span>Herren</span>
-            <span class="cat-card__stack--volt">Doppel</span>
+            <span class="-mx-2 bg-neon px-2 text-navy">Doppel</span>
             <span>Herren</span>
           </div>
-          <div class="cat-card__details">
-            <span class="cat-card__price">18 € <span class="cat-card__price-note">pro Person</span></span>
-            <span class="cat-card__meta">Max. 8 Teams · Alle Spielstärken</span>
+          <div class="mt-auto pt-4 pl-5">
+            <span class="mb-2 block text-2xl font-black tracking-[-0.03em]">
+              18 € <span class="text-xs font-medium tracking-[0.04em] opacity-50">pro Person</span>
+            </span>
+            <span class="block text-[10px] leading-[1.6] font-semibold tracking-[0.14em] uppercase opacity-45">
+              Max. 8 Teams · Alle Spielstärken
+            </span>
           </div>
         </div>
 
         <!-- Ü40 — Clay Axis -->
-        <div class="cat-card cat-card--clay stagger" style="--i:2">
-          <span class="cat-card__badge cat-card__badge--inv">Einzel</span>
-          <div class="cat-card__axis-wrap">
-            <span class="cat-card__axis-h">Herren<br />40</span>
+        <div class={catCardClayClass} style="--i:2">
+          <span class={catCardBadgeInvClass}>Einzel</span>
+          <div class="relative my-6 flex flex-1 flex-col">
+            <span
+              class="flex flex-1 items-center justify-center text-[clamp(48px,20cqw,110px)] leading-[0.85] font-black tracking-[-0.05em] uppercase"
+              >Herren<br />40</span
+            >
           </div>
-          <div class="cat-card__details cat-card__details--inv">
-            <span class="cat-card__price">35 €</span>
-            <span class="cat-card__meta">Max. 12 Spieler · Alle Spielstärken</span>
+          <div class="mt-auto pt-4 pl-5">
+            <span class="mb-2 block text-2xl font-black tracking-[-0.03em]">35 €</span>
+            <span class="block text-[10px] leading-[1.6] font-semibold tracking-[0.14em] text-white/85 uppercase">
+              Max. 12 Spieler · Alle Spielstärken
+            </span>
           </div>
         </div>
       </div>
 
-      <p class="cat-hint reveal">
+      <p class="reveal mt-6 text-sm opacity-45">
         Die Teilnahmegebühr deckt alles ab: Organisation, Bälle und die offizielle Turniergebühr an den Verband.
       </p>
-      <p class="cat-hint cat-hint--rec reveal">
+      <p class="reveal mt-3 text-sm font-semibold opacity-55">
         Nicht sicher, welche Kategorie? Die meisten starten mit Einzel — zwei Matches, ein klarer Tag.
       </p>
     </section>
 
     <!-- Tagesablauf -->
-    <section class="sect">
-      <h2 class="sect__eyebrow reveal">Dein Turniertag</h2>
+    <section class:list={[sectClass]}>
+      <h2 class:list={['reveal', sectEyebrowClass]}>Dein Turniertag</h2>
 
-      <p class="sect__note">
+      <p class={sectNoteClass}>
         Ein Tag, kompakt getaktet. Du kommst morgens oder mittags, spielst deine Matches, und bist im Regelfall am
         Nachmittag durch. Dazwischen: kurze Pausen, offene Gastronomie, und genug Zeit zum Zuschauen.
       </p>
 
-      <div class="day-route">
-        <div class="day-route__line day-route__line--start reveal">
-          <span class="day-route__stop day-route__stop--outline">09:00</span>
-          <span class="day-route__sep">&mdash;</span>
-          <span class="day-route__stop day-route__stop--light">Check-in</span>
-          <span class="day-route__sep">&mdash;</span>
-          <span class="day-route__stop">Match</span>
+      <div class="flex flex-col gap-4">
+        <div
+          class="reveal flex flex-wrap items-baseline justify-end gap-x-4 gap-y-3 max-[600px]:gap-x-2.5 max-[600px]:gap-y-2"
+        >
+          <span
+            class="text-[clamp(32px,6vw,64px)] leading-[0.9] font-black tracking-[-0.04em] text-surface-alt uppercase text-stroke-ink-sm max-[600px]:text-[clamp(20px,5.5vw,32px)]"
+            >09:00</span
+          >
+          <span
+            class="text-[clamp(24px,4vw,48px)] leading-[0.9] font-light opacity-15 max-[600px]:text-[clamp(16px,4vw,24px)]"
+            >&mdash;</span
+          >
+          <span
+            class="text-[clamp(32px,6vw,64px)] leading-[0.9] font-medium tracking-[-0.04em] uppercase opacity-35 max-[600px]:text-[clamp(20px,5.5vw,32px)]"
+            >Check-in</span
+          >
+          <span
+            class="text-[clamp(24px,4vw,48px)] leading-[0.9] font-light opacity-15 max-[600px]:text-[clamp(16px,4vw,24px)]"
+            >&mdash;</span
+          >
+          <span
+            class="text-[clamp(32px,6vw,64px)] leading-[0.9] font-black tracking-[-0.04em] uppercase max-[600px]:text-[clamp(20px,5.5vw,32px)]"
+            >Match</span
+          >
         </div>
-        <div class="day-route__line day-route__line--end reveal" style="--reveal-delay: 0.15s">
-          <span class="day-route__stop day-route__stop--faded">Pause</span>
-          <span class="day-route__sep">&mdash;</span>
-          <span class="day-route__stop">Match</span>
-          <span class="day-route__sep">&mdash;</span>
-          <span class="day-route__stop"
-            ><MarkerHighlight brush={3}>Fertig</MarkerHighlight><span class="day-route__dot">.</span></span
+        <div
+          class="reveal flex flex-wrap items-baseline justify-end gap-x-4 gap-y-3 pr-[clamp(48px,10vw,160px)] max-[600px]:gap-x-2.5 max-[600px]:gap-y-2 max-[600px]:pr-0"
+          style="--reveal-delay: 0.15s"
+        >
+          <span
+            class="text-[clamp(32px,6vw,64px)] leading-[0.9] font-black tracking-[-0.04em] uppercase opacity-[0.12] max-[600px]:text-[clamp(20px,5.5vw,32px)]"
+            >Pause</span
+          >
+          <span
+            class="text-[clamp(24px,4vw,48px)] leading-[0.9] font-light opacity-15 max-[600px]:text-[clamp(16px,4vw,24px)]"
+            >&mdash;</span
+          >
+          <span
+            class="text-[clamp(32px,6vw,64px)] leading-[0.9] font-black tracking-[-0.04em] uppercase max-[600px]:text-[clamp(20px,5.5vw,32px)]"
+            >Match</span
+          >
+          <span
+            class="text-[clamp(24px,4vw,48px)] leading-[0.9] font-light opacity-15 max-[600px]:text-[clamp(16px,4vw,24px)]"
+            >&mdash;</span
+          >
+          <span
+            class="text-[clamp(32px,6vw,64px)] leading-[0.9] font-black tracking-[-0.04em] uppercase max-[600px]:text-[clamp(20px,5.5vw,32px)]"
+            ><MarkerHighlight brush={3}>Fertig</MarkerHighlight><span class="text-neon">.</span></span
           >
         </div>
       </div>
 
-      <div class="day-steps">
-        <div class="day-step reveal">
-          <span class="day-step__time">09:00</span>
-          <div class="day-step__content">
-            <h3 class="day-step__title">Check-in</h3>
-            <p class="day-step__desc">Melde dich am Turniertisch. Du bekommst deinen Spielplan mit Gegner und Platz.</p>
+      <div class="mt-14 flex flex-col">
+        <div
+          class="reveal flex items-baseline gap-8 border-t border-b border-navy border-b-navy/15 py-7 last:border-b-navy max-md:gap-5 max-md:py-5"
+        >
+          <span
+            class="w-[140px] shrink-0 text-[32px] leading-[0.9] font-black tracking-[-0.03em] text-surface-alt uppercase [-webkit-text-stroke:1px_var(--color-navy)] [paint-order:stroke_fill] max-md:w-[90px] max-md:text-2xl"
+            >09:00</span
+          >
+          <div class="max-w-[44ch]">
+            <h3 class="m-0 mb-1.5 text-lg font-extrabold tracking-[-0.02em]">Check-in</h3>
+            <p class="m-0 text-sm leading-[1.55] opacity-45">
+              Melde dich am Turniertisch. Du bekommst deinen Spielplan mit Gegner und Platz.
+            </p>
           </div>
         </div>
-        <div class="day-step reveal" style="--reveal-delay: 0.08s">
-          <span class="day-step__time">ab 09:30</span>
-          <div class="day-step__content">
-            <h3 class="day-step__title">1. Match</h3>
-            <p class="day-step__desc">Einspielen (5–10 Min) mit deinem Gegner, dann Match.</p>
+        <div
+          class="reveal flex items-baseline gap-8 border-b border-navy/15 py-7 max-md:gap-5 max-md:py-5"
+          style="--reveal-delay: 0.08s"
+        >
+          <span
+            class="w-[140px] shrink-0 text-[32px] leading-[0.9] font-black tracking-[-0.03em] text-surface-alt uppercase [-webkit-text-stroke:1px_var(--color-navy)] [paint-order:stroke_fill] max-md:w-[90px] max-md:text-2xl"
+            >ab 09:30</span
+          >
+          <div class="max-w-[44ch]">
+            <h3 class="m-0 mb-1.5 text-lg font-extrabold tracking-[-0.02em]">1. Match</h3>
+            <p class="m-0 text-sm leading-[1.55] opacity-45">Einspielen (5–10 Min) mit deinem Gegner, dann Match.</p>
           </div>
         </div>
-        <div class="day-step reveal" style="--reveal-delay: 0.16s">
-          <span class="day-step__time">~90 Min</span>
-          <div class="day-step__content">
-            <h3 class="day-step__title">Pause</h3>
-            <p class="day-step__desc">Gastronomie im Clubhaus, zuschauen, entspannen.</p>
+        <div
+          class="reveal flex items-baseline gap-8 border-b border-navy/15 py-7 max-md:gap-5 max-md:py-5"
+          style="--reveal-delay: 0.16s"
+        >
+          <span
+            class="w-[140px] shrink-0 text-[32px] leading-[0.9] font-black tracking-[-0.03em] text-surface-alt uppercase [-webkit-text-stroke:1px_var(--color-navy)] [paint-order:stroke_fill] max-md:w-[90px] max-md:text-2xl"
+            >~90 Min</span
+          >
+          <div class="max-w-[44ch]">
+            <h3 class="m-0 mb-1.5 text-lg font-extrabold tracking-[-0.02em]">Pause</h3>
+            <p class="m-0 text-sm leading-[1.55] opacity-45">Gastronomie im Clubhaus, zuschauen, entspannen.</p>
           </div>
         </div>
-        <div class="day-step reveal" style="--reveal-delay: 0.24s">
-          <span class="day-step__time">danach</span>
-          <div class="day-step__content">
-            <h3 class="day-step__title">2. Match</h3>
-            <p class="day-step__desc">Gegen deinen zweiten Gegner, ebenfalls nah an deinem Niveau.</p>
+        <div
+          class="reveal flex items-baseline gap-8 border-b border-navy/15 py-7 max-md:gap-5 max-md:py-5"
+          style="--reveal-delay: 0.24s"
+        >
+          <span
+            class="w-[140px] shrink-0 text-[32px] leading-[0.9] font-black tracking-[-0.03em] text-surface-alt uppercase [-webkit-text-stroke:1px_var(--color-navy)] [paint-order:stroke_fill] max-md:w-[90px] max-md:text-2xl"
+            >danach</span
+          >
+          <div class="max-w-[44ch]">
+            <h3 class="m-0 mb-1.5 text-lg font-extrabold tracking-[-0.02em]">2. Match</h3>
+            <p class="m-0 text-sm leading-[1.55] opacity-45">
+              Gegen deinen zweiten Gegner, ebenfalls nah an deinem Niveau.
+            </p>
           </div>
         </div>
-        <div class="day-step reveal" style="--reveal-delay: 0.32s">
-          <span class="day-step__time">Done</span>
-          <div class="day-step__content">
-            <h3 class="day-step__title">Fertig</h3>
-            <p class="day-step__desc">Ergebnisse fließen in deine LK, auf der Terrasse dein Bier.</p>
+        <div
+          class="reveal flex items-baseline gap-8 border-b border-navy py-7 max-md:gap-5 max-md:py-5"
+          style="--reveal-delay: 0.32s"
+        >
+          <span
+            class="w-[140px] shrink-0 text-[32px] leading-[0.9] font-black tracking-[-0.03em] text-surface-alt uppercase [-webkit-text-stroke:1px_var(--color-navy)] [paint-order:stroke_fill] max-md:w-[90px] max-md:text-2xl"
+            >Done</span
+          >
+          <div class="max-w-[44ch]">
+            <h3 class="m-0 mb-1.5 text-lg font-extrabold tracking-[-0.02em]">Fertig</h3>
+            <p class="m-0 text-sm leading-[1.55] opacity-45">
+              Ergebnisse fließen in deine LK, auf der Terrasse dein Bier.
+            </p>
           </div>
         </div>
       </div>
 
-      <p class="day-route__note">
+      <p class="mt-12 max-w-[48ch] text-sm leading-[1.55] opacity-45">
         Der genaue Zeitplan hängt von der Teilnehmerzahl ab. Je nach Einteilung kann dein 1. Match auch erst mittags
         starten. Wer Einzel und Doppel spielt, sollte mit einem längeren Turniertag rechnen.
       </p>
     </section>
 
     <!-- Anmeldung -->
-    <section class="sect">
-      <h2 class="sect__eyebrow reveal">In 3 Schritten angemeldet</h2>
+    <section class:list={[sectClass]}>
+      <h2 class:list={['reveal', sectEyebrowClass]}>In 3 Schritten angemeldet</h2>
 
-      <div class="signup-grid">
-        <div class="signup-card stagger" style="--i:0">
-          <span class="signup-card__badge">1</span>
-          <div class="signup-card__body">
-            <h3 class="signup-card__title">tennis.de-Account<br />anlegen</h3>
-            <p class="signup-card__desc">Falls du noch keinen hast. Dauert 5 Minuten.</p>
+      <div class="signup-grid grid grid-cols-3 gap-0.5 bg-navy p-0.5 max-md:grid-cols-1">
+        <div class={signupCardBaseClass} style="--i:0">
+          <span class={signupBadgeClass}>1</span>
+          <div class="my-6 flex flex-1 flex-col justify-center">
+            <h3 class="m-0 mb-3 text-[clamp(20px,6cqw,28px)] leading-[1.1] font-black tracking-[-0.03em]">
+              tennis.de-Account<br />anlegen
+            </h3>
+            <p class="m-0 text-[13px] leading-[1.55] opacity-50">Falls du noch keinen hast. Dauert 5 Minuten.</p>
           </div>
-          <span class="signup-card__footer">5 Min</span>
+          <span class="mt-auto pt-4 text-[10px] font-semibold tracking-[0.14em] uppercase opacity-40">5 Min</span>
         </div>
-        <div class="signup-card stagger" style="--i:1">
-          <span class="signup-card__badge">2</span>
-          <div class="signup-card__body">
-            <h3 class="signup-card__title">DTB-Lizenz<br />aktivieren</h3>
-            <p class="signup-card__desc">
+        <div class={signupCardBaseClass} style="--i:1">
+          <span class={signupBadgeClass}>2</span>
+          <div class="my-6 flex flex-1 flex-col justify-center">
+            <h3 class="m-0 mb-3 text-[clamp(20px,6cqw,28px)] leading-[1.1] font-black tracking-[-0.03em]">
+              DTB-Lizenz<br />aktivieren
+            </h3>
+            <p class="m-0 text-[13px] leading-[1.55] opacity-50">
               Einmalig 20 €/Jahr, im Account buchbar. Eine Spielberechtigung für LK-Turniere — für Punktspiele brauchst
               du sie nicht. Für Doppel brauchen beide Spieler eine Lizenz.
             </p>
           </div>
-          <span class="signup-card__footer">20 €/Jahr</span>
+          <span class="mt-auto pt-4 text-[10px] font-semibold tracking-[0.14em] uppercase opacity-40">20 €/Jahr</span>
         </div>
-        <div class="signup-card signup-card--dark stagger" style="--i:2">
-          <span class="signup-card__badge signup-card__badge--inv">3</span>
-          <div class="signup-card__body">
-            <h3 class="signup-card__title">Beim Matchday<br />anmelden</h3>
-            <p class="signup-card__desc">
+        <div class={signupCardDarkClass} style="--i:2">
+          <span class={signupBadgeInvClass}>3</span>
+          <div class="my-6 flex flex-1 flex-col justify-center">
+            <h3 class="m-0 mb-3 text-[clamp(20px,6cqw,28px)] leading-[1.1] font-black tracking-[-0.03em]">
+              Beim Matchday<br />anmelden
+            </h3>
+            <p class="m-0 text-[13px] leading-[1.55] opacity-40">
               Unser Direktlink führt dich zum richtigen Eintrag auf tennis.de. Die Anmeldeseite dort sieht anders aus
               als diese Seite — offiziell, formeller. Das ist normal.
             </p>
@@ -312,47 +483,68 @@ import logoSvg from '@/assets/logo.svg'
     </section>
 
     <!-- Ort & Anfahrt -->
-    <section class="sect sect--clay">
-      <h2 class="sect__eyebrow reveal">Ort & Anfahrt</h2>
-      <div class="venue__hero reveal">
-        <span class="venue__hero-city">6 Sand</span>
-        <span class="venue__hero-sub">plätze<span class="venue__hero-dot">.</span></span>
+    <section class:list={[sectClass, 'sect--clay']}>
+      <h2 class:list={['reveal', sectEyebrowClass]}>Ort & Anfahrt</h2>
+      <div class="reveal mb-14">
+        <span class="block text-[clamp(56px,10vw,120px)] leading-[0.85] font-black tracking-[-0.05em] uppercase"
+          >6 Sand</span
+        >
+        <span
+          class="venue__hero-sub block text-[clamp(56px,10vw,120px)] leading-[0.85] font-black tracking-[-0.05em] text-surface-alt uppercase text-stroke-ink max-md:[-webkit-text-stroke-width:1.5px]"
+          >plätze<span class="inline text-neon text-stroke-volt max-md:[-webkit-text-stroke-width:1.5px]">.</span></span
+        >
       </div>
 
-      <div class="venue reveal">
-        <div class="venue__info">
-          <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="120" height="120" class="venue__logo" />
-          <address class="venue__address">Luhdorfer Str. 47a, 21423 Winsen (Luhe)</address>
-          <p class="venue__detail">Clubhaus mit Terrasse und Gastronomie</p>
-          <p class="venue__detail">Zuschauen ist jederzeit möglich — freie Sicht auf die Plätze.</p>
+      <div class="reveal flex items-start justify-between gap-16 max-md:flex-col max-md:gap-10">
+        <div class="flex-1">
+          <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="120" height="120" class="mb-5 block" />
+          <address class="mb-5 text-[15px] not-italic opacity-80">Luhdorfer Str. 47a, 21423 Winsen (Luhe)</address>
+          <p class="m-0 mb-1 text-sm leading-[1.55] opacity-80">Clubhaus mit Terrasse und Gastronomie</p>
+          <p class="m-0 mb-1 text-sm leading-[1.55] opacity-80">
+            Zuschauen ist jederzeit möglich — freie Sicht auf die Plätze.
+          </p>
           <a
             href="https://maps.app.goo.gl/rndtuka3qNptRi2E7"
             target="_blank"
             rel="noopener noreferrer"
-            class="venue__maps"
+            class="mt-5 inline-block text-sm font-bold text-white underline underline-offset-[3px] transition-opacity duration-200 hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-navy"
           >
             Route in Google Maps &nearr;
           </a>
         </div>
 
-        <div class="venue__route">
-          <span class="venue__route-label">So findest du uns</span>
-          <div class="venue__route-steps">
-            <div class="venue__route-step">
-              <span class="venue__route-num">1</span>
-              <span class="venue__route-text">Parke auf der Wiese des Schützenvereins</span>
+        <div class="w-[320px] shrink-0 max-md:w-full max-md:max-w-[360px]">
+          <span class="mb-3 block text-[10px] font-semibold tracking-[0.14em] uppercase opacity-80"
+            >So findest du uns</span
+          >
+          <div class="flex flex-col">
+            <div class="flex items-baseline gap-5 border-b border-white/20 py-2.5">
+              <span
+                class="flex min-w-10 shrink-0 items-center justify-center text-[32px] leading-none font-black tracking-[-0.03em] text-clay [-webkit-text-stroke:1.5px_rgba(255,255,255,0.8)] [paint-order:stroke_fill]"
+                >1</span
+              >
+              <span class="text-sm font-medium">Parke auf der Wiese des Schützenvereins</span>
             </div>
-            <div class="venue__route-step">
-              <span class="venue__route-num">2</span>
-              <span class="venue__route-text">Rechts am Schützenverein vorbei</span>
+            <div class="flex items-baseline gap-5 border-b border-white/20 py-2.5">
+              <span
+                class="flex min-w-10 shrink-0 items-center justify-center text-[32px] leading-none font-black tracking-[-0.03em] text-clay [-webkit-text-stroke:1.5px_rgba(255,255,255,0.8)] [paint-order:stroke_fill]"
+                >2</span
+              >
+              <span class="text-sm font-medium">Rechts am Schützenverein vorbei</span>
             </div>
-            <div class="venue__route-step">
-              <span class="venue__route-num">3</span>
-              <span class="venue__route-text">Dem Weg durch den Wald folgen (~2 Min)</span>
+            <div class="flex items-baseline gap-5 border-b border-white/20 py-2.5">
+              <span
+                class="flex min-w-10 shrink-0 items-center justify-center text-[32px] leading-none font-black tracking-[-0.03em] text-clay [-webkit-text-stroke:1.5px_rgba(255,255,255,0.8)] [paint-order:stroke_fill]"
+                >3</span
+              >
+              <span class="text-sm font-medium">Dem Weg durch den Wald folgen (~2 Min)</span>
             </div>
-            <div class="venue__route-step">
-              <span class="venue__route-num">&check;</span>
-              <span class="venue__route-text">Tennisanlage & Clubhaus</span>
+            <div class="flex items-baseline gap-5 py-2.5">
+              <span
+                class="flex min-w-10 shrink-0 items-center justify-center text-[32px] leading-none font-black tracking-[-0.03em] text-clay [-webkit-text-stroke:1.5px_rgba(255,255,255,0.8)] [paint-order:stroke_fill]"
+                >&check;</span
+              >
+              <span class="text-sm font-medium">Tennisanlage & Clubhaus</span>
             </div>
           </div>
         </div>
@@ -360,101 +552,166 @@ import logoSvg from '@/assets/logo.svg'
     </section>
 
     <!-- FAQ -->
-    <section class="sect">
-      <span class="sect__eyebrow reveal">FAQ</span>
-      <h2 class="sect__headline">
+    <section class:list={[sectClass]}>
+      <span class:list={['reveal', sectEyebrowClass]}>FAQ</span>
+      <h2 class={sectHeadlineClass}>
         <span class="sect__headline-clip" style="--i:0">Noch</span>
-        <span class="sect__headline-clip sect__headline--outline" style="--i:1">Fragen?</span>
+        <span
+          class="sect__headline-clip text-surface-alt text-stroke-ink max-md:[-webkit-text-stroke-width:1.5px]"
+          style="--i:1">Fragen?</span
+        >
       </h2>
 
-      <div class="faq reveal">
-        <details class="faq__item">
-          <summary class="faq__q">Was brauche ich, um mitzumachen?</summary>
-          <p class="faq__a">
+      <div class="reveal max-w-[720px]">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Was brauche ich, um mitzumachen?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Zwei Dinge: einen tennis.de-Account (hast du wahrscheinlich schon, wenn du Punktspiele spielst) und eine
             DTB-Lizenz (20 €/Jahr). Klingt nach viel — ist in 10 Minuten erledigt.
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Was ist die DTB-Lizenz?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Was ist die DTB-Lizenz?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Eine jährliche Spielberechtigung für LK-Turniere, kostet 20 € pro Jahr. Für Punktspiele brauchst du sie
             nicht — deshalb haben viele Vereinsspieler sie noch nicht. Du kannst sie direkt auf tennis.de kaufen. Für
             Doppel brauchen beide Spieler eine Lizenz. (Der ältere Begriff „Spielerpass" meint dasselbe.)
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Wie melde ich mich an?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Wie melde ich mich an?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Über unseren Direktlink auf tennis.de. Dort landest du direkt beim offiziellen Eintrag. Anmeldung bis 1.
             Juli 2026, 20:00 Uhr.
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Was kostet die Teilnahme?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Was kostet die Teilnahme?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             35 € Einzel, 18 € Doppel (pro Person). Zahlung vor Ort. Die Teilnahmegebühr deckt alles ab: Organisation,
             Bälle und die offizielle Turniergebühr an den Verband. Dazu kommt einmalig die DTB-Lizenz (20 €/Jahr), falls
             du sie noch nicht hast.
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Wie viele Matches spiele ich?</summary>
-          <p class="faq__a">2 pro Einzel oder Doppel. Wer beides spielt, kommt auf 4 Matches am Tag.</p>
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Wie viele Matches spiele ich?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
+            2 pro Einzel oder Doppel. Wer beides spielt, kommt auf 4 Matches am Tag.
+          </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Kann ich Einzel und Doppel spielen?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Kann ich Einzel und Doppel spielen?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Ja. Du kannst dich für beides anmelden. Dann spielst du 4 Matches am Tag und solltest mit einem deutlich
             längeren Turniertag rechnen.
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Was muss ich mitbringen?</summary>
-          <p class="faq__a">Tennissachen, Schläger, Trinken, Sonnenschutz. Bälle werden gestellt.</p>
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Was muss ich mitbringen?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
+            Tennissachen, Schläger, Trinken, Sonnenschutz. Bälle werden gestellt.
+          </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Zähle ich selbst?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Zähle ich selbst?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Ja, beide Spieler zählen selbst — wie im Punktspiel. Die Turnierleitung ist bei Fragen jederzeit
             ansprechbar.
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Wann sehe ich mein Ergebnis in der LK?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Wann sehe ich mein Ergebnis in der LK?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Dein Ergebnis ist direkt nach dem Matchday auf tennis.de sichtbar. Die offizielle LK-Aktualisierung passiert
             immer montags.
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Doppel ohne Partner?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Doppel ohne Partner?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Schreib uns eine Mail an
-            <a href="mailto:matchday@tennisverein-winsen.de">matchday@tennisverein-winsen.de</a> — wir helfen bei der Vermittlung.
+            <a href="mailto:matchday@tennisverein-winsen.de" class="font-semibold text-navy underline-offset-2"
+              >matchday@tennisverein-winsen.de</a
+            > — wir helfen bei der Vermittlung.
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Kann ich zuschauen, ohne zu spielen?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Kann ich zuschauen, ohne zu spielen?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Klar. Zuschauer sind jederzeit willkommen. Clubhaus mit Terrasse und Gastronomie ist offen.
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Was passiert, wenn ein Gegner nicht auftaucht?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Was passiert, wenn ein Gegner nicht auftaucht?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Dann organisieren wir nach Möglichkeit ein Ersatzspiel, damit deine zwei Matches erhalten bleiben.
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Was passiert bei Regen?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Was passiert bei Regen?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Regen ist höhere Gewalt. Dann kann sich der Ablauf verschieben, angepasst werden oder das Event ausfallen.
           </p>
         </details>
-        <details class="faq__item">
-          <summary class="faq__q">Was, wenn ich mich angemeldet habe, aber nicht kommen kann?</summary>
-          <p class="faq__a">
+        <details class="faq__item border-b border-navy/15 last:border-b-0">
+          <summary
+            class="faq__q flex cursor-pointer items-center justify-between gap-4 py-5 text-base font-bold tracking-[-0.01em]"
+          >
+            Was, wenn ich mich angemeldet habe, aber nicht kommen kann?
+          </summary>
+          <p class="m-0 max-w-[56ch] pb-5 text-sm leading-[1.6] opacity-60">
             Du kannst dich auf tennis.de wieder abmelden — am besten vor der Einteilung. Wer nach der Einteilung nicht
             antritt, bekommt ein „n.a." (nicht angetreten). Das erste n.a. innerhalb von 12 Monaten bleibt ohne Folgen,
             ab dem zweiten verschlechtert sich deine LK.
@@ -464,29 +721,52 @@ import logoSvg from '@/assets/logo.svg'
     </section>
 
     <!-- Abschluss-CTA -->
-    <section class="sect sect--cta sect--clay">
-      <div class="final-cta reveal">
-        <span class="sect__eyebrow final-cta__eyebrow">Samstag &middot; 04.07.2026</span>
-        <h2 class="final-cta__headline">
+    <section
+      class:list={[
+        sectClass,
+        'sect--clay sect--cta flex flex-col items-center py-40 text-center max-md:py-[120px] md:py-40'
+      ]}
+    >
+      <div class="reveal flex flex-col items-center text-center">
+        <span class:list={['final-cta__eyebrow mb-10 min-w-[280px]', sectEyebrowClass.replace('mb-6', '')]}
+          >Samstag &middot; 04.07.2026</span
+        >
+        <h2
+          class="final-cta__headline m-0 mb-8 text-[clamp(48px,9vw,120px)] leading-[0.85] font-black tracking-[-0.05em] uppercase [&>span]:block"
+        >
           <span>Du weißt jetzt</span>
-          <span class="final-cta__outline">alles</span>
+          <span class="final-cta__outline text-surface-alt text-stroke-ink max-md:[-webkit-text-stroke-width:1.5px]"
+            >alles</span
+          >
         </h2>
-        <p class="final-cta__sub">Fehlt nur noch dein Name. Anmeldung bis 1. Juli 2026.</p>
+        <p class="final-cta__sub mb-8 text-base opacity-50">Fehlt nur noch dein Name. Anmeldung bis 1. Juli 2026.</p>
         <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="foot">
-      <div class="foot__top">
-        <div class="foot__brand">
+    <footer class="mt-[72px] border-t border-navy pt-9">
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
           <img src={signetSvg.src} alt="TV Winsen/Luhe" width="32" height="32" />
-          <span class="foot__name">TV Winsen/Luhe von 1913 e.V.</span>
+          <span class="text-[13px] font-bold tracking-[0.02em]">TV Winsen/Luhe von 1913 e.V.</span>
         </div>
-        <div class="foot__links">
-          <a href="mailto:matchday@tennisverein-winsen.de">Kontakt</a>
-          <a href={`${import.meta.env.BASE_URL}/impressum`}>Impressum</a>
-          <a href={`${import.meta.env.BASE_URL}/datenschutz`}>Datenschutz</a>
+        <div class="flex gap-5">
+          <a
+            href="mailto:matchday@tennisverein-winsen.de"
+            class="text-xs font-semibold tracking-widest text-navy/40 uppercase no-underline transition-opacity duration-200 hover:opacity-80"
+            >Kontakt</a
+          >
+          <a
+            href={`${import.meta.env.BASE_URL}/impressum`}
+            class="text-xs font-semibold tracking-widest text-navy/40 uppercase no-underline transition-opacity duration-200 hover:opacity-80"
+            >Impressum</a
+          >
+          <a
+            href={`${import.meta.env.BASE_URL}/datenschutz`}
+            class="text-xs font-semibold tracking-widest text-navy/40 uppercase no-underline transition-opacity duration-200 hover:opacity-80"
+            >Datenschutz</a
+          >
         </div>
       </div>
     </footer>
@@ -494,226 +774,11 @@ import logoSvg from '@/assets/logo.svg'
 </Layout>
 
 <style>
-  .page {
-    --ink: #0c1e3a;
-    --paper: #f5f5f5;
-    --volt: #ceff00;
-    --clay: #c2673b;
-    --hair: rgba(12, 30, 58, 0.15);
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 32px 40px 120px;
-    color: var(--ink);
-  }
-
-  @media (max-width: 768px) {
-    .page {
-      padding: 24px 20px 80px;
-    }
-  }
-
-  /* ─── SKIP LINK ─── */
-  .skip-link {
-    position: absolute;
-    top: -100%;
-    left: 16px;
-    background: var(--volt);
-    color: var(--ink);
-    font-weight: 800;
-    font-size: 13px;
-    letter-spacing: 0.02em;
-    padding: 10px 20px;
-    text-decoration: none;
-    text-transform: uppercase;
-    z-index: 100;
-  }
-
-  .skip-link:focus-visible {
-    top: 16px;
-    outline: 2px solid var(--ink);
-    outline-offset: 3px;
-  }
-
-  /* ─── TOPBAR ─── */
-  .topbar {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--ink);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 600;
-    flex-wrap: wrap;
-  }
-
-  .topbar__signet {
-    flex-shrink: 0;
-    align-self: center;
-  }
-
-  .topbar__title {
-    font-weight: 900;
-    font-size: 14px;
-    letter-spacing: 0.04em;
-  }
-
-  .topbar__sep {
-    opacity: 0.25;
-  }
-
-  .topbar__meta {
-    opacity: 0.45;
-    font-size: 10px;
-  }
-
-  .topbar__meta--right {
-    margin-left: auto;
-  }
-
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100dvh;
-    padding: 96px 0 104px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      padding: 64px 0 72px;
-    }
-  }
-
-  /* Spread: headline left, date badge right */
-  .hero__spread {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 40px;
-  }
-
-  @media (max-width: 600px) {
-    .hero__spread {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 32px;
-    }
-    .hero__date {
-      align-self: flex-end;
-    }
-  }
-
-  .hero__title {
-    font-weight: 900;
-    font-size: clamp(72px, 14vw, 180px);
-    line-height: 0.84;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    margin: 0;
-  }
-
-  .hero__title > span {
-    display: block;
-    will-change: clip-path;
-  }
-
-  /* Override entrance for headline — clip reveal instead of fade */
-  .hero__title .enter {
-    animation-name: clipReveal;
-    animation-duration: 0.7s;
-  }
-
-  .hero__title--outline {
-    -webkit-text-stroke: 2px var(--ink);
-    color: var(--paper);
-    paint-order: stroke fill;
-  }
-
-  .hero__dot {
-    display: inline;
-    -webkit-text-stroke: 2px var(--volt);
-    color: var(--volt);
-  }
-
-  @media (max-width: 768px) {
-    .hero__title--outline {
-      -webkit-text-stroke-width: 1.5px;
-    }
-
-    .hero__dot {
-      -webkit-text-stroke-width: 1.5px;
-    }
-  }
-
-  /* Date */
-  .hero__date {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    flex-shrink: 0;
-  }
-
-  .hero__date-weekday {
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-weight: 600;
-    opacity: 0.4;
-  }
-
-  .hero__date-day {
-    font-weight: 900;
-    font-size: clamp(48px, 8vw, 80px);
-    line-height: 0.85;
-    letter-spacing: -0.04em;
-  }
-
-  .hero__date-year {
-    font-weight: 900;
-    font-size: clamp(48px, 8vw, 80px);
-    line-height: 0.85;
-    letter-spacing: -0.04em;
-    -webkit-text-stroke: 1.5px var(--ink);
-    color: var(--paper);
-    paint-order: stroke fill;
-  }
-
-  /* Body — shared container for pitch + CTA alignment */
-  .hero__body {
-    margin: 64px 0 0 auto;
-    max-width: 42ch;
-  }
-
-  .hero__pitch {
-    font-size: 17px;
-    line-height: 1.55;
-    font-weight: 500;
-    margin: 0;
-  }
-
-  .hero__hint {
-    font-size: 13px;
-    line-height: 1.55;
-    opacity: 0.35;
-    margin: 12px 0 0;
-  }
-
-  /* CTA */
-  .hero__cta {
-    margin-top: 32px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 24px;
-  }
-
+  /* CTA buttons — reused 4x with :hover, :focus-visible states */
   .cta-primary {
     display: inline-block;
-    background: var(--volt);
-    color: var(--ink);
+    background: var(--color-neon);
+    color: var(--color-navy);
     font-weight: 800;
     font-size: 14px;
     letter-spacing: 0.02em;
@@ -724,75 +789,43 @@ import logoSvg from '@/assets/logo.svg'
       background 0.2s,
       transform 0.2s;
   }
-
   .cta-primary:hover {
     background: #e0ff4d;
     transform: translateY(-1px);
   }
-
   .cta-primary:focus-visible {
-    outline: 2px solid var(--ink);
+    outline: 2px solid var(--color-navy);
     outline-offset: 3px;
   }
 
   .cta-secondary {
     font-size: 14px;
     font-weight: 600;
-    color: var(--ink);
+    color: var(--color-navy);
     opacity: 0.5;
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: opacity 0.2s;
   }
-
   .cta-secondary:hover {
     opacity: 0.8;
   }
-
   .cta-secondary:focus-visible {
-    outline: 2px solid var(--ink);
+    outline: 2px solid var(--color-navy);
     outline-offset: 3px;
   }
 
-  /* ─── SECTIONS ─── */
-  .sect {
-    padding: 120px 0;
-    border-top: 1px solid var(--ink);
-  }
-
-  @media (max-width: 768px) {
-    .sect {
-      padding: 80px 0;
-    }
-  }
-
-  .sect:focus {
-    outline: none;
-  }
-
-  .sect__eyebrow {
+  /* Hero headline — block spans + clip-reveal animation hook */
+  .hero__title > span {
     display: block;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 700;
-    opacity: 0.4;
-    margin: 0 0 24px;
+    will-change: clip-path;
+  }
+  .hero__title .enter {
+    animation-name: clipReveal;
+    animation-duration: 0.7s;
   }
 
-  .sect__headline {
-    font-weight: 900;
-    font-size: clamp(56px, 10vw, 120px);
-    line-height: 0.85;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    margin: 0 0 32px;
-  }
-
-  .sect__headline span {
-    display: block;
-  }
-
+  /* Section headline clip reveal */
   .sect__headline-clip {
     opacity: 0;
     clip-path: inset(100% 0 0 0);
@@ -801,1032 +834,12 @@ import logoSvg from '@/assets/logo.svg'
       clip-path 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     transition-delay: calc(var(--i) * 0.12s);
   }
-
   .sect.is-visible .sect__headline-clip {
     opacity: 1;
     clip-path: inset(0 0 0 0);
   }
 
-  .sect__headline--outline {
-    -webkit-text-stroke: 2px var(--ink);
-    color: var(--paper);
-    paint-order: stroke fill;
-  }
-
-  @media (max-width: 768px) {
-    .sect__headline--outline {
-      -webkit-text-stroke-width: 1.5px;
-    }
-  }
-
-  .sect__note {
-    max-width: 48ch;
-    font-size: 15px;
-    line-height: 1.6;
-    opacity: 0.55;
-    margin: 0 0 56px;
-  }
-
-  .sect__columns {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 64px;
-  }
-
-  @media (max-width: 768px) {
-    .sect__columns {
-      flex-direction: column;
-      gap: 48px;
-    }
-  }
-
-  /* ─── SPIRAL FIGURE ─── */
-  .spiral {
-    width: 320px;
-    flex-shrink: 0;
-    margin: 0;
-    position: sticky;
-    top: 40px;
-  }
-
-  @media (max-width: 768px) {
-    .spiral {
-      position: static;
-      width: 100%;
-      max-width: 360px;
-    }
-  }
-
-  .spiral-stagger {
-    opacity: 0;
-    transform: translateY(0.5rem);
-    transition:
-      opacity 0.5s ease-out,
-      transform 0.5s ease-out;
-    transition-delay: calc(var(--i) * 0.06s);
-  }
-
-  .spiral.is-visible .spiral-stagger {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .spiral__label {
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600;
-    opacity: 0.35;
-    margin-bottom: 12px;
-  }
-
-  .spiral__row {
-    padding: 10px 0;
-    border-bottom: 1px solid var(--hair);
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .spiral__row:last-child {
-    border-bottom: none;
-  }
-
-  .spiral__lk {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-
-  .spiral__row--faded .spiral__lk {
-    opacity: 0.25;
-    font-size: 14px;
-  }
-
-  .spiral__row--du {
-    padding: 16px 0;
-  }
-
-  .spiral__row--du .spiral__lk {
-    font-weight: 900;
-    font-size: 26px;
-    letter-spacing: -0.03em;
-  }
-
-  .spiral__row--a .spiral__lk {
-    color: #199cf9;
-    font-weight: 800;
-    font-size: 19px;
-  }
-
-  .spiral__row--b .spiral__lk {
-    color: #c2673b;
-    font-weight: 800;
-    font-size: 19px;
-  }
-
-  .spiral__tag {
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-
-  .spiral__tag--a {
-    color: #199cf9;
-  }
-
-  .spiral__tag--b {
-    color: #c2673b;
-  }
-
-  .spiral__tag--du {
-    font-weight: 900;
-  }
-
-  /* ─── STEPS ─── */
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-  }
-
-  .step {
-    display: flex;
-    gap: 24px;
-    align-items: flex-start;
-  }
-
-  .step__num {
-    font-weight: 900;
-    font-size: 72px;
-    letter-spacing: -0.04em;
-    -webkit-text-stroke: 1.5px var(--ink);
-    color: var(--paper);
-    paint-order: stroke fill;
-    line-height: 0.8;
-    flex-shrink: 0;
-    width: 80px;
-  }
-
-  .step__content {
-    max-width: 48ch;
-  }
-
-  .step__title {
-    font-weight: 800;
-    font-size: 22px;
-    letter-spacing: -0.02em;
-    margin: 0 0 10px;
-  }
-
-  .step__desc {
-    font-size: 14px;
-    line-height: 1.6;
-    opacity: 0.55;
-    margin: 0;
-  }
-
-  .step__accent-a {
-    color: #199cf9;
-    font-weight: 700;
-    opacity: 1;
-  }
-
-  .step__accent-b {
-    color: #c2673b;
-    font-weight: 700;
-    opacity: 1;
-  }
-
-  /* ─── MID-CTA ─── */
-  .sect--mid-cta {
-    padding: 104px 0;
-  }
-
-  @media (max-width: 768px) {
-    .sect--mid-cta {
-      padding: 72px 0;
-    }
-  }
-
-  .mid-cta {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 48px;
-  }
-
-  @media (max-width: 768px) {
-    .mid-cta {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 32px;
-    }
-  }
-
-  .mid-cta__headline {
-    font-weight: 900;
-    font-size: clamp(48px, 9vw, 100px);
-    letter-spacing: -0.05em;
-    line-height: 0.85;
-    text-transform: uppercase;
-    margin: 0;
-  }
-
-  .mid-cta__headline > span {
-    display: block;
-  }
-
-  .mid-cta__headline--outline {
-    -webkit-text-stroke: 2px var(--ink);
-    color: var(--paper);
-    paint-order: stroke fill;
-  }
-
-  @media (max-width: 768px) {
-    .mid-cta__headline--outline {
-      -webkit-text-stroke-width: 1.5px;
-    }
-  }
-
-  .mid-cta__body {
-    max-width: 36ch;
-    flex-shrink: 0;
-  }
-
-  .mid-cta__hint {
-    font-size: 14px;
-    line-height: 1.55;
-    opacity: 0.45;
-    margin: 0 0 24px;
-  }
-
-  .mid-cta__secondary {
-    font-size: 13px;
-    opacity: 0.3;
-    margin: 16px 0 0;
-  }
-
-  /* ─── CATEGORY CARDS (Komposition-Stil) ─── */
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: var(--ink);
-    padding: 2px;
-  }
-
-  @media (max-width: 900px) {
-    .cat-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .cat-card {
-    background: var(--paper);
-    color: var(--ink);
-    padding: 28px;
-    min-height: 420px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    container-type: inline-size;
-  }
-
-  .cat-card__badge {
-    font-weight: 900;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    border: 1.5px solid var(--ink);
-    padding: 4px 10px;
-    align-self: flex-start;
-  }
-
-  .cat-card__badge--inv {
-    color: white;
-    border-color: rgba(255, 255, 255, 0.4);
-  }
-
-  /* Axis device — vertical label + horizontal type (like brand Card A) */
-  .cat-card__axis-wrap {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin: 24px 0;
-  }
-
-  .cat-card__axis-v {
-    position: absolute;
-    top: 65%;
-    left: 8px;
-    transform: rotate(-90deg);
-    transform-origin: left center;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-
-  .cat-card__axis-v--inv {
-    color: white;
-  }
-
-  .cat-card__axis-h {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: clamp(48px, 20cqw, 110px);
-    line-height: 0.85;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-  }
-
-  /* Stack device — repeated word with volt break */
-  .cat-card__stack {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 24px 0;
-  }
-
-  .cat-card__stack span {
-    font-weight: 900;
-    font-size: clamp(24px, 8cqw, 40px);
-    line-height: 1;
-    letter-spacing: -0.035em;
-    text-transform: uppercase;
-    padding: 6px 0;
-    border-bottom: 1px solid var(--hair);
-  }
-
-  .cat-card__stack span:last-child {
-    border-bottom: none;
-  }
-
-  .cat-card__stack--volt {
-    background: var(--volt);
-    color: var(--ink);
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-left: -8px;
-    margin-right: -8px;
-  }
-
-  /* Clay variant */
-  .cat-card--clay {
-    background: var(--color-clay, #c2673b);
-    color: white;
-  }
-
-  .cat-card--clay::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    mix-blend-mode: overlay;
-    opacity: 0.5;
-  }
-
-  .cat-card--clay > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  /* Details — bottom of card */
-  .cat-card__details {
-    margin-top: auto;
-    padding-top: 16px;
-    padding-left: 20px;
-  }
-
-  .cat-card__price {
-    display: block;
-    font-weight: 900;
-    font-size: 24px;
-    letter-spacing: -0.03em;
-    margin-bottom: 8px;
-  }
-
-  .cat-card__price-note {
-    font-weight: 500;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    opacity: 0.5;
-  }
-
-  .cat-card__meta {
-    display: block;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600;
-    opacity: 0.45;
-    line-height: 1.6;
-  }
-
-  .cat-card__details--inv .cat-card__name {
-    color: white;
-  }
-
-  .cat-card__details--inv .cat-card__meta {
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .cat-card__partner {
-    display: block;
-    font-size: 12px;
-    line-height: 1.5;
-    opacity: 0.4;
-    margin-top: 10px;
-    color: var(--ink);
-    text-underline-offset: 2px;
-    transition: opacity 0.2s;
-  }
-
-  .cat-card__partner:hover {
-    opacity: 0.7;
-  }
-
-  /* Hint below cards */
-  .cat-hint {
-    font-size: 14px;
-    opacity: 0.45;
-    margin: 24px 0 0;
-  }
-
-  .cat-hint--rec {
-    font-weight: 600;
-    opacity: 0.55;
-    margin-top: 12px;
-  }
-
-  /* Stagger animation for cards */
-  .stagger {
-    opacity: 0;
-    transform: translateY(1.5rem);
-    transition:
-      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-    transition-delay: calc(var(--i) * 0.08s);
-  }
-
-  .cat-grid.is-visible .stagger,
-  .signup-grid.is-visible .stagger {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ─── DAY ROUTE ─── */
-  .day-route {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .day-route__line {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 12px 16px;
-  }
-
-  .day-route__line--end {
-    padding-right: clamp(48px, 10vw, 160px);
-  }
-
-  .day-route__stop {
-    font-weight: 900;
-    font-size: clamp(32px, 6vw, 64px);
-    letter-spacing: -0.04em;
-    line-height: 0.9;
-    text-transform: uppercase;
-  }
-
-  .day-route__stop--outline {
-    -webkit-text-stroke: 1.5px var(--ink);
-    color: var(--paper);
-    paint-order: stroke fill;
-  }
-
-  .day-route__stop--light {
-    font-weight: 500;
-    opacity: 0.35;
-  }
-
-  .day-route__stop--faded {
-    opacity: 0.12;
-  }
-
-  .day-route__dot {
-    color: var(--volt);
-  }
-
-  .day-route__sep {
-    font-weight: 300;
-    font-size: clamp(24px, 4vw, 48px);
-    opacity: 0.15;
-    line-height: 0.9;
-  }
-
-  .day-route__note {
-    font-size: 14px;
-    opacity: 0.45;
-    margin: 48px 0 0;
-    max-width: 48ch;
-    line-height: 1.55;
-  }
-
-  @media (max-width: 600px) {
-    .day-route__line {
-      gap: 8px 10px;
-    }
-    .day-route__stop {
-      font-size: clamp(20px, 5.5vw, 32px);
-    }
-    .day-route__sep {
-      font-size: clamp(16px, 4vw, 24px);
-    }
-    .day-route__line--end {
-      padding-right: 0;
-    }
-  }
-
-  /* ─── DAY STEPS ─── */
-  .day-steps {
-    margin-top: 56px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .day-step {
-    display: flex;
-    align-items: baseline;
-    gap: 32px;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--hair);
-  }
-
-  .day-step:first-child {
-    border-top: 1px solid var(--ink);
-  }
-
-  .day-step:last-child {
-    border-bottom: 1px solid var(--ink);
-  }
-
-  .day-step__time {
-    font-weight: 900;
-    font-size: 32px;
-    letter-spacing: -0.03em;
-    line-height: 0.9;
-    -webkit-text-stroke: 1px var(--ink);
-    color: var(--paper);
-    paint-order: stroke fill;
-    width: 140px;
-    flex-shrink: 0;
-    text-transform: uppercase;
-  }
-
-  @media (max-width: 768px) {
-    .day-step {
-      gap: 20px;
-      padding: 20px 0;
-    }
-
-    .day-step__time {
-      font-size: 24px;
-      width: 90px;
-    }
-  }
-
-  .day-step__content {
-    max-width: 44ch;
-  }
-
-  .day-step__title {
-    font-weight: 800;
-    font-size: 18px;
-    letter-spacing: -0.02em;
-    margin: 0 0 6px;
-  }
-
-  .day-step__desc {
-    font-size: 14px;
-    line-height: 1.55;
-    opacity: 0.45;
-    margin: 0;
-  }
-
-  /* ─── SIGNUP CARDS (Komposition-Stil) ─── */
-  .signup-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-    background: var(--ink);
-    padding: 2px;
-  }
-
-  @media (max-width: 768px) {
-    .signup-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .signup-card {
-    background: var(--paper);
-    color: var(--ink);
-    padding: 28px;
-    min-height: 340px;
-    display: flex;
-    flex-direction: column;
-    container-type: inline-size;
-  }
-
-  .signup-card--dark {
-    background: var(--color-surface-dark, #060d18);
-    color: white;
-  }
-
-  .signup-card__badge {
-    font-weight: 900;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    border: 1.5px solid var(--ink);
-    padding: 4px 10px;
-    align-self: flex-start;
-  }
-
-  .signup-card__badge--inv {
-    color: white;
-    border-color: rgba(255, 255, 255, 0.4);
-  }
-
-  .signup-card__body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 24px 0;
-  }
-
-  .signup-card__title {
-    font-weight: 900;
-    font-size: clamp(20px, 6cqw, 28px);
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-    margin: 0 0 12px;
-  }
-
-  .signup-card__desc {
-    font-size: 13px;
-    line-height: 1.55;
-    opacity: 0.5;
-    margin: 0;
-  }
-
-  .signup-card--dark .signup-card__desc {
-    opacity: 0.4;
-  }
-
-  .signup-card__footer {
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600;
-    opacity: 0.4;
-    margin-top: auto;
-    padding-top: 16px;
-  }
-
-  /* ─── VENUE ─── */
-  .venue__hero {
-    margin-bottom: 56px;
-  }
-
-  .venue__hero-city {
-    display: block;
-    font-weight: 900;
-    font-size: clamp(56px, 10vw, 120px);
-    line-height: 0.85;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-  }
-
-  .venue__hero-sub {
-    display: block;
-    font-weight: 900;
-    font-size: clamp(56px, 10vw, 120px);
-    line-height: 0.85;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    -webkit-text-stroke: 2px var(--ink);
-    color: var(--paper);
-    paint-order: stroke fill;
-  }
-
-  .venue__hero-dot {
-    display: inline;
-    -webkit-text-stroke: 2px var(--volt);
-    color: var(--volt);
-  }
-
-  @media (max-width: 768px) {
-    .venue__hero-sub {
-      -webkit-text-stroke-width: 1.5px;
-    }
-
-    .venue__hero-dot {
-      -webkit-text-stroke-width: 1.5px;
-    }
-  }
-
-  .venue {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 64px;
-  }
-
-  @media (max-width: 768px) {
-    .venue {
-      flex-direction: column;
-      gap: 40px;
-    }
-  }
-
-  .venue__info {
-    flex: 1;
-  }
-
-  .venue__logo {
-    display: block;
-    margin-bottom: 20px;
-  }
-
-  .venue__address {
-    font-style: normal;
-    font-size: 15px;
-    opacity: 0.6;
-    margin-bottom: 20px;
-  }
-
-  .venue__detail {
-    font-size: 14px;
-    line-height: 1.55;
-    opacity: 0.5;
-    margin: 0 0 4px;
-  }
-
-  .venue__maps {
-    display: inline-block;
-    margin-top: 20px;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--ink);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: opacity 0.2s;
-  }
-
-  .venue__maps:hover {
-    opacity: 0.6;
-  }
-
-  .venue__maps:focus-visible {
-    outline: 2px solid var(--ink);
-    outline-offset: 3px;
-  }
-
-  .venue__route {
-    width: 320px;
-    flex-shrink: 0;
-  }
-
-  @media (max-width: 768px) {
-    .venue__route {
-      width: 100%;
-      max-width: 360px;
-    }
-  }
-
-  .venue__route-label {
-    display: block;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600;
-    opacity: 0.3;
-    margin-bottom: 12px;
-  }
-
-  .venue__route-steps {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .venue__route-step {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--hair);
-  }
-
-  .venue__route-step:last-child {
-    border-bottom: none;
-  }
-
-  .venue__route-num {
-    font-weight: 900;
-    font-size: 14px;
-    width: 20px;
-    flex-shrink: 0;
-    opacity: 0.25;
-  }
-
-  .venue__route-text {
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  /* ─── FAQ ─── */
-  .faq {
-    max-width: 720px;
-  }
-
-  .faq__item {
-    border-bottom: 1px solid var(--hair);
-  }
-
-  .faq__item:last-child {
-    border-bottom: none;
-  }
-
-  .faq__q {
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: -0.01em;
-    padding: 20px 0;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .faq__q::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq__q::after {
-    content: '+';
-    font-weight: 300;
-    font-size: 24px;
-    opacity: 0.3;
-    flex-shrink: 0;
-    transition: transform 0.2s;
-  }
-
-  .faq__item[open] .faq__q::after {
-    content: '−';
-  }
-
-  .faq__a {
-    font-size: 14px;
-    line-height: 1.6;
-    opacity: 0.6;
-    margin: 0;
-    padding: 0 0 20px;
-    max-width: 56ch;
-  }
-
-  .faq__a a {
-    color: var(--ink);
-    font-weight: 600;
-    text-underline-offset: 2px;
-  }
-
-  /* ─── FINAL CTA ─── */
-  .sect--cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 160px 0;
-  }
-
-  @media (max-width: 768px) {
-    .sect--cta {
-      padding: 120px 0;
-    }
-  }
-
-  .final-cta__headline {
-    font-weight: 900;
-    font-size: clamp(48px, 9vw, 120px);
-    line-height: 0.85;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
-    margin: 0 0 32px;
-  }
-
-  .final-cta__headline > span {
-    display: block;
-  }
-
-  .final-cta__outline {
-    -webkit-text-stroke: 2px var(--ink);
-    color: var(--paper);
-    paint-order: stroke fill;
-  }
-
-  @media (max-width: 768px) {
-    .final-cta__outline {
-      -webkit-text-stroke-width: 1.5px;
-    }
-  }
-
-  .final-cta__dot {
-    display: inline;
-    -webkit-text-stroke: 2px var(--volt);
-    color: var(--volt);
-  }
-
-  @media (max-width: 768px) {
-    .final-cta__dot {
-      -webkit-text-stroke-width: 1.5px;
-    }
-  }
-
-  .final-cta__sub {
-    font-size: 16px;
-    opacity: 0.5;
-    margin: 0 0 32px;
-  }
-
-  /* ─── FOOTER ─── */
-  .foot {
-    border-top: 1px solid var(--ink);
-    padding: 36px 0 0;
-    margin-top: 72px;
-  }
-
-  .foot__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-
-  .foot__brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .foot__name {
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.02em;
-  }
-
-  .foot__links {
-    display: flex;
-    gap: 20px;
-  }
-
-  .foot__links a {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink);
-    opacity: 0.4;
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
-
-  .foot__links a:hover {
-    opacity: 0.8;
-  }
-
-  /* ─── SCROLL REVEAL ─── */
+  /* Scroll reveal */
   .reveal {
     opacity: 0;
     transform: translateY(1.5rem);
@@ -1835,17 +848,15 @@ import logoSvg from '@/assets/logo.svg'
       transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     transition-delay: var(--reveal-delay, 0s);
   }
-
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* ─── ENTRANCE ─── */
+  /* Hero & topbar entrance */
   .enter {
     animation: enterUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-
   .enter--1 {
     animation-delay: 0.1s;
   }
@@ -1887,10 +898,133 @@ import logoSvg from '@/assets/logo.svg'
     }
   }
 
-  @media (max-width: 600px) {
-    .hero__body {
-      margin-left: 0;
-    }
+  /* Spiral stagger */
+  .spiral-stagger {
+    opacity: 0;
+    transform: translateY(0.5rem);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out;
+    transition-delay: calc(var(--i) * 0.06s);
+  }
+  .spiral.is-visible .spiral-stagger {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Card stagger for .cat-grid and .signup-grid */
+  .stagger {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--i) * 0.08s);
+  }
+  .cat-grid.is-visible .stagger,
+  .signup-grid.is-visible .stagger {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Clay cat-card texture overlay */
+  .cat-card--clay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+  }
+  .cat-card--clay > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Full-bleed clay section */
+  .sect--clay {
+    position: relative;
+    background: var(--color-clay);
+    color: #fff;
+    box-shadow: 0 0 0 100vmax var(--color-clay);
+    clip-path: inset(0 -100vmax);
+    border-top-color: transparent;
+  }
+  .sect--clay::before {
+    content: '';
+    position: absolute;
+    inset: 0 -100vmax;
+    pointer-events: none;
+    z-index: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: 0.5;
+  }
+  .sect--clay > * {
+    position: relative;
+    z-index: 1;
+  }
+  .sect--clay + .sect {
+    border-top-color: transparent;
+  }
+
+  /* Clay eyebrow with flanking hairlines */
+  .sect--clay .sect__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    opacity: 1;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .sect--clay .sect__eyebrow::before {
+    content: '';
+    flex: 0 0 48px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.32);
+  }
+  .sect--clay .sect__eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.32);
+  }
+  .sect--clay.sect--cta .sect__eyebrow {
+    justify-content: center;
+  }
+  .sect--clay.sect--cta .sect__eyebrow::before,
+  .sect--clay.sect--cta .sect__eyebrow::after {
+    flex: 0 0 56px;
+  }
+
+  /* Outlined display text on clay: switch stroke to white, fill to clay */
+  .sect--clay .venue__hero-sub {
+    -webkit-text-stroke-color: #fff;
+    color: var(--color-clay);
+  }
+  .sect--clay .final-cta__outline {
+    -webkit-text-stroke-color: #fff;
+    color: var(--color-clay);
+  }
+
+  /* FAQ summary marker */
+  .faq__q {
+    list-style: none;
+  }
+  .faq__q::-webkit-details-marker {
+    display: none;
+  }
+  .faq__q::after {
+    content: '+';
+    font-weight: 300;
+    font-size: 24px;
+    opacity: 0.3;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .faq__item[open] .faq__q::after {
+    content: '−';
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1907,119 +1041,6 @@ import logoSvg from '@/assets/logo.svg'
       clip-path: none;
       transition: none;
     }
-  }
-
-  /* ─── CLAY SECTIONS ─── */
-  .sect--clay {
-    position: relative;
-    background: var(--clay);
-    color: #fff;
-    box-shadow: 0 0 0 100vmax var(--clay);
-    clip-path: inset(0 -100vmax);
-    border-top-color: transparent;
-  }
-
-  /* sand-grain texture overlay — references Sandplatz tactility */
-  .sect--clay::before {
-    content: '';
-    position: absolute;
-    inset: 0 -100vmax;
-    pointer-events: none;
-    z-index: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    mix-blend-mode: overlay;
-    opacity: 0.5;
-  }
-
-  .sect--clay > * {
-    position: relative;
-    z-index: 1;
-  }
-
-  .sect--clay + .sect {
-    border-top-color: transparent;
-  }
-
-  /* eyebrow as flanked masthead label */
-  .sect--clay .sect__eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    opacity: 1;
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  .sect--clay .sect__eyebrow::before {
-    content: '';
-    flex: 0 0 48px;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.32);
-  }
-
-  .sect--clay .sect__eyebrow::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.32);
-  }
-
-  /* centered variant for the final CTA */
-  .sect--clay.sect--cta .sect__eyebrow {
-    justify-content: center;
-  }
-
-  .sect--clay.sect--cta .sect__eyebrow::before,
-  .sect--clay.sect--cta .sect__eyebrow::after {
-    flex: 0 0 56px;
-  }
-
-  .final-cta__eyebrow {
-    margin-bottom: 40px;
-    min-width: 280px;
-  }
-
-  .sect--clay .venue__hero-sub {
-    -webkit-text-stroke-color: #fff;
-    color: var(--clay);
-  }
-
-  .sect--clay .venue__address,
-  .sect--clay .venue__detail,
-  .sect--clay .venue__route-label {
-    opacity: 0.8;
-  }
-
-  .sect--clay .venue__maps {
-    color: #fff;
-  }
-
-  .sect--clay .venue__route-step {
-    gap: 20px;
-    border-bottom-color: rgba(255, 255, 255, 0.2);
-  }
-
-  /* route numerals as dominant outlined display type */
-  .sect--clay .venue__route-num {
-    font-size: 32px;
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: -0.03em;
-    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.8);
-    color: var(--clay);
-    opacity: 1;
-    min-width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .sect--clay .final-cta__outline {
-    -webkit-text-stroke-color: #fff;
-    color: var(--clay);
-  }
-
-  .sect--clay .final-cta__sub {
-    opacity: 0.85;
   }
 </style>
 

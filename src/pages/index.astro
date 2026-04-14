@@ -492,13 +492,6 @@ import logoSvg from '@/assets/logo.svg'
         </div>
       </div>
     </footer>
-
-    <div class="sticky-cta" aria-hidden="true" data-sticky-cta>
-      <div class="sticky-cta__inner">
-        <span class="sticky-cta__meta">Matchday &middot; 04.07.2026</span>
-        <a href="#" class="cta-primary sticky-cta__btn">Jetzt anmelden</a>
-      </div>
-    </div>
   </main>
 </Layout>
 
@@ -2002,74 +1995,6 @@ import logoSvg from '@/assets/logo.svg'
   .sect--clay .final-cta__sub {
     opacity: 0.85;
   }
-
-  /* ─── STICKY CTA ─── */
-  .sticky-cta {
-    position: fixed;
-    inset: auto 0 0 0;
-    z-index: 80;
-    padding: 12px 40px calc(12px + env(safe-area-inset-bottom));
-    background: color-mix(in oklab, var(--paper) 92%, transparent);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid var(--hair);
-    transform: translateY(100%);
-    transition: transform 320ms cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: none;
-  }
-
-  .sticky-cta.is-visible {
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  .sticky-cta__inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .sticky-cta__meta {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--ink);
-    opacity: 0.6;
-  }
-
-  .sticky-cta__btn {
-    padding: 10px 20px;
-    font-size: 13px;
-  }
-
-  @media (max-width: 768px) {
-    .sticky-cta {
-      padding: 10px 20px calc(10px + env(safe-area-inset-bottom));
-    }
-  }
-
-  @media (max-width: 600px) {
-    .sticky-cta__meta {
-      display: none;
-    }
-    .sticky-cta__inner {
-      justify-content: stretch;
-    }
-    .sticky-cta__btn {
-      flex: 1;
-      text-align: center;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .sticky-cta {
-      transition: none;
-    }
-  }
 </style>
 
 <script>
@@ -2087,36 +2012,5 @@ import logoSvg from '@/assets/logo.svg'
     )
 
     document.querySelectorAll('.reveal, .sect, .spiral, .cat-grid, .signup-grid').forEach(el => observer.observe(el))
-  }
-
-  const stickyCta = document.querySelector('[data-sticky-cta]')
-  const hero = document.querySelector('.hero')
-  const finalCta = document.querySelector('.sect--cta')
-
-  if (stickyCta && hero && finalCta) {
-    let heroVisible = true
-    let finalCtaVisible = false
-
-    const updateVisibility = () => {
-      const shouldShow = !heroVisible && !finalCtaVisible
-      stickyCta.classList.toggle('is-visible', shouldShow)
-      stickyCta.setAttribute('aria-hidden', String(!shouldShow))
-    }
-
-    new IntersectionObserver(
-      ([entry]) => {
-        heroVisible = entry.isIntersecting
-        updateVisibility()
-      },
-      { threshold: 0 }
-    ).observe(hero)
-
-    new IntersectionObserver(
-      ([entry]) => {
-        finalCtaVisible = entry.isIntersecting
-        updateVisibility()
-      },
-      { threshold: 0.15 }
-    ).observe(finalCta)
   }
 </script>

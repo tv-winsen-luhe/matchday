@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap'
 export default defineConfig({
   site: 'https://tv-winsen-luhe.github.io',
   base: '/matchday',
-  integrations: [sitemap({ filter: page => !page.includes('/og') })],
+  integrations: [sitemap({ filter: page => !page.includes('/og') && !page.includes('/brand') })],
   vite: {
     plugins: [tailwindcss()]
   }

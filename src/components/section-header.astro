@@ -6,7 +6,7 @@ interface Props {
 }
 
 const { eyebrow, headline, note } = Astro.props
-const eyebrowClass = 'sect__eyebrow mb-6 block text-[11px] font-bold uppercase tracking-[0.2em] opacity-40'
+const eyebrowClass = 'sect__eyebrow mb-6 block text-[11px] font-bold uppercase tracking-[0.2em] opacity-45'
 ---
 
 {
@@ -29,4 +29,4 @@ const eyebrowClass = 'sect__eyebrow mb-6 block text-[11px] font-bold uppercase t
     <h2 class:list={['reveal', eyebrowClass]}>{eyebrow}</h2>
   )
 }
-{note && <p class="mb-14 max-w-[48ch] text-[15px] leading-[1.6] opacity-55">{note}</p>}
+{note && <p class="mb-14 max-w-[48ch] text-[15px] leading-[1.6] opacity-70">{note}</p>}

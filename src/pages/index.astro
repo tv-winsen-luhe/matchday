@@ -49,7 +49,7 @@ const signupBadgeInvClass =
           >
         </h1>
         <div class="enter enter--3 flex shrink-0 flex-col items-end max-[600px]:self-end">
-          <span class="text-[11px] font-semibold tracking-[0.18em] uppercase opacity-40">Samstag</span>
+          <span class="text-[11px] font-semibold tracking-[0.18em] uppercase opacity-70">Samstag</span>
           <span class="text-[clamp(48px,8vw,80px)] leading-[0.85] font-black tracking-[-0.04em]">04.07.</span>
           <span
             class="text-[clamp(48px,8vw,80px)] leading-[0.85] font-black tracking-[-0.04em] text-surface-alt text-stroke-ink-sm"
@@ -59,10 +59,10 @@ const signupBadgeInvClass =
       </div>
 
       <div class="mt-16 ml-auto max-w-[42ch] max-[600px]:ml-0">
-        <p class="enter enter--4 m-0 text-[17px] leading-[1.55] font-medium">
+        <p class="enter enter--4 m-0 text-[17px] leading-[1.6] font-medium">
           Neu dabei? Perfekt. Schon Erfahrung? Umso besser. Zwei Matches, beide zählen für deine LK.
         </p>
-        <p class="enter enter--5 mt-3 text-[13px] leading-[1.55] opacity-35">
+        <p class="enter enter--5 mt-3 text-[13px] leading-[1.6] opacity-70">
           Dieses Jahr starten wir mit Herren-Kategorien: Einzel, Doppel und Herren 40 Einzel.
         </p>
 
@@ -102,8 +102,13 @@ const signupBadgeInvClass =
           class="spiral sticky top-10 m-0 w-[440px] shrink-0 max-[1100px]:w-[380px] max-md:static max-md:w-full max-md:max-w-[420px]"
           aria-hidden="true"
         >
-          <figcaption class="mb-6 text-[11px] font-bold tracking-[0.2em] uppercase opacity-40">
-            Leistungsklasse ↓
+          <figcaption class="mb-6 flex items-center gap-3 text-[11px] font-bold tracking-[0.2em] uppercase">
+            <span
+              class="border-[1.5px] border-navy bg-navy px-1.5 py-0.5 text-[9px] tracking-[0.18em] text-surface-alt"
+            >
+              Beispiel
+            </span>
+            <span class="opacity-55">Leistungsklasse ↓</span>
           </figcaption>
           <div
             class="spiral-stagger flex items-center justify-between gap-4 border-b border-navy/15 py-3"
@@ -151,6 +156,9 @@ const signupBadgeInvClass =
           <div class="spiral-stagger flex items-center justify-between gap-4 py-3" style="--i:7">
             <span class="text-[13px] font-bold tracking-[-0.05em] opacity-25">22.0</span>
           </div>
+          <p class="mt-5 text-[12px] leading-[1.5] opacity-70">
+            So könnte eine Einteilung aussehen — deine echte LK steht beim Anmelden im System.
+          </p>
         </figure>
       </div>
     </section>
@@ -166,7 +174,9 @@ const signupBadgeInvClass =
         </h2>
         <div class="max-w-[36ch] shrink-0">
           <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
-          <p class="mt-4 text-[13px] opacity-30">Oder lies weiter — Kategorien, Tagesablauf und FAQ kommen noch.</p>
+          <p class="mt-4 text-[13px] leading-[1.6] opacity-70">
+            Oder lies weiter — Kategorien, Tagesablauf und FAQ kommen noch.
+          </p>
         </div>
       </div>
     </section>
@@ -185,8 +195,19 @@ const signupBadgeInvClass =
               >Herren</span
             >
           </div>
-          <div class="mt-auto pt-4 pl-5">
-            <span class="mb-2 block text-2xl font-black tracking-[-0.03em]">35 €</span>
+          <div class="mt-auto pt-4">
+            <span class="mb-3 flex items-baseline gap-1.5 text-2xl font-black tracking-[-0.03em]">
+              <span class="flex flex-col">
+                30 €
+                <span class="text-[9px] leading-none font-semibold tracking-[0.12em] uppercase opacity-50">Verein</span>
+              </span>
+              <span class="text-sm font-semibold opacity-55">+</span>
+              <span class="flex flex-col text-sm font-semibold opacity-75">
+                5 €
+                <span class="text-[9px] leading-none font-semibold tracking-[0.12em] uppercase opacity-60">Verband</span
+                >
+              </span>
+            </span>
             <span class="block text-[10px] leading-[1.6] font-semibold tracking-[0.14em] uppercase opacity-45">
               Max. 10 Spieler · Alle Spielstärken
             </span>
@@ -205,12 +226,22 @@ const signupBadgeInvClass =
             <span class="-mx-2 bg-neon px-2 text-navy">Doppel</span>
             <span>Herren</span>
           </div>
-          <div class="mt-auto pt-4 pl-5">
-            <span class="mb-2 block text-2xl font-black tracking-[-0.03em]">
-              16,50 € <span class="text-xs font-medium tracking-[0.04em] opacity-50">pro Person</span>
+          <div class="mt-auto pt-4">
+            <span class="mb-3 flex items-baseline gap-1.5 text-2xl font-black tracking-[-0.03em]">
+              <span class="flex flex-col">
+                30 €
+                <span class="text-[9px] leading-none font-semibold tracking-[0.12em] uppercase opacity-50">Verein</span>
+              </span>
+              <span class="text-sm font-semibold opacity-55">+</span>
+              <span class="flex flex-col text-sm font-semibold opacity-75">
+                3 €
+                <span class="text-[9px] leading-none font-semibold tracking-[0.12em] uppercase opacity-60">Verband</span
+                >
+              </span>
+              <span class="ml-1 text-xs font-medium tracking-[0.04em] opacity-50">/ Team</span>
             </span>
             <span class="block text-[10px] leading-[1.6] font-semibold tracking-[0.14em] uppercase opacity-45">
-              Max. 8 Teams · Alle Spielstärken
+              Max. 8 Teams · 16,50 € pro Person
             </span>
           </div>
         </Card>
@@ -224,8 +255,22 @@ const signupBadgeInvClass =
               >Herren<br />40</span
             >
           </div>
-          <div class="mt-auto pt-4 pl-5">
-            <span class="mb-2 block text-2xl font-black tracking-[-0.03em]">35 €</span>
+          <div class="mt-auto pt-4">
+            <span class="mb-3 flex items-baseline gap-1.5 text-2xl font-black tracking-[-0.03em]">
+              <span class="flex flex-col">
+                30 €
+                <span class="text-[9px] leading-none font-semibold tracking-[0.12em] text-white/70 uppercase"
+                  >Verein</span
+                >
+              </span>
+              <span class="text-sm font-semibold text-white/70">+</span>
+              <span class="flex flex-col text-sm font-semibold text-white/85">
+                5 €
+                <span class="text-[9px] leading-none font-semibold tracking-[0.12em] text-white/70 uppercase"
+                  >Verband</span
+                >
+              </span>
+            </span>
             <span class="block text-[10px] leading-[1.6] font-semibold tracking-[0.14em] text-white/85 uppercase">
               Max. 12 Spieler · Alle Spielstärken
             </span>
@@ -233,10 +278,10 @@ const signupBadgeInvClass =
         </Card>
       </div>
 
-      <p class="reveal mt-6 text-sm opacity-45">
-        Die Teilnahmegebühr deckt alles ab: Organisation, Bälle und die offizielle Turniergebühr an den Verband.
+      <p class="reveal mt-6 text-sm leading-[1.6] opacity-70">
+        Der Vereinsanteil deckt Organisation und Bälle, die Turniergebühr geht an den Verband.
       </p>
-      <p class="reveal mt-3 text-sm font-semibold opacity-55">
+      <p class="reveal mt-3 text-sm leading-[1.6] font-semibold opacity-70">
         Nicht sicher, welche Kategorie? Die meisten starten mit Einzel — zwei Matches, ein klarer Tag.
       </p>
     </section>
@@ -310,7 +355,7 @@ const signupBadgeInvClass =
           >
           <div class="max-w-[44ch]">
             <h3 class="m-0 mb-1.5 text-lg font-extrabold tracking-[-0.02em]">Check-in</h3>
-            <p class="m-0 text-sm leading-[1.55] opacity-45">
+            <p class="m-0 text-sm leading-[1.6] opacity-70">
               Melde dich am Turniertisch. Du bekommst deinen Spielplan mit Gegner und Platz.
             </p>
           </div>
@@ -325,7 +370,7 @@ const signupBadgeInvClass =
           >
           <div class="max-w-[44ch]">
             <h3 class="m-0 mb-1.5 text-lg font-extrabold tracking-[-0.02em]">1. Match</h3>
-            <p class="m-0 text-sm leading-[1.55] opacity-45">Einspielen (5–10 Min) mit deinem Gegner, dann Match.</p>
+            <p class="m-0 text-sm leading-[1.6] opacity-70">Einspielen (5–10 Min) mit deinem Gegner, dann Match.</p>
           </div>
         </div>
         <div
@@ -338,7 +383,7 @@ const signupBadgeInvClass =
           >
           <div class="max-w-[44ch]">
             <h3 class="m-0 mb-1.5 text-lg font-extrabold tracking-[-0.02em]">Pause</h3>
-            <p class="m-0 text-sm leading-[1.55] opacity-45">Gastronomie im Clubhaus, zuschauen, entspannen.</p>
+            <p class="m-0 text-sm leading-[1.6] opacity-70">Gastronomie im Clubhaus, zuschauen, entspannen.</p>
           </div>
         </div>
         <div
@@ -351,7 +396,7 @@ const signupBadgeInvClass =
           >
           <div class="max-w-[44ch]">
             <h3 class="m-0 mb-1.5 text-lg font-extrabold tracking-[-0.02em]">2. Match</h3>
-            <p class="m-0 text-sm leading-[1.55] opacity-45">
+            <p class="m-0 text-sm leading-[1.6] opacity-70">
               Gegen deinen zweiten Gegner, ebenfalls nah an deinem Niveau.
             </p>
           </div>
@@ -366,14 +411,14 @@ const signupBadgeInvClass =
           >
           <div class="max-w-[44ch]">
             <h3 class="m-0 mb-1.5 text-lg font-extrabold tracking-[-0.02em]">Fertig</h3>
-            <p class="m-0 text-sm leading-[1.55] opacity-45">
+            <p class="m-0 text-sm leading-[1.6] opacity-70">
               Ergebnisse fließen in deine LK, auf der Terrasse dein Bier.
             </p>
           </div>
         </div>
       </div>
 
-      <p class="mt-12 max-w-[48ch] text-sm leading-[1.55] opacity-45">
+      <p class="mt-12 max-w-[48ch] text-sm leading-[1.6] opacity-70">
         Der genaue Zeitplan hängt von der Teilnehmerzahl ab. Je nach Einteilung kann dein 1. Match auch erst mittags
         starten. Wer Einzel und Doppel spielt, sollte mit einem längeren Turniertag rechnen.
       </p>
@@ -390,9 +435,9 @@ const signupBadgeInvClass =
             <h3 class="m-0 mb-3 text-[clamp(20px,6cqw,28px)] leading-[1.1] font-black tracking-[-0.03em]">
               tennis.de-Account<br />anlegen
             </h3>
-            <p class="m-0 text-[13px] leading-[1.55] opacity-50">Falls du noch keinen hast. Dauert 5 Minuten.</p>
+            <p class="m-0 text-[13px] leading-[1.6] opacity-70">Falls du noch keinen hast. Dauert 5 Minuten.</p>
           </div>
-          <span class="mt-auto pt-4 text-[10px] font-semibold tracking-[0.14em] uppercase opacity-40">5 Min</span>
+          <span class="mt-auto pt-4 text-[10px] font-semibold tracking-[0.14em] uppercase opacity-45">5 Min</span>
         </Card>
         <Card variant="light" minHeight={340} stagger={1}>
           <span class={signupBadgeClass}>2</span>
@@ -400,12 +445,12 @@ const signupBadgeInvClass =
             <h3 class="m-0 mb-3 text-[clamp(20px,6cqw,28px)] leading-[1.1] font-black tracking-[-0.03em]">
               DTB-Lizenz<br />aktivieren
             </h3>
-            <p class="m-0 text-[13px] leading-[1.55] opacity-50">
+            <p class="m-0 text-[13px] leading-[1.6] opacity-70">
               Einmalig 20 €/Jahr, im Account buchbar. Eine Spielberechtigung für LK-Turniere — für Punktspiele brauchst
               du sie nicht. Für Doppel brauchen beide Spieler eine Lizenz.
             </p>
           </div>
-          <span class="mt-auto pt-4 text-[10px] font-semibold tracking-[0.14em] uppercase opacity-40">20 €/Jahr</span>
+          <span class="mt-auto pt-4 text-[10px] font-semibold tracking-[0.14em] uppercase opacity-45">20 €/Jahr</span>
         </Card>
         <Card variant="dark" minHeight={340} stagger={2}>
           <span class={signupBadgeInvClass}>3</span>
@@ -413,7 +458,7 @@ const signupBadgeInvClass =
             <h3 class="m-0 mb-3 text-[clamp(20px,6cqw,28px)] leading-[1.1] font-black tracking-[-0.03em]">
               Beim Matchday<br />anmelden
             </h3>
-            <p class="m-0 text-[13px] leading-[1.55] opacity-40">
+            <p class="m-0 text-[13px] leading-[1.6] opacity-70">
               Unser Direktlink führt dich zum richtigen Eintrag auf tennis.de. Die Anmeldeseite dort sieht anders aus
               als diese Seite — offiziell, formeller. Das ist normal.
             </p>
@@ -438,8 +483,8 @@ const signupBadgeInvClass =
         <div class="flex-1">
           <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="120" height="120" class="mb-5 block" />
           <address class="mb-5 text-[15px] not-italic opacity-80">Luhdorfer Str. 47a, 21423 Winsen (Luhe)</address>
-          <p class="m-0 mb-1 text-sm leading-[1.55] opacity-80">Clubhaus mit Terrasse und Gastronomie</p>
-          <p class="m-0 mb-1 text-sm leading-[1.55] opacity-80">
+          <p class="m-0 mb-1 text-sm leading-[1.6] opacity-80">Clubhaus mit Terrasse und Gastronomie</p>
+          <p class="m-0 mb-1 text-sm leading-[1.6] opacity-80">
             Zuschauen ist jederzeit möglich — freie Sicht auf die Plätze.
           </p>
           <a
@@ -509,9 +554,9 @@ const signupBadgeInvClass =
           2026, 20:00 Uhr.
         </FaqItem>
         <FaqItem question="Was kostet die Teilnahme?">
-          35 € Einzel, 16,50 € Doppel (pro Person). Zahlung vor Ort. Die Teilnahmegebühr deckt alles ab: Organisation,
-          Bälle und die offizielle Turniergebühr an den Verband. Dazu kommt einmalig die DTB-Lizenz (20 €/Jahr), falls
-          du sie noch nicht hast.
+          35 € Einzel (30 € Verein + 5 € Turniergebühr an den Verband), 16,50 € Doppel pro Person (30 € Verein + 3 €
+          Verband pro Team). Zahlung vor Ort. Der Vereinsanteil deckt Organisation und Bälle. Dazu kommt einmalig die
+          DTB-Lizenz (20 €/Jahr), falls du sie noch nicht hast.
         </FaqItem>
         <FaqItem question="Wie viele Matches spiele ich?">
           2 pro Einzel oder Doppel. Wer beides spielt, kommt auf 4 Matches am Tag.
@@ -562,7 +607,7 @@ const signupBadgeInvClass =
     >
       <div class="reveal flex flex-col items-center text-center">
         <span
-          class="final-cta__eyebrow sect__eyebrow mb-10 block min-w-[280px] text-[11px] font-bold tracking-[0.2em] uppercase opacity-40"
+          class="final-cta__eyebrow sect__eyebrow mb-10 block min-w-[280px] text-[11px] font-bold tracking-[0.2em] uppercase opacity-45"
           >Samstag &middot; 04.07.2026</span
         >
         <h2
@@ -573,7 +618,9 @@ const signupBadgeInvClass =
             >alles</span
           >
         </h2>
-        <p class="final-cta__sub mb-8 text-base opacity-50">Fehlt nur noch dein Name. Anmeldung bis 1. Juli 2026.</p>
+        <p class="final-cta__sub mb-8 text-[15px] leading-[1.6] opacity-70">
+          Fehlt nur noch dein Name. Anmeldung bis 1. Juli 2026.
+        </p>
         <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
       </div>
     </section>

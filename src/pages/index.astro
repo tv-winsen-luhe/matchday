@@ -24,22 +24,17 @@ const signupBadgeInvClass =
   ogDescription="Zwei Tennis-Matches gegen Gegner auf deinem Niveau — beide zählen für die LK. Neu dabei? Perfekt."
   ogImage={`${import.meta.env.SITE}${import.meta.env.BASE_URL}/og-image.png`}
   bodyClass="bg-surface-alt"
+  chrome="event"
+  headerAnchors={[
+    { href: '#turniermodus', label: 'Modus' },
+    { href: '#kategorien', label: 'Kategorien' },
+    { href: '#anmeldung', label: 'Anmeldung' },
+    { href: '#ort', label: 'Ort' },
+    { href: '#faq', label: 'FAQ' }
+  ]}
+  headerCta={{ href: '#anmeldung', label: 'Anmelden' }}
 >
-  <main class="mx-auto max-w-[1280px] px-5 pt-6 pb-20 text-navy md:px-10 md:pt-8 md:pb-[120px]">
-    <a
-      href="#turniermodus"
-      class="absolute -top-full left-4 z-100 bg-neon px-5 py-2.5 text-[13px] font-extrabold tracking-[0.02em] text-navy uppercase no-underline focus-visible:top-4 focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-navy"
-      >Direkt zum Inhalt</a
-    >
-
-    <!-- Topbar -->
-    <header
-      class="enter enter--1 flex flex-wrap items-center gap-4 border-b border-navy pb-5 text-[11px] font-semibold tracking-[0.18em] uppercase"
-    >
-      <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="48" height="48" class="shrink-0" />
-      <span class="ml-auto text-[10px] opacity-45">LK-Tagesturnier</span>
-    </header>
-
+  <div class="mx-auto max-w-[1280px] px-5 pt-6 pb-20 text-navy md:px-10 md:pt-8 md:pb-[120px]">
     <!-- Hero -->
     <section class="flex min-h-dvh flex-col justify-center pt-16 pb-[72px] md:pt-24 md:pb-[104px]">
       <div class="flex items-end justify-between gap-10 max-[600px]:flex-col max-[600px]:items-start max-[600px]:gap-8">
@@ -177,7 +172,7 @@ const signupBadgeInvClass =
     </section>
 
     <!-- Kategorien -->
-    <section class:list={[sectClass]}>
+    <section id="kategorien" class:list={[sectClass]} tabindex="-1">
       <SectionHeader eyebrow="Drei Kategorien" />
 
       <div class="cat-grid grid grid-cols-3 gap-0.5 bg-navy p-0.5 max-[900px]:grid-cols-1">
@@ -247,7 +242,7 @@ const signupBadgeInvClass =
     </section>
 
     <!-- Tagesablauf -->
-    <section class:list={[sectClass]}>
+    <section id="tagesablauf" class:list={[sectClass]} tabindex="-1">
       <SectionHeader
         eyebrow="Dein Turniertag"
         note="Ein Tag, kompakt getaktet. Du kommst morgens oder mittags, spielst deine Matches, und bist im Regelfall am Nachmittag durch. Dazwischen: kurze Pausen, offene Gastronomie, und genug Zeit zum Zuschauen."
@@ -385,7 +380,7 @@ const signupBadgeInvClass =
     </section>
 
     <!-- Anmeldung -->
-    <section class:list={[sectClass]}>
+    <section id="anmeldung" class:list={[sectClass]} tabindex="-1">
       <SectionHeader eyebrow="In 3 Schritten angemeldet" />
 
       <div class="signup-grid grid grid-cols-3 gap-0.5 bg-navy p-0.5 max-md:grid-cols-1">
@@ -429,7 +424,7 @@ const signupBadgeInvClass =
     </section>
 
     <!-- Ort & Anfahrt -->
-    <section class:list={[sectClass, 'sect--clay']}>
+    <section id="ort" class:list={[sectClass, 'sect--clay']} tabindex="-1">
       <SectionHeader eyebrow="Ort & Anfahrt" />
       <div class="reveal mb-14">
         <span class="block text-h2 leading-[0.85] font-black tracking-[-0.05em] uppercase">6 Sand</span>
@@ -496,7 +491,7 @@ const signupBadgeInvClass =
     </section>
 
     <!-- FAQ -->
-    <section class:list={[sectClass]}>
+    <section id="faq" class:list={[sectClass]} tabindex="-1">
       <SectionHeader eyebrow="FAQ" headline={['Noch', 'Fragen?']} />
 
       <div class="reveal max-w-[720px]">
@@ -582,31 +577,7 @@ const signupBadgeInvClass =
         <a href="#" class="cta-primary">Jetzt anmelden auf tennis.de</a>
       </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="mt-[72px] border-t border-navy pt-9">
-      <div class="flex items-center justify-between gap-4 max-sm:flex-col max-sm:items-start max-sm:gap-6">
-        <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="64" height="64" class="shrink-0" />
-        <div class="flex flex-wrap gap-x-5 gap-y-2">
-          <a
-            href="mailto:matchday@tennisverein-winsen.de"
-            class="text-xs font-semibold tracking-widest text-navy/40 uppercase no-underline transition-opacity duration-200 hover:opacity-80"
-            >Kontakt</a
-          >
-          <a
-            href={`${import.meta.env.BASE_URL}/impressum`}
-            class="text-xs font-semibold tracking-widest text-navy/40 uppercase no-underline transition-opacity duration-200 hover:opacity-80"
-            >Impressum</a
-          >
-          <a
-            href={`${import.meta.env.BASE_URL}/datenschutz`}
-            class="text-xs font-semibold tracking-widest text-navy/40 uppercase no-underline transition-opacity duration-200 hover:opacity-80"
-            >Datenschutz</a
-          >
-        </div>
-      </div>
-    </footer>
-  </main>
+  </div>
 </Layout>
 
 <style is:global>
@@ -632,6 +603,10 @@ const signupBadgeInvClass =
   .cta-primary:focus-visible {
     outline: 2px solid var(--color-navy);
     outline-offset: 3px;
+  }
+  .cta-primary--sm {
+    padding: 8px 16px;
+    font-size: 12px;
   }
 
   .cta-secondary {

@@ -3,8 +3,8 @@ import Layout from '@/layouts/default.astro'
 import logoSvg from '@/assets/logo.svg'
 ---
 
-<Layout title="Nicht gefunden — Matchday Winsen 2026" bodyClass="bg-surface-alt">
-  <main
+<Layout title="Nicht gefunden — Matchday Winsen 2026" bodyClass="bg-surface-alt" chrome="none">
+  <div
     class="mx-auto flex min-h-dvh max-w-[1280px] flex-col items-center justify-center px-5 py-20 text-center text-navy md:px-10 md:py-[120px]"
   >
     <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="120" height="120" class="mb-10 shrink-0" />
@@ -25,5 +25,5 @@ import logoSvg from '@/assets/logo.svg'
       class="inline-block bg-neon px-7 py-3.5 text-sm font-extrabold tracking-[0.02em] text-navy uppercase no-underline transition-colors duration-200 hover:bg-[#e0ff4d] focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-navy"
       >Zur Startseite</a
     >
-  </main>
+  </div>
 </Layout>

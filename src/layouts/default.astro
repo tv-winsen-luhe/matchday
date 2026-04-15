@@ -1,6 +1,13 @@
 ---
 import '../styles/global.css'
 import faviconUrl from '@/assets/signet.svg'
+import SiteHeader from '@/components/site-header.astro'
+import SiteFooter from '@/components/site-footer.astro'
+
+interface Anchor {
+  href: string
+  label: string
+}
 
 interface Props {
   title?: string
@@ -10,6 +17,9 @@ interface Props {
   ogImage?: string
   ogLocale?: string
   bodyClass?: string
+  chrome?: 'event' | 'legal' | 'none'
+  headerAnchors?: Anchor[]
+  headerCta?: { href: string; label: string }
 }
 
 const {
@@ -19,7 +29,10 @@ const {
   ogDescription,
   ogImage,
   ogLocale = 'de_DE',
-  bodyClass
+  bodyClass,
+  chrome = 'event',
+  headerAnchors,
+  headerCta
 } = Astro.props
 ---
 
@@ -37,6 +50,8 @@ const {
     <title>{title}</title>
   </head>
   <body class:list={['font-sans text-text antialiased', bodyClass]}>
-    <slot />
+    {chrome !== 'none' && <SiteHeader variant={chrome} anchors={headerAnchors} cta={headerCta} />}
+    <main id="main"><slot /></main>
+    {chrome !== 'none' && <SiteFooter />}
   </body>
 </html>

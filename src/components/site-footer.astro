@@ -1,0 +1,43 @@
+---
+import logoSvg from '@/assets/logo.svg'
+
+const base = import.meta.env.BASE_URL || '/'
+const year = new Date().getFullYear()
+const linkClass = 'text-sm font-medium text-navy/65 no-underline transition-colors duration-200 hover:text-navy'
+const labelClass = 'mb-3 block text-[10px] font-bold tracking-[0.2em] uppercase text-navy/55'
+---
+
+<footer class="mt-[72px] border-t border-navy pt-10 pb-12">
+  <div class="mx-auto max-w-[1280px] px-5 md:px-10">
+    <div class="grid grid-cols-1 gap-10 md:grid-cols-[auto_1fr_1fr_1fr] md:gap-14">
+      <img src={logoSvg.src} alt="TV Winsen/Luhe von 1913 e.V." width="64" height="64" class="shrink-0" />
+
+      <div>
+        <span class={labelClass}>Veranstalter</span>
+        <p class="m-0 text-sm leading-[1.6] text-navy/80">
+          Tennisverein Winsen<br />
+          Luhdorfer Str. 47a<br />
+          21423 Winsen (Luhe)
+        </p>
+      </div>
+
+      <div>
+        <span class={labelClass}>Kontakt</span>
+        <a href="mailto:matchday@tennisverein-winsen.de" class={linkClass}>matchday@tennisverein-winsen.de</a>
+      </div>
+
+      <div class="flex flex-col items-start gap-2 md:items-end">
+        <span class={labelClass}>Rechtliches</span>
+        <a href={`${base}/impressum`} class={linkClass}>Impressum</a>
+        <a href={`${base}/datenschutz`} class={linkClass}>Datenschutz</a>
+      </div>
+    </div>
+
+    <div class="mt-10 flex items-center justify-between gap-4 border-t border-navy/15 pt-5">
+      <span class="text-[11px] font-semibold tracking-[0.18em] text-navy/55 uppercase">
+        © {year} TV Winsen/Luhe
+      </span>
+      <span class="text-2xl leading-none font-black text-neon text-stroke-volt" aria-hidden="true">.</span>
+    </div>
+  </div>
+</footer>

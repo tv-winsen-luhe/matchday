@@ -8,5 +8,8 @@ export default defineConfig({
   integrations: [sitemap({ filter: page => !page.includes('/og') && !page.includes('/brand') })],
   vite: {
     plugins: [tailwindcss()]
+  },
+  devToolbar: {
+    enabled: false
   }
 })

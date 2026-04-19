@@ -42,7 +42,7 @@ const home = import.meta.env.BASE_URL || '/'
               class="site-header__logo site-header__logo--signet"
               aria-hidden="true"
             />
-            <span class="site-header__brand-text">Matchday Winsen 2026</span>
+            <span class="site-header__brand-text">Matchday Winsen</span>
           </a>
 
           {anchors.length > 0 && (
@@ -114,8 +114,11 @@ const home = import.meta.env.BASE_URL || '/'
     pointer-events: none;
   }
 
-  /* Event header — sticky on md+ only; scrolls with page on mobile */
+  /* Event header — sticky on all viewports; condenses when scrolled past the sentinel */
   .site-header--event {
+    position: sticky;
+    top: 0;
+    z-index: 50;
     background-color: transparent;
     border-bottom: 1px solid var(--color-navy);
     transition:
@@ -193,36 +196,40 @@ const home = import.meta.env.BASE_URL || '/'
     display: none;
   }
 
-  /* Stuck (condensed) state — only applied where the header is actually sticky */
+  /* Stuck (condensed) state — brand swap applies on all viewports */
+  .site-header--event.is-stuck {
+    background-color: rgb(245 245 245 / 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding-block: 10px;
+  }
+  .site-header--event.is-stuck .site-header__logo--full {
+    display: none;
+  }
+  .site-header--event.is-stuck .site-header__logo--signet {
+    display: block;
+  }
+  .site-header--event.is-stuck .site-header__eyebrow {
+    display: none;
+  }
+  .site-header--event.is-stuck .site-header__brand-text {
+    display: inline-block;
+  }
+  .site-header--event.is-stuck .site-header__cta {
+    display: inline-block;
+  }
+
+  /* Mobile stuck: no nav to anchor the right side, so push CTA right directly. */
+  @media (max-width: 767px) {
+    .site-header--event.is-stuck .site-header__cta {
+      margin-left: auto;
+    }
+  }
+
+  /* Nav only fits in stuck state on md+ */
   @media (min-width: 768px) {
-    .site-header--event {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-    }
-    .site-header--event.is-stuck {
-      background-color: rgb(245 245 245 / 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding-block: 10px;
-    }
-    .site-header--event.is-stuck .site-header__logo--full {
-      display: none;
-    }
-    .site-header--event.is-stuck .site-header__logo--signet {
-      display: block;
-    }
-    .site-header--event.is-stuck .site-header__eyebrow {
-      display: none;
-    }
     .site-header--event.is-stuck .site-header__nav {
       display: flex;
-    }
-    .site-header--event.is-stuck .site-header__cta {
-      display: inline-block;
-    }
-    .site-header--event.is-stuck .site-header__brand-text {
-      display: inline-block;
     }
   }
 

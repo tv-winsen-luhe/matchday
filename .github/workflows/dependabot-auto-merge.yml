@@ -14,7 +14,7 @@ jobs:
       update-type: ${{ steps.meta.outputs.update-type }}
     steps:
       - id: meta
-        uses: dependabot/fetch-metadata@v2
+        uses: dependabot/fetch-metadata@v3
 
   auto-merge:
     needs: metadata

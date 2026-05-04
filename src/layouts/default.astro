@@ -15,6 +15,7 @@ interface Props {
   ogTitle?: string
   ogDescription?: string
   ogImage?: string
+  ogImageAlt?: string
   ogLocale?: string
   bodyClass?: string
   chrome?: 'event' | 'legal' | 'none'
@@ -28,12 +29,15 @@ const {
   ogTitle,
   ogDescription,
   ogImage,
+  ogImageAlt = 'Matchday Winsen 2026 — LK-Tagesturnier am 5. Juli',
   ogLocale = 'de_DE',
   bodyClass,
   chrome = 'event',
   headerAnchors,
   headerCta
 } = Astro.props
+
+const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : Astro.url.toString()
 ---
 
 <html lang="de">
@@ -41,12 +45,30 @@ const {
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href={faviconUrl.src} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="canonical" href={canonicalUrl} />
     {description && <meta name="description" content={description} />}
+    <meta property="og:site_name" content="Matchday Winsen" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    {ogLocale && <meta property="og:locale" content={ogLocale} />}
     {ogTitle && <meta property="og:title" content={ogTitle} />}
     {ogDescription && <meta property="og:description" content={ogDescription} />}
-    {ogImage && <meta property="og:image" content={ogImage} />}
-    {ogLocale && <meta property="og:locale" content={ogLocale} />}
-    <meta property="og:type" content="website" />
+    {
+      ogImage && (
+        <>
+          <meta property="og:image" content={ogImage} />
+          <meta property="og:image:type" content="image/jpeg" />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta property="og:image:alt" content={ogImageAlt} />
+        </>
+      )
+    }
+    <meta name="twitter:card" content="summary_large_image" />
+    {ogTitle && <meta name="twitter:title" content={ogTitle} />}
+    {ogDescription && <meta name="twitter:description" content={ogDescription} />}
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    {ogImage && <meta name="twitter:image:alt" content={ogImageAlt} />}
     <title>{title}</title>
   </head>
   <body class:list={['font-sans text-text antialiased', bodyClass]}>

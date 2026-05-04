@@ -1,0 +1,282 @@
+---
+const tournaments = [
+  {
+    label: 'Herren Einzel',
+    href: 'https://www.tennis.de/spielen/spielbetrieb/turniersuche.html#detail/830199'
+  },
+  {
+    label: 'Herren Doppel',
+    href: 'https://www.tennis.de/spielen/spielbetrieb/turniersuche.html#detail/830199'
+  },
+  {
+    label: 'Herren 40 Einzel',
+    href: 'https://www.tennis.de/spielen/spielbetrieb/turniersuche.html#detail/836579'
+  }
+]
+---
+
+<dialog id="signup-modal" class="signup-modal" aria-labelledby="signup-modal-title">
+  <div class="signup-modal__inner">
+    <button type="button" class="signup-modal__close" aria-label="Schließen" data-signup-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <span class="signup-modal__eyebrow">Anmeldung</span>
+    <h2 id="signup-modal-title" class="signup-modal__title" tabindex="-1">Drei Konkurrenzen</h2>
+
+    <ul class="signup-modal__list">
+      {
+        tournaments.map((t, i) => (
+          <li style={`--i: ${i}`}>
+            <a href={t.href} target="_blank" rel="noopener noreferrer" class="signup-row">
+              <span class="signup-row__index" aria-hidden="true">
+                0{i + 1}
+              </span>
+              <span class="signup-row__label">{t.label}</span>
+              <span class="signup-row__arrow" aria-hidden="true">
+                &nearr;
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</dialog>
+
+<script>
+  const modal = document.getElementById('signup-modal') as HTMLDialogElement | null
+  const titleEl = modal?.querySelector<HTMLElement>('#signup-modal-title') ?? null
+
+  if (modal) {
+    document.querySelectorAll<HTMLElement>('[data-signup-open]').forEach(trigger => {
+      trigger.addEventListener('click', e => {
+        e.preventDefault()
+        modal.showModal()
+        // Send focus to the (non-interactive, tabindex=-1) title so Safari
+        // doesn't paint a focus-visible ring on the close button.
+        titleEl?.focus({ preventScroll: true })
+      })
+    })
+    modal.querySelectorAll<HTMLElement>('[data-signup-close]').forEach(btn => {
+      btn.addEventListener('click', () => modal.close())
+    })
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.close()
+    })
+  }
+</script>
+
+<style is:global>
+  .signup-modal {
+    border: none;
+    padding: 0;
+    margin: auto;
+    background: transparent;
+    color: inherit;
+    width: min(520px, calc(100vw - 24px));
+    max-width: 100%;
+    max-height: calc(100dvh - 24px);
+  }
+
+  .signup-modal::backdrop {
+    background: rgba(12, 30, 58, 0.85);
+  }
+
+  .signup-modal[open] {
+    animation: signup-modal-in 0.18s ease;
+  }
+  .signup-modal[open]::backdrop {
+    animation: signup-backdrop-in 0.18s ease;
+  }
+
+  @keyframes signup-modal-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes signup-backdrop-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .signup-modal__inner {
+    position: relative;
+    isolation: isolate;
+    background: var(--color-surface-dark);
+    color: #fff;
+    padding: 28px;
+  }
+  .signup-modal__inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='320' height='320'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='2' seed='7' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay;
+    opacity: 0.18;
+  }
+
+  .signup-modal__close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: inherit;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.45;
+    transition: opacity 0.18s ease;
+  }
+  .signup-modal__close:hover {
+    opacity: 1;
+  }
+  .signup-modal__close:focus-visible {
+    outline: 2px solid var(--color-neon);
+    outline-offset: -2px;
+    opacity: 1;
+  }
+
+  .signup-modal__eyebrow {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-bottom: 14px;
+  }
+
+  .signup-modal__title {
+    margin: 0 0 24px;
+    font-size: clamp(30px, 6.5vw, 42px);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    font-weight: 900;
+    text-transform: uppercase;
+    outline: none;
+  }
+  .signup-modal__title:focus,
+  .signup-modal__title:focus-visible {
+    outline: none;
+  }
+
+  .signup-modal__list {
+    list-style: none;
+    padding: 0;
+    margin: 0 -28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .signup-modal__list li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  /* Editorial row picker — used inside the signup modal. */
+  .signup-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 28px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: clamp(18px, 4vw, 22px);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    transition:
+      background 0.18s ease,
+      color 0.18s ease;
+  }
+  .signup-row__index {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    opacity: 0.5;
+    font-variant-numeric: tabular-nums;
+    transition: opacity 0.18s ease;
+  }
+  .signup-row__label {
+    flex: 1;
+    display: inline-block;
+  }
+  .signup-row__arrow {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+    opacity: 0.45;
+    transform: translate(0, 0);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+  .signup-row:hover {
+    background: var(--color-neon);
+    color: var(--color-navy);
+  }
+  .signup-row:hover .signup-row__index {
+    opacity: 0.7;
+  }
+  .signup-row:hover .signup-row__arrow {
+    opacity: 1;
+    transform: translate(3px, -3px);
+  }
+  .signup-row:focus-visible {
+    outline: 2px solid var(--color-neon);
+    outline-offset: -2px;
+  }
+  .signup-row:focus-visible .signup-row__arrow {
+    opacity: 1;
+    transform: translate(3px, -3px);
+  }
+
+  .signup-modal[open] .signup-modal__list li {
+    animation: signup-row-in 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(0.08s + var(--i, 0) * 0.06s);
+  }
+
+  @keyframes signup-row-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .signup-modal[open],
+    .signup-modal[open]::backdrop {
+      animation: none;
+    }
+    .signup-modal[open] .signup-modal__list li {
+      animation: none;
+    }
+    .signup-modal__close,
+    .signup-row,
+    .signup-row__index,
+    .signup-row__arrow {
+      transition: none;
+    }
+  }
+</style>

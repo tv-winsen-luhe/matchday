@@ -2,7 +2,7 @@
 
 Website zum **LK-Tagesturnier** des TV Winsen/Luhe am **04. Juli 2026**.
 
-**Live:** <https://tv-winsen-luhe.github.io/matchday/>
+**Live:** <https://matchday.tennisverein-winsen.de/>
 
 ## Tech
 
@@ -16,7 +16,7 @@ Website zum **LK-Tagesturnier** des TV Winsen/Luhe am **04. Juli 2026**.
 
 ```bash
 pnpm install
-pnpm dev          # Dev-Server auf http://localhost:4321/matchday
+pnpm dev          # Dev-Server auf http://localhost:4321
 pnpm build        # astro check + build
 pnpm preview      # Preview des Production-Builds
 pnpm format       # Prettier

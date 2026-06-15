@@ -21,12 +21,12 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
-    "@astrojs/sitemap": "3.7.2",
-    "@typescript-eslint/parser": "8.59.4",
-    "eslint": "10.4.0",
+    "@astrojs/sitemap": "3.7.3",
+    "@typescript-eslint/parser": "8.61.0",
+    "eslint": "10.5.0",
     "eslint-plugin-astro": "1.7.0",
-    "lint-staged": "17.0.5",
-    "prettier": "3.8.3",
+    "lint-staged": "17.0.7",
+    "prettier": "3.8.4",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.8.0",
     "simple-git-hooks": "2.13.1"

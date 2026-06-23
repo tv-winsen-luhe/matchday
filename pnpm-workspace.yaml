@@ -1,3 +1,19 @@
+# Migrated from .npmrc: pnpm 11 reads only auth/registry settings from .npmrc,
+# so install/save behaviour settings must live here.
+engineStrict: true
+savePrefix: ''
+strictPeerDependencies: true
+audit: true
+# Supply-chain cooldown: reject deps published within this window (minutes).
+minimumReleaseAge: 60
+
+# Build scripts pnpm is allowed to run (pnpm 11 errors on un-listed ones):
+# sharp = Astro image optimization, simple-git-hooks = pre-commit hook setup.
+allowBuilds:
+  esbuild: true
+  sharp: true
+  simple-git-hooks: true
+
 # Security overrides: force patched versions of transitive build-time deps
 # until upstream (vite, @astrojs/check) widen their ranges.
 overrides:

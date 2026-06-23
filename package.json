@@ -37,5 +37,11 @@
   "lint-staged": {
     "*.{astro,ts,tsx,js,jsx,mjs,cjs,css,md,json,yaml,yml}": "prettier --write",
     "*.astro": "eslint --fix --max-warnings=0"
+  },
+  "pnpm": {
+    "overrides": {
+      "esbuild": ">=0.28.1",
+      "yaml": ">=2.8.3"
+    }
   }
 }

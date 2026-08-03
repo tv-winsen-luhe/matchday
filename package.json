@@ -20,15 +20,15 @@
     "tailwindcss": "4.3.2"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.9",
+    "@astrojs/check": "0.9.10",
     "@astrojs/sitemap": "3.7.3",
-    "@typescript-eslint/parser": "8.62.0",
-    "eslint": "10.5.0",
+    "@typescript-eslint/parser": "8.65.0",
+    "eslint": "10.8.0",
     "eslint-plugin-astro": "2.0.0",
-    "lint-staged": "17.0.8",
-    "prettier": "3.8.4",
+    "lint-staged": "17.2.0",
+    "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.8.0",
+    "prettier-plugin-tailwindcss": "0.8.1",
     "simple-git-hooks": "2.13.1"
   },
   "simple-git-hooks": {
